@@ -1,0 +1,34 @@
+<template>
+  <div>
+    <div>
+      <router-link to="/lazyload">lazyload</router-link>
+    </div>
+    <div>
+      <router-link to="/slider">slider</router-link>
+    </div>
+    <div>
+      <router-link to="/image-pop">image-pop</router-link>
+    </div>
+  </div>
+</template>
+
+<script>
+import Vue from 'vue'
+
+export default {
+  name: 'app',
+  components: {
+  },
+  data() {
+    return {
+    }
+  },
+  methods: {
+  },
+  mounted: function () {
+  }
+}
+</script>
+
+<style lang="scss">
+</style>

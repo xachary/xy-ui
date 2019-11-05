@@ -1,0 +1,136 @@
+@keyframes rotating {
+  0% {
+    //opacity: 0;
+    transform: rotateZ(0deg);
+  }
+  100% {
+    //opacity: 1;
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes delay-show {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.lazy-load {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  //&.loading, &.error {
+  //  background-position: center;
+  //}
+  &.loaded {
+    animation: fade-out 0.3s ease-in-out;
+  }
+  &.loading {
+    animation: delay-show 1s ease-in-out;
+    background-color: #fff;
+  }
+  &.error {
+    background-color: #d9d9d9;
+  }
+  img {
+    //display: block;
+    //display: none;
+    // position: absolute;
+    // opacity: 0;
+    // width: 100%;
+    // height: 100%;
+    //transition-property: opacity;
+    //transition-duration: 0.5s;
+    //transition-timing-function: ease;
+
+    //&[lazy=loading], &[lazy=error] {
+    //  &.lazy-contain, &.lazy-cover {
+    //    position: absolute;
+    //    top: 50%;
+    //    left: 50%;
+    //  }
+    //}
+    //&[lazy=error], &[lazy=loading] {
+    //  display: block;
+    //  //opacity: 1;
+    //}
+    //&[lazy=loaded] {
+    //  display: block;
+    //  //opacity: 1;
+    //  //&.loaded {
+    //  //  opacity: 1;
+    //  //}
+    //}
+    //&[lazy=loading] {
+    //  font-size: 12px;
+    //  height: 16px;
+    //  width: 16px;
+    //  animation: rotating 1s linear infinite, delay-show 1s ease-in-out;
+    //  //animation-delay: .5s;
+    //  //display: block;
+    //  &.lazy-contain, &.lazy-cover {
+    //    margin-top: -8px;
+    //    margin-left: -8px;
+    //  }
+    //}
+    //&[lazy=error] {
+    //  height: 46px;
+    //  width: 50px;
+    //  margin-top: -23px;
+    //  margin-left: -25px;
+    //}
+    &.lazy-contain,
+    &.lazy-cover {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      //  position: absolute;
+      //  //@keyframes lazy-loading {
+      //  //  0% {
+      //  //    opacity: 0;
+      //  //  }
+      //  //  100% {
+      //  //    opacity: 1;
+      //  //  }
+      //  //}
+      //  //&.loading {
+      //  //animation: lazy-loading 0.5s ease-in-out;
+      //  //animation-delay: .5s;
+      //  //opacity: 1;
+      //  //height: 16px;
+      //  //width: 16px;
+      //  //}
+      //  //&.loaded {
+      //  //opacity: 0;
+      //  //}
+      //  //&.resize {
+      //  //transition-property: opacity;
+      //  //transition-duration: 0.5s;
+      //  //transition-timing-function: ease;
+      //  //opacity: 1;
+      //  //}
+    }
+  }
+}
