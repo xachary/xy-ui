@@ -86,7 +86,9 @@ export default {
       // 切换计时器
       timer: null,
       // 位移样式值
-      left: 0
+      left: 0,
+      // 容器/项宽度
+      itemWidth: 1
     }
   },
   computed: {
@@ -97,10 +99,6 @@ export default {
     length2() {
       // 效果数组长度
       return this.data.length * 3
-    },
-    itemWidth() {
-      // 容器/项宽度
-      return this.$refs.slider ? this.$refs.slider.offsetWidth : 1
     },
     parseData() {
       // 制作效果数组
@@ -126,7 +124,12 @@ export default {
   beforeMount() {
   },
   mounted() {
+    this.itemWidth = this.$refs.slider ? this.$refs.slider.offsetWidth : 1
     this.init()
+    window.addEventListener('resize', () => {
+      this.itemWidth = this.$refs.slider ? this.$refs.slider.offsetWidth : 1
+      this.init()
+    })
   },
   methods: {
     // 初始化
@@ -251,7 +254,6 @@ export default {
 
         // 左、右划超过宽度20%或者速度超过给定值就切换
         if (Math.abs(this.curX / this.itemWidth) > 0.20 || Math.abs(this.speed / this.itemWidth) > 0.025) {
-          console.log(this.curX)
           if (this.curX >= 0) {
             // 右
             if (r1 === r2) {

@@ -12,7 +12,7 @@ export default {
     format: 'es',
     sourcemap: true
   },
-  external: ['vue'],
+  external: ['vue', 'vue-lazyload'],
   plugins: [
     resolve({
       customResolveOptions: {
@@ -30,7 +30,6 @@ export default {
       }
     }),
     copy({
-      'src/lib/scss/_mixin.scss': 'dist/scss/_mixin.scss',
       'src/lib/style/normalize-8.0.0.css': 'dist/style/normalize-8.0.0.css'
     })
   ]

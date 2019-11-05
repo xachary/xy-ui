@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta data-hid="description" name="description" content="vue-xy-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>xy-ui</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>用lazyload组件</h3>
+      <xy-slider :data="data" @on-change="onchange">
+        <template v-slot="item">
+          <div class="lazy-load">
+            <img v-lazy="item.src" class="lazy-cover" :alt="item.name" />
+          </div>
+        </template>
+      </xy-slider>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+    <script src="./dist/xy-ui.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            data: [
+              {
+                id: '1',
+                name: '300*600',
+                src: 'http://dummyimage.com/300x600',
+                href: '#'
+              },
+              {
+                id: '2',
+                name: '600*300',
+                src: 'http://dummyimage.com/600x300',
+                href: 'https://www.baidu.com/'
+              },
+              {
+                id: '3',
+                name: '300*300',
+                src: 'http://dummyimage.com/300x300',
+                href: 'https://www.baidu.com/'
+              },
+              {
+                id: '4',
+                name: '400*400',
+                src: 'http://dummyimage.com/400x400',
+                href: 'https://www.baidu.com/'
+              }
+            ]
+          }
+        },
+        methods: {},
+        mounted() {}
+      })
+    </script>
+  </body>
+</html>
