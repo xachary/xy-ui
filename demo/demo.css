@@ -1,0 +1,17 @@
+table {
+  width: 90vw;
+  margin: 5vw auto;
+  table-layout: fixed;
+  font-size: 12px;
+}
+table th,
+table td {
+  border: 1px solid #333;
+  padding: 0.5em;
+  text-align: center;
+  word-break: break-all;
+}
+
+h3 {
+  padding: 0 0.5em;
+}

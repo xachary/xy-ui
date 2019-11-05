@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta data-hid="description" name="description" content="vue-xy-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>xy-ui</title>
+    <link rel="stylesheet" href="../dist/xy-ui.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h3>Slider(default)</h3>
+      <hr />
+      <xy-slider
+        :data="data"
+        :interval="3000"
+        :auto="true"
+        :scale="false"
+        width="100%"
+        height="50%"
+        @change="onChange"
+      >
+        <template v-slot="item">
+          <div class="lazy-load">
+            <img v-lazy="item.src" class="lazy-cover" :alt="item.name" />
+          </div>
+        </template>
+      </xy-slider>
+      <h3>Slider(scale)</h3>
+      <hr />
+      <xy-slider
+        :data="data"
+        :interval="3000"
+        :auto="true"
+        :scale="true"
+        width="100%"
+        height="50%"
+        @change="onChange"
+      >
+        <template v-slot="item">
+          <div class="lazy-load">
+            <img v-lazy="item.src" class="lazy-cover" :alt="item.name" />
+          </div>
+        </template>
+      </xy-slider>
+      <h3>Config</h3>
+      <hr />
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>
+        <tr>
+          <td>data</td>
+          <td>Data array</td>
+          <td>Array</td>
+          <td>[]</td>
+        </tr>
+        <tr>
+          <td>interval</td>
+          <td>Auto change interval</td>
+          <td>Number(Millisecond)</td>
+          <td>3000</td>
+        </tr>
+        <tr>
+          <td>auto</td>
+          <td>Auto switch</td>
+          <td>Boolean</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>scale</td>
+          <td>Scale style</td>
+          <td>Boolean</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td>Width</td>
+          <td>String(CSS value)</td>
+          <td>100%</td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>Height</td>
+          <td>String(CSS value)</td>
+          <td>50%</td>
+        </tr>
+      </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+    <script src="../dist/xy-ui.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            data: [
+              {
+                id: '1',
+                name: '300*600',
+                src: 'http://dummyimage.com/300x600',
+                href: '#'
+              },
+              {
+                id: '2',
+                name: '600*300',
+                src: 'http://dummyimage.com/600x300',
+                href: 'https://www.baidu.com/'
+              },
+              {
+                id: '3',
+                name: '300*300',
+                src: 'http://dummyimage.com/300x300',
+                href: 'https://www.baidu.com/'
+              },
+              {
+                id: '4',
+                name: '400*400',
+                src: 'http://dummyimage.com/400x400',
+                href: 'https://www.baidu.com/'
+              }
+            ]
+          }
+        },
+        methods: {
+          onChange: function(item) {
+            console.log(item)
+          }
+        },
+        mounted() {}
+      })
+    </script>
+  </body>
+</html>
