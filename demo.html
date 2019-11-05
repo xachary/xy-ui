@@ -10,13 +10,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-
     <title>xy-ui</title>
+    <link rel="stylesheet" href="./dist/xy-ui.css" />
   </head>
   <body>
     <div id="app">
       <h3>用lazyload组件</h3>
-      <xy-slider :data="data" @on-change="onchange">
+      <xy-slider :data="data" @change="onchange">
         <template v-slot="item">
           <div class="lazy-load">
             <img v-lazy="item.src" class="lazy-cover" :alt="item.name" />
@@ -60,7 +60,11 @@
             ]
           }
         },
-        methods: {},
+        methods: {
+          onchange: function(item) {
+            console.log('change', item)
+          }
+        },
         mounted() {}
       })
     </script>

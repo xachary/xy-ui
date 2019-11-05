@@ -1,36 +1,16 @@
 var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-// var ExtractSCSS = new ExtractTextPlugin({
-//   filename: 'xy-ui.css',
-//   allChunks: true
-// })
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-console.log(path.resolve(__dirname, './src'))
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'xy-ui.js'
   },
-  plugins: [
-    // ExtractSCSS,
-    new CopyWebpackPlugin([
-      {
-        from: 'src/lib/scss/_mixin.scss',
-        to: '_mixin.scss',
-        force: true
-      },
-      {
-        from: 'src/lib/style/normalize-8.0.0.css',
-        to: 'style/normalize-8.0.0.css',
-        force: true
-      }
-    ])
-  ],
   module: {
     rules: [
       {
@@ -46,8 +26,12 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            scss: ['vue-style-loader', 'css-loader', 'sass-loader']
+            scss: ExtractTextPlugin.extract({
+              use: ['css-loader', 'sass-loader'],
+              fallback: 'vue-style-loader'
+            })
           }
+          // extractCSS: true
         },
         include: /src/
       },
@@ -65,6 +49,24 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'xy-ui.css',
+      allChunks: true
+    }),
+    new CopyWebpackPlugin([
+      // {
+      //   from: 'src/lib/scss/_mixin.scss',
+      //   to: '_mixin.scss',
+      //   force: true
+      // },
+      // {
+      //   from: 'src/lib/style/normalize-8.0.0.css',
+      //   to: 'style/normalize-8.0.0.css',
+      //   force: true
+      // }
+    ])
+  ],
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
@@ -87,7 +89,7 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
   module.exports.entry = './src/lib/index.js'
   module.exports.output.filename = 'xy-ui.js'
-  module.exports.output.library = 'xy_image_pop'
+  module.exports.output.library = 'xy-ui'
   module.exports.output.libraryTarget = 'umd'
   module.exports.output.umdNamedDefine = true
   module.exports.devtool = '#source-map'

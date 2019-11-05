@@ -119,6 +119,11 @@ export default {
   watch: {
     data() {
       this.init()
+    },
+    current() {
+      if (this.data.length > 0) {
+        this.$emit('change', this.data[this.current])
+      }
     }
   },
   beforeMount() {
@@ -287,6 +292,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@/lib/scss/style';
+
 .xy-slider {
   margin: 0 auto;
   overflow: hidden;

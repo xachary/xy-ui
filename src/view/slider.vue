@@ -3,7 +3,7 @@
         <h3>没有数据</h3>
         <xy-slider
             :data="data0"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <img
@@ -15,7 +15,7 @@
         <h3>只有1个数据</h3>
         <xy-slider
             :data="data1"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <img
@@ -27,7 +27,7 @@
         <h3>2个数据</h3>
         <xy-slider
             :data="data2"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <img
@@ -39,7 +39,7 @@
         <h3>3个数据</h3>
         <xy-slider
             :data="data3"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <img
@@ -51,7 +51,7 @@
         <h3>用background-image优化</h3>
         <xy-slider
             :data="data4"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
@@ -61,7 +61,7 @@
         <h3>用lazyload组件</h3>
         <xy-slider
             :data="data4"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <div class="lazy-load">
@@ -77,7 +77,7 @@
         <xy-slider
             :data="data4"
             :scale="true"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
@@ -89,7 +89,7 @@
             :data="data4"
             width="200px"
             height="100px"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
@@ -100,7 +100,7 @@
         <xy-slider
             :data="data4"
             :auto="false"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
@@ -115,7 +115,7 @@
             :scale="false"
             width="100%"
             height="50%"
-            @on-change="onchange"
+            @change="onChange"
         >
             <template v-slot="item">
                 <div class="lazy-load">
@@ -148,8 +148,8 @@ export default {
         }
     },
     methods: {
-        onchange(item, index, total) {
-            console.log('onchange', item, index, total)
+        onChange(item) {
+            console.log('change', item)
         }
     },
     mounted: function () {
@@ -223,6 +223,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~@/lib/scss/mixin';
-@import '~@/lib/scss/xy-lazyload-resize';
 </style>
