@@ -30,18 +30,15 @@ export default {
     },
     computed: {
         hourStr() {
-            let that = this
-            return that.hour.toString()
+            return this.hour.toString()
                 .padStart(2, '0')
         },
         minStr() {
-            let that = this
-            return that.min.toString()
+            return this.min.toString()
                 .padStart(2, '0')
         },
         secStr() {
-            let that = this
-            return that.sec.toString()
+            return this.sec.toString()
                 .padStart(2, '0')
         }
     },
@@ -61,56 +58,30 @@ export default {
     },
     methods: {
         update() {
-            let that = this
-            that.now = (new Date()).getTime()
-            if (that.showTime) {
-                that.current = this.$xyFormat.date.formatDate(new Date(), 'hh:mm:ss')
-                that.$emit('change', that.now)
-            } else {
-                let snap = that.now - that.tm
-                if (snap >= 0) {
-                    that.day = Math.floor(snap / 86400000) // 1000 / 60 / 60 / 24
-                    that.hour = Math.floor((snap % 86400000) / 3600000) // 1000 / 60 / 60
-                    that.min = Math.floor((snap % 3600000) / 60000) // 1000 / 60
-                    that.sec = Math.floor((snap % 60000) / 1000) // 1000
-
-                    that.$emit('change', that.now)
-                }
-            }
-        },
-        update2() {
-            let that = this
-            that.now = (new Date()).getTime()
-            let snap = that.tm - that.now
+            this.now = (new Date()).getTime()
+            let snap = this.tm - this.now
             if (snap >= 0) {
-                that.day = Math.floor(snap / 86400000) // 1000 / 60 / 60 / 24
-                that.hour = Math.floor((snap % 86400000) / 3600000) // 1000 / 60 / 60
-                that.min = Math.floor((snap % 3600000) / 60000) // 1000 / 60
-                that.sec = Math.floor((snap % 60000) / 1000) // 1000
+                this.day = Math.floor(snap / 86400000) // 1000 / 60 / 60 / 24
+                this.hour = Math.floor((snap % 86400000) / 3600000) // 1000 / 60 / 60
+                this.min = Math.floor((snap % 3600000) / 60000) // 1000 / 60
+                this.sec = Math.floor((snap % 60000) / 1000) // 1000
 
                 if (snap <= 1000) {
-                    clearInterval(that.timer)
-                    that.$emit('finish', that.now)
+                    clearInterval(this.timer)
+                    this.$emit('finish', this.now)
                 }
-                that.$emit('change', that.now)
+                this.$emit('change', this.now)
             }
             //        console.log(snap)
         },
         start() {
-            let that = this
-            that.tm = that.tempTime.getTime()
-            if (that.now >= that.tm) {
-                clearInterval(that.timer)
-                that.timer = setInterval(function () {
-                    that.update()
+            this.tm = this.tempTime.getTime()
+            if (this.now < this.tm) {
+                clearInterval(this.timer)
+                this.timer = setInterval(() => {
+                    this.update()
                 }, 1000)
-                that.update()
-            } else {
-                clearInterval(that.timer)
-                that.timer = setInterval(function () {
-                    that.update2()
-                }, 1000)
-                that.update()
+                this.update()
             }
         },
         pause() {
@@ -124,20 +95,18 @@ export default {
         this.tempTime = this.time
     },
     mounted: function () {
-        let that = this
-        if (that.showTime) {
-            clearInterval(that.timer)
-            that.timer = setInterval(function () {
-                that.update()
+        if (this.showTime) {
+            clearInterval(this.timer)
+            this.timer = setInterval(() => {
+                this.update()
             }, 1000)
-            that.update()
+            this.update()
         } else {
-            // that.start()
+            this.start()
         }
     },
     beforeDestroy: function () {
-        let that = this
-        clearInterval(that.timer)
+        clearInterval(this.timer)
     }
 }
 </script>
