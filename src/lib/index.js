@@ -4,7 +4,6 @@ import xyImagePop from '@/lib/components/xy-image-pop'
 //
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
 //
-import xyLazyloadResize from '@/lib/plugins/xy-lazyload-resize'
 
 const xyUI = {
   install(Vue) {
@@ -18,11 +17,9 @@ const xyUI = {
 
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(xyUI)
-  window.Vue.use(VueLazyload, xyLazyloadResize)
 }
 
 export default {
   components: { xyLazyload, xySlider, xyImagePop },
-  directives: { xyPullRefresh },
-  plugins: { xyLazyloadResize }
+  directives: { xyPullRefresh }
 }
