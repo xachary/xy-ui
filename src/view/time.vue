@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         onChange(time) {
-            console.log(time)
+            // console.log(time)
         },
         onFinish() {
             console.log('Countdown finish')

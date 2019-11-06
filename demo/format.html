@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta data-hid="description" name="description" content="vue-xy-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>format xy-ui</title>
+    <link rel="stylesheet" href="../dist/xy-ui.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h3>时间格式化</h3>
+      <hr />
+      <div>yyyy-MM-dd hh:mm:ss</div>
+      <div>
+        {{$xyFormat.date.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>hh:mm:ss</div>
+      <div>{{$xyFormat.date.formatDate(new Date(), 'hh:mm:ss')}}</div>
+      <h3>相对日期</h3>
+      <hr />
+      <div>
+        {{$xyFormat.date.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date())}}</div>
+      <br />
+      <div>
+        {{$xyFormat.date.formatDate(new Date() - 1000*60, 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60)}}</div>
+      <br />
+      <div>
+        {{$xyFormat.date.formatDate(new Date() - 1000*60*5, 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*5)}}</div>
+      <br />
+      <div>
+        {{$xyFormat.date.formatDate(new Date() - 1000*60*30, 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*30)}}</div>
+      <br />
+      <div>
+        {{$xyFormat.date.formatDate(new Date() - 1000*60*60, 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60)}}</div>
+      <br />
+      <div>
+        {{$xyFormat.date.formatDate(new Date() - 1000*60*60*24, 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60*24)}}</div>
+      <br />
+      <div>
+        {{$xyFormat.date.formatDate(new Date() - 1000*60*60*24*3, 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60*24*3)}}</div>
+      <br />
+      <div>
+        {{$xyFormat.date.formatDate(new Date() - 1000*60*60*24*4, 'yyyy-MM-dd hh:mm:ss')}}
+      </div>
+      <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60*24*4)}}</div>
+      <h3>Config(formatDate)</h3>
+      <hr />
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>
+        <tr>
+          <th colspan="4">
+            vm.$xyFormat.formatDate<br />
+            (data:Date/Number,str:String)
+          </th>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>Time</td>
+          <td>Date/Number</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>Format str</td>
+          <td>String</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <script src="../vue@2.6.10.js"></script>
+    <script src="../dist/xy-ui.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {}
+        },
+        methods: {
+          onChange(time) {
+            console.log(time)
+          },
+          onFinish() {
+            console.log('Countdown finish')
+          },
+          onStart() {
+            this.$refs.timing.start()
+          },
+          onPause() {
+            this.$refs.timing.pause()
+          },
+          onReset() {
+            this.$refs.timing.reset()
+          }
+        },
+        mounted() {}
+      })
+    </script>
+  </body>
+</html>

@@ -8,6 +8,7 @@ import lazyload from '@/view/lazyload.vue'
 import slider from '@/view/slider.vue'
 import pullRefresh from '@/view/pull-refresh.vue'
 import time from '@/view/time.vue'
+import format from '@/view/format.vue'
 import imagePop from '@/view/image-pop.vue'
 
 const router = new VueRouter({
@@ -31,6 +32,10 @@ const router = new VueRouter({
     {
       path: '/time',
       component: time
+    },
+    {
+      path: '/format',
+      component: format
     },
     {
       path: '/pull-refresh',

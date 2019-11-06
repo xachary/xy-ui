@@ -40,7 +40,11 @@ function relativeDate(v) {
   // var second = Math.floor(span / 1000)
 
   if (day > 1) {
-    return this.formatDate(time, 'yyyy-MM-dd hh:mm')
+    if (day <= 3) {
+      return `${day.toString()}天前`
+    } else {
+      return this.formatDate(time, 'yyyy-MM-dd hh:mm')
+    }
   } else if (day > 0 && day <= 1) {
     return `${day.toString()}天前`
   } else if (hour > 0) {
