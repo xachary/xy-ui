@@ -7,11 +7,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import xyUi from '@/lib'
-
-Vue.directive(xyUi.directives.xyPullRefresh.name, xyUi.directives.xyPullRefresh)
-
 export default {
     components: {
     },

@@ -127,13 +127,9 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import xyUi from '@/lib'
 
 export default {
     components: {
-        xyLazyload: xyUi.components.xyLazyload,
-        xySlider: xyUi.components.xySlider
     },
     data() {
         return {

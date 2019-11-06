@@ -1,6 +1,6 @@
 table {
-  width: 90vw;
-  margin: 5vw auto;
+  width: 96vw;
+  margin: 2vw auto;
   table-layout: fixed;
   font-size: 12px;
   color: #333;
@@ -18,5 +18,11 @@ h3 {
 }
 
 a {
+  cursor: pointer;
+}
+
+button {
+  border: 1px solid #666;
+  padding: 5px;
   cursor: pointer;
 }

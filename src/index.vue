@@ -10,6 +10,9 @@
       <router-link to="/pull-refresh">pull-refresh</router-link>
     </div>
     <div>
+      <router-link to="/time">time</router-link>
+    </div>
+    <div>
       <router-link to="/image-pop">image-pop</router-link>
     </div>
   </div>
@@ -17,6 +20,9 @@
 
 <script>
 import Vue from 'vue'
+import xyUi from '@/lib'
+
+Vue.use(xyUi)
 
 export default {
   name: 'app',

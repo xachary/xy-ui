@@ -51,12 +51,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import xyUi from '@/lib'
-
 export default {
     components: {
-        xyLazyload: xyUi.components.xyLazyload
     },
     data() {
         return {

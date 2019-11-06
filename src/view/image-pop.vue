@@ -22,12 +22,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import xyUi from '@/lib'
-
 export default {
     components: {
-        xyImagePop: xyUi.components.xyImagePop
     },
     data() {
         let now = (new Date()).getTime()

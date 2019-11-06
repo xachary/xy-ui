@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta data-hid="description" name="description" content="vue-xy-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>slider xy-ui</title>
+    <link rel="stylesheet" href="../dist/xy-ui.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h3>Current time</h3>
+      <hr />
+      <xy-timer></xy-timer>
+      <h3>Timing</h3>
+      <hr />
+      <xy-timing ref="timing" @change="onChange"></xy-timing>
+      <div>
+        <button @click="onStart">start</button>
+        <button @click="onPause">pause</button>
+        <button @click="onReset">reset</button>
+      </div>
+      <h3>Continue</h3>
+      <hr />
+      <xy-continue @change="onChange"> </xy-continue>
+      <br />
+      <xy-continue :time="new Date(1573009094357)" @change="onChange">
+      </xy-continue>
+      <h3>Countdown</h3>
+      <hr />
+      <xy-countdown
+        :time="new Date(Date.now() + 1000*10)"
+        @finish="onFinish"
+        @change="onChange"
+      >
+      </xy-countdown>
+      <h3>Config(xy-timing)</h3>
+      <hr />
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>
+        <tr>
+          <th colspan="4">Func</th>
+        </tr>
+        <tr>
+          <td>start</td>
+          <td>Start count</td>
+          <td>Function</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>pause</td>
+          <td>Pause count</td>
+          <td>Function</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>reset</td>
+          <td>Reset count</td>
+          <td>Function</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th colspan="4">Event</th>
+        </tr>
+        <tr>
+          <td>change</td>
+          <td>Change event</td>
+          <td>Function<br />(time:Number)</td>
+          <td>Empty</td>
+        </tr>
+      </table>
+
+      <h3>Config(xy-continue)</h3>
+      <hr />
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>
+        <tr>
+          <th colspan="4">Props</th>
+        </tr>
+        <tr>
+          <td>time</td>
+          <td>Start time</td>
+          <td>Date</td>
+          <td>new Date()</td>
+        </tr>
+        <tr>
+          <th colspan="4">Event</th>
+        </tr>
+        <tr>
+          <td>change</td>
+          <td>Change event</td>
+          <td>Function<br />(time:Number)</td>
+          <td>Empty</td>
+        </tr>
+      </table>
+
+      <h3>Config(xy-countdown)</h3>
+      <hr />
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>
+        <tr>
+          <th colspan="4">Event</th>
+        </tr>
+        <tr>
+          <td>change</td>
+          <td>Change event</td>
+          <td>Function<br />(time:Number)</td>
+          <td>Empty</td>
+        </tr>
+      </table>
+    </div>
+    <script src="../vue@2.6.10.js"></script>
+    <script src="../dist/xy-ui.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {}
+        },
+        methods: {
+          onChange(time) {
+            console.log(time)
+          },
+          onFinish() {
+            console.log('Countdown finish')
+          },
+          onStart() {
+            this.$refs.timing.start()
+          },
+          onPause() {
+            this.$refs.timing.pause()
+          },
+          onReset() {
+            this.$refs.timing.reset()
+          }
+        },
+        mounted() {}
+      })
+    </script>
+  </body>
+</html>
