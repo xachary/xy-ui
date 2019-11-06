@@ -1,0 +1,43 @@
+@keyframes xy-pull-refresh {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 5%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.xy-pull-refresh {
+  .xy-pull-refresh__bar {
+    background: linear-gradient(#eee 0%, #eee 90%, #ddd 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    & > span {
+      width: 2.5%;
+      padding-top: 2.5%;
+      margin: 1% 1%;
+      background-color: #ddd;
+      border-radius: 50%;
+      //box-shadow: -1px -1px 1px 1px #ccc inset;
+      position: relative;
+      animation: xy-pull-refresh 0.6s ease-in infinite;
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+    &.xy-pull-refresh__bar--auto {
+      transition: height 0.3s ease-in-out;
+    }
+  }
+}

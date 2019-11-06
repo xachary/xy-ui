@@ -7,6 +7,9 @@
       <router-link to="/slider">slider</router-link>
     </div>
     <div>
+      <router-link to="/pull-refresh">pull-refresh</router-link>
+    </div>
+    <div>
       <router-link to="/image-pop">image-pop</router-link>
     </div>
   </div>

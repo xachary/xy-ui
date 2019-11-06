@@ -6,6 +6,7 @@ import App from '@/App.vue'
 import Index from '@/index.vue'
 import lazyload from '@/view/lazyload.vue'
 import slider from '@/view/slider.vue'
+import pullRefresh from '@/view/pull-refresh.vue'
 import imagePop from '@/view/image-pop.vue'
 
 const router = new VueRouter({
@@ -25,6 +26,10 @@ const router = new VueRouter({
     {
       path: '/slider',
       component: slider
+    },
+    {
+      path: '/pull-refresh',
+      component: pullRefresh
     },
     {
       path: '/image-pop',
