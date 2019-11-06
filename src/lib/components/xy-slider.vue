@@ -132,8 +132,22 @@ export default {
     this.itemWidth = this.$refs.slider ? this.$refs.slider.offsetWidth : 1
     this.init()
     window.addEventListener('resize', () => {
+      // 修改itemWidth前记录序号
+      let tempCurrent = this.current2
       this.itemWidth = this.$refs.slider ? this.$refs.slider.offsetWidth : 1
-      this.init()
+      // 暂停动画
+      this.paused = true
+      // 移至当前序号的位置
+      this.lastX = -this.itemWidth * tempCurrent
+      this.curLen = this.lastX
+      // 位移样式值
+      if (this.$refs.container) {
+        this.left = `${this.lastX}px`
+      }
+      setTimeout(() => {
+        // 恢复动画
+        this.paused = false
+      }, 300)
     })
   },
   methods: {
