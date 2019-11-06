@@ -2,16 +2,22 @@
     <div>
         <h3>默认</h3>
         <xy-lazyload
+            width="200px"
+            height="100px"
             :src="imgTest"
             class="sample"
         ></xy-lazyload>
         <h3>图片contain</h3>
         <xy-lazyload
+            width="300px"
+            height="200px"
             :src="imgTest"
             size="contain"
             class="sample"
         ></xy-lazyload>
         <xy-lazyload
+            width="300px"
+            height="200px"
             :src="imgTest2"
             size="contain"
             class="sample"
@@ -70,7 +76,7 @@ export default {
 <style lang="scss">
 .sample {
   width: 300px;
-  height: 200px;
+  height: 150px;
   box-shadow: 0 0 5px 0 #999;
   margin: 10px auto;
 }
