@@ -28,9 +28,11 @@
         @change="onChange"
       >
         <template v-slot="item">
-          <div class="lazy-load">
-            <img v-lazy="item.src" class="lazy-cover" :alt="item.name" />
-          </div>
+          <xy-lazyload
+            :src="item.src"
+            size="cover"
+            class="sample"
+          ></xy-lazyload>
         </template>
       </xy-slider>
       <h3>Slider(scale)</h3>
@@ -45,9 +47,11 @@
         @change="onChange"
       >
         <template v-slot="item">
-          <div class="lazy-load">
-            <img v-lazy="item.src" class="lazy-cover" :alt="item.name" />
-          </div>
+          <xy-lazyload
+            :src="item.src"
+            size="cover"
+            class="sample"
+          ></xy-lazyload>
         </template>
       </xy-slider>
       <h3>Config</h3>
@@ -109,25 +113,25 @@
               {
                 id: '1',
                 name: '300*600',
-                src: 'http://dummyimage.com/300x600',
+                src: 'https://placeimg.com/300/600/any',
                 href: '#'
               },
               {
                 id: '2',
                 name: '600*300',
-                src: 'http://dummyimage.com/600x300',
+                src: 'https://placeimg.com/600/300/any',
                 href: 'https://www.baidu.com/'
               },
               {
                 id: '3',
                 name: '300*300',
-                src: 'http://dummyimage.com/300x300',
+                src: 'https://placeimg.com/300/300/any',
                 href: 'https://www.baidu.com/'
               },
               {
                 id: '4',
                 name: '400*400',
-                src: 'http://dummyimage.com/400x400',
+                src: 'https://placeimg.com/400/400/any',
                 href: 'https://www.baidu.com/'
               }
             ]

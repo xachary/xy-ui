@@ -64,13 +64,11 @@
             @change="onChange"
         >
             <template v-slot="item">
-                <div class="lazy-load">
-                    <img
-                        v-lazy="item.src"
-                        class="lazy-cover"
-                        :alt="item.name"
-                    >
-                </div>
+                <xy-lazyload
+                    :src="item.src"
+                    size="cover"
+                    class="sample"
+                ></xy-lazyload>
             </template>
         </xy-slider>
         <h3>缩放特效</h3>
@@ -118,13 +116,11 @@
             @change="onChange"
         >
             <template v-slot="item">
-                <div class="lazy-load">
-                    <img
-                        v-lazy="item.src"
-                        class="lazy-cover"
-                        :alt="item.name"
-                    >
-                </div>
+                <xy-lazyload
+                    :src="item.src"
+                    size="cover"
+                    class="sample"
+                ></xy-lazyload>
             </template>
         </xy-slider>
     </div>
@@ -136,6 +132,7 @@ import xyUi from '@/lib'
 
 export default {
     components: {
+        xyLazyload: xyUi.components.xyLazyload,
         xySlider: xyUi.components.xySlider
     },
     data() {
