@@ -6,6 +6,7 @@ import xyContinue from '@/lib/components/xy-continue'
 import xyCountdown from '@/lib/components/xy-countdown'
 import xyTimer from '@/lib/components/xy-timer'
 import xyTiming from '@/lib/components/xy-timing'
+import xyListStatus from '@/lib/components/xy-list-status'
 import xyImagePop from '@/lib/components/xy-image-pop'
 //
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
@@ -23,6 +24,8 @@ const xyUI = {
     Vue.component(xyCountdown.name, xyCountdown)
     Vue.component(xyTimer.name, xyTimer)
     Vue.component(xyTiming.name, xyTiming)
+    Vue.component(xyListStatus.name, xyListStatus)
+    Vue.component(xyImagePop.name, xyImagePop)
     //
     Vue.directive(xyPullRefresh.name, xyPullRefresh)
     //

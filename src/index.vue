@@ -16,6 +16,10 @@
       <router-link to="/format">format</router-link>
     </div>
     <div>
+      <router-link to="/list-status">list-status</router-link>
+    </div>
+
+    <div>
       <router-link to="/image-pop">image-pop</router-link>
     </div>
   </div>

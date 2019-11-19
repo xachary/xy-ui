@@ -9,6 +9,8 @@ import slider from '@/view/slider.vue'
 import pullRefresh from '@/view/pull-refresh.vue'
 import time from '@/view/time.vue'
 import format from '@/view/format.vue'
+import listStatus from '@/view/list-status.vue'
+
 import imagePop from '@/view/image-pop.vue'
 
 const router = new VueRouter({
@@ -30,6 +32,10 @@ const router = new VueRouter({
       component: slider
     },
     {
+      path: '/pull-refresh',
+      component: pullRefresh
+    },
+    {
       path: '/time',
       component: time
     },
@@ -38,9 +44,10 @@ const router = new VueRouter({
       component: format
     },
     {
-      path: '/pull-refresh',
-      component: pullRefresh
+      path: '/list-status',
+      component: listStatus
     },
+    
     {
       path: '/image-pop',
       component: imagePop

@@ -18,6 +18,7 @@
         <h3>auto iteration, for html content</h3>
         <section v-html="html">
         </section>
+        <div style="height:100vh;background-color:red;"></div>
     </div>
 </template>
 

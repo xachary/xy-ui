@@ -1,77 +1,77 @@
 <template>
+  <div
+    class="xy-image-pop"
+    v-show="visible"
+    @touchstart.stop
+    @touchmove.stop
+  >
     <div
-        class="xy-image-pop"
-        v-show="visible"
-        @touchstart.stop
-        @touchmove.stop
-    >
-        <div
-            class="xy-image-pop__prevent"
-            v-on:touchstart.prevent.stop
-        ></div>
-        <div
-            class="xy-image-pop__close"
-            @click.stop="onClose"
-            v-on:touchmove.prevent.stop
-        ><span></span><span></span><span></span><span></span></div>
-        <div class="xy-image-pop__slider">
-            <div>visible: {{visible}}</div>
-            <div>imgs: {{imgs}}</div>
-            <div>cur: {{cur}}</div>
-        </div>
-        <div class="xy-image-pop__indicator">
-            <span></span>
-            <span class="xy-image-pop__indicator--focus"></span>
-            <span></span>
-            <span></span>
-        </div>
+      class="xy-image-pop__prevent"
+      v-on:touchstart.prevent.stop
+    ></div>
+    <div
+      class="xy-image-pop__close"
+      @click.stop="onClose"
+      v-on:touchmove.prevent.stop
+    ><span></span><span></span><span></span><span></span></div>
+    <div class="xy-image-pop__slider">
+      <div>visible: {{visible}}</div>
+      <div>imgs: {{imgs}}</div>
+      <div>cur: {{cur}}</div>
     </div>
+    <div class="xy-image-pop__indicator">
+      <span></span>
+      <span class="xy-image-pop__indicator--focus"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'xy-image-pop',
-    props: {
-        visible: {
-            type: Boolean,
-            default: false
-        },
-        imgs: {
-            type: Array,
-            default: () => []
-        },
-        cur: {
-            type: String,
-            default: ''
-        }
+  name: 'xy-image-pop',
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
     },
-    data() {
-        return {
-            closeTimer: null
-        }
+    imgs: {
+      type: Array,
+      default: () => []
     },
-    computed: {
-    },
-    watch: {
-
-    },
-    methods: {
-        onStop() { debugger },
-        onClose({ currentTarget }) {
-            currentTarget.classList.add('xy-image-pop__close--moving')
-            if (this.closeTimer) {
-                clearTimeout(this.closeTimer)
-                this.closeTimer = null
-            }
-            this.closeTimer = setTimeout(function () {
-                currentTarget.classList.remove('xy-image-pop__close--moving')
-            }, 300)
-
-            this.$emit('update:visible', !this.visible)
-        }
-    },
-    mounted: function () {
+    cur: {
+      type: String,
+      default: ''
     }
+  },
+  data() {
+    return {
+      closeTimer: null
+    }
+  },
+  computed: {
+  },
+  watch: {
+
+  },
+  methods: {
+    onStop() { debugger },
+    onClose({ currentTarget }) {
+      currentTarget.classList.add('xy-image-pop__close--moving')
+      if (this.closeTimer) {
+        clearTimeout(this.closeTimer)
+        this.closeTimer = null
+      }
+      this.closeTimer = setTimeout(function () {
+        currentTarget.classList.remove('xy-image-pop__close--moving')
+      }, 300)
+
+      this.$emit('update:visible', !this.visible)
+    }
+  },
+  mounted: function () {
+  }
 }
 </script>
 
