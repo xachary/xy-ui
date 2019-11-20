@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pad">
         <h3>当前时间</h3>
         <hr>
         <xy-timer></xy-timer>

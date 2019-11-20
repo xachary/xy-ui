@@ -15,6 +15,12 @@ table td {
 
 h3 {
   padding: 0 0.5em;
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+h4 {
+  background-color: #eee;
+  padding: 0 1em;
 }
 
 a {
@@ -25,4 +31,8 @@ button {
   border: 1px solid #666;
   padding: 5px;
   cursor: pointer;
+}
+
+.pad > div {
+  padding: 0 1em;
 }

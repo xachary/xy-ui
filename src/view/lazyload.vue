@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pad">
         <h3>默认</h3>
         <xy-lazyload
             width="200px"

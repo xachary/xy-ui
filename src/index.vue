@@ -13,7 +13,13 @@
       <router-link to="/time">time</router-link>
     </div>
     <div>
-      <router-link to="/format">format</router-link>
+      <router-link to="/format-common">format-common</router-link>
+    </div>
+    <div>
+      <router-link to="/format-date">format-date</router-link>
+    </div>
+    <div>
+      <router-link to="/format-number">format-number</router-link>
     </div>
     <div>
       <router-link to="/list-status">list-status</router-link>

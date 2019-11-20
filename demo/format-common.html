@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta data-hid="description" name="description" content="vue-xy-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>format common</title>
+    <link rel="stylesheet" href="../dist/xy-ui.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <div id="app" class="pad">
+      <h3>Default value</h3>
+      <hr />
+      <div>'' -> '{{'' | $xyFormat.common.def('Empty')}}'</div>
+      <div>0 -> {{0 | $xyFormat.common.def('Empty')}}</div>
+      <h3>Combine filters</h3>
+      <div>(number.numberAfterPoint + common.def):</div>
+      <div>
+        100 -> '{{100 | $xyFormat.tool.combine([$xyFormat.tool.currying($xyFormat.number.numberAfterPoint),$xyFormat.tool.currying($xyFormat.common.def,'Empty')])
+        }}'
+      </div>
+
+      <h3>Config</h3>
+      <hr />
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>
+        <tr>
+          <th colspan="4">
+            vm.$xyFormat.number.xxx (date,format):String
+          </th>
+        </tr>
+        <tr>
+          <td>date</td>
+          <td>Time</td>
+          <td>Date/Number/String</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>Format string</td>
+          <td>String</td>
+          <td>'yyyy-MM-dd hh:mm:ss'</td>
+        </tr>
+        <!--  -->
+      </table>
+    </div>
+    <script src="../vue@2.6.10.js"></script>
+    <script src="../dist/xy-ui.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {}
+        },
+        methods: {
+          onChange(time) {
+            console.log(time)
+          },
+          onFinish() {
+            console.log('Countdown finish')
+          },
+          onStart() {
+            this.$refs.timing.start()
+          },
+          onPause() {
+            this.$refs.timing.pause()
+          },
+          onReset() {
+            this.$refs.timing.reset()
+          }
+        },
+        mounted() {}
+      })
+    </script>
+  </body>
+</html>

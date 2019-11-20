@@ -8,7 +8,9 @@ import lazyload from '@/view/lazyload.vue'
 import slider from '@/view/slider.vue'
 import pullRefresh from '@/view/pull-refresh.vue'
 import time from '@/view/time.vue'
-import format from '@/view/format.vue'
+import formatCommon from '@/view/format-common.vue'
+import formatDate from '@/view/format-date.vue'
+import formatNumber from '@/view/format-number.vue'
 import listStatus from '@/view/list-status.vue'
 
 import imagePop from '@/view/image-pop.vue'
@@ -40,14 +42,22 @@ const router = new VueRouter({
       component: time
     },
     {
-      path: '/format',
-      component: format
+      path: '/format-common',
+      component: formatCommon
+    },
+    {
+      path: '/format-date',
+      component: formatDate
+    },
+    {
+      path: '/format-number',
+      component: formatNumber
     },
     {
       path: '/list-status',
       component: listStatus
     },
-    
+
     {
       path: '/image-pop',
       component: imagePop

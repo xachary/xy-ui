@@ -26,7 +26,7 @@ export default {
         update() {
             let that = this
             that.now = (new Date()).getTime()
-            that.current = this.$xyFormat.date.formatDate(new Date(), 'hh:mm:ss')
+            that.current = this.$xyFormat.date.format(new Date(), 'hh:mm:ss')
         }
     },
     beforeMount() {

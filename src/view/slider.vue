@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pad">
         <h3>没有数据</h3>
         <xy-slider
             :data="data0"

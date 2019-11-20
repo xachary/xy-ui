@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pad">
         <xy-image-pop
             :visible.sync="visible"
             :imgs="imgs"

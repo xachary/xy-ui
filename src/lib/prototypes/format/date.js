@@ -11,7 +11,7 @@ function fixDate(date) {
   return isNaN(Date.parse(date)) ? new Date() : new Date(date)
 }
 
-function formatDate(d, fmt = 'yyyy-MM-dd hh:mm:ss') {
+function format(d, fmt = 'yyyy-MM-dd hh:mm:ss') {
   let date = fixDate(d)
   var o = {
     'M+': date.getMonth() + 1, // 月份
@@ -55,7 +55,7 @@ function relativeDate(v, fmt = 'yyyy-MM-dd hh:mm:ss') {
     if (day <= 3) {
       return `${day.toString()}天前`
     } else {
-      return formatDate(time, fmt)
+      return format(time, fmt)
     }
   } else if (day > 0 && day <= 1) {
     return `${day.toString()}天前`
@@ -69,19 +69,19 @@ function relativeDate(v, fmt = 'yyyy-MM-dd hh:mm:ss') {
 
 function today(fmt) {
   let td = new Date(new Date().setHours(0, 0, 0, 0))
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function startTime(date, fmt = '', offset = 0) {
   let d = fixDate(date)
   let td = new Date(new Date(d).setHours(0, 0, 0, 0) + dayLong * offset)
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function endTime(date, fmt = '') {
   let d = fixDate(date)
   let td = new Date(new Date(d).setHours(23, 59, 59, 0))
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function weekStartTime(d, fmt = '', offset = 0) {
@@ -91,7 +91,7 @@ function weekStartTime(d, fmt = '', offset = 0) {
   let td = new Date(
     now.getTime() - dayLong * (day === 0 ? 6 : day - 1) + dayLong * 7 * offset
   )
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function weekEndTime(d, fmt = '', offset = 0) {
@@ -101,7 +101,7 @@ function weekEndTime(d, fmt = '', offset = 0) {
   let td = new Date(
     now.getTime() + dayLong * (day === 0 ? 0 : 7 - day) + dayLong * 7 * offset
   )
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function monthStartTime(d, fmt = '', offset = 0) {
@@ -109,7 +109,7 @@ function monthStartTime(d, fmt = '', offset = 0) {
   let now = date ? startTime(date) : today()
   let month = now.getMonth()
   let td = new Date(now.setMonth(month + offset, 1))
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function monthEndTime(d, fmt = '', offset = 0) {
@@ -117,7 +117,7 @@ function monthEndTime(d, fmt = '', offset = 0) {
   let now = date ? endTime(date) : today()
   let month = now.getMonth()
   let td = new Date(now.setMonth(month + 1 + offset, 0))
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function yearStartTime(d, fmt = '', offset = 0) {
@@ -125,7 +125,7 @@ function yearStartTime(d, fmt = '', offset = 0) {
   let now = date ? startTime(date) : today()
   let year = now.getFullYear()
   let td = new Date(new Date(now.setFullYear(year + offset)).setMonth(0, 1))
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function yearEndTime(d, fmt = '', offset = 0) {
@@ -133,7 +133,7 @@ function yearEndTime(d, fmt = '', offset = 0) {
   let now = date ? endTime(date) : today()
   let year = now.getFullYear()
   let td = new Date(new Date(now.setFullYear(year + offset)).setMonth(12, 0))
-  return fmt ? formatDate(td, fmt) : td
+  return fmt ? format(td, fmt) : td
 }
 
 function timeSpanSecond(start, end) {
@@ -155,7 +155,7 @@ function timeSpanHour(start, end) {
 }
 
 export default {
-  formatDate,
+  format,
   relativeDate,
   today,
   startTime,
