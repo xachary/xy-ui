@@ -1,78 +1,117 @@
 <template>
     <div>
-        <h3>时间格式化</h3>
-        <hr>
+        <h3>Format date</h3>
+        <hr />
         <div>yyyy-MM-dd hh:mm:ss</div>
-        <div>{{$xyFormat.date.formatDate(new Date())}}</div>
+        <div>{{new Date() | $xyFormat.date.formatDate}}</div>
+        <!-- <div>{{$xyFormat.date.formatDate(new Date())}}</div> -->
         <div>hh:mm:ss</div>
-        <div>{{$xyFormat.date.formatDate(new Date(), 'hh:mm:ss')}}</div>
-        <h3>相对日期</h3>
-        <hr>
-        <div>{{$xyFormat.date.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date())}}</div>
-        <br>
-        <div>{{$xyFormat.date.formatDate(new Date() - 1000*60, 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60)}}</div>
-        <br>
-        <div>{{$xyFormat.date.formatDate(new Date() - 1000*60*5, 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*5)}}</div>
-        <br>
-        <div>{{$xyFormat.date.formatDate(new Date() - 1000*60*30, 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*30)}}</div>
-        <br>
-        <div>{{$xyFormat.date.formatDate(new Date() - 1000*60*60, 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60)}}</div>
-        <br>
-        <div>{{$xyFormat.date.formatDate(new Date() - 1000*60*60*24, 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60*24)}}</div>
-        <br>
-        <div>{{$xyFormat.date.formatDate(new Date() - 1000*60*60*24*3, 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60*24*3)}}</div>
-        <br>
-        <div>{{$xyFormat.date.formatDate(new Date() - 1000*60*60*24*4, 'yyyy-MM-dd hh:mm:ss')}}</div>
-        <div>{{$xyFormat.date.relativeDate(new Date() - 1000*60*60*24*4)}}</div>
-        <h3>今天开始时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.today('yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>日期开始时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.startTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>日期结束时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.endTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>本周开始时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.weekStartTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>本周结束时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.weekEndTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>本月开始时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.monthStartTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>本月结束时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.monthEndTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>当年开始时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.yearStartTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>当年结束时间</h3>
-        <hr>
-        <div>{{$xyFormat.date.yearEndTime(new Date(),'yyyy-MM-dd hh:mm:ss')}}</div>
-        <h3>时间相差秒</h3>
-        <hr>
-        <div>{{$xyFormat.date.formatDate(new Date('2019/11/20'))}}</div>
-        <div>{{$xyFormat.date.formatDate(new Date())}}</div>
-        <div>{{$xyFormat.date.timeSpanSecond(new Date('2019/11/20'),new Date())}} seconds</div>
-        <h3>时间相差小时</h3>
-        <hr>
-        <div>{{$xyFormat.date.formatDate(new Date('2019/11/20'))}}</div>
-        <div>{{$xyFormat.date.formatDate(new Date())}}</div>
-        <div>{{$xyFormat.date.timeSpanHour(new Date('2019/11/20'),new Date())}} hours</div>
-        <h3>时间相差日</h3>
-        <hr>
-        <div>{{$xyFormat.date.formatDate(new Date('2019/11/11'))}}</div>
-        <div>{{$xyFormat.date.formatDate(new Date())}}</div>
-        <div>{{$xyFormat.date.timeSpanDay(new Date('2019/11/11'),new Date())}} days</div>
+        <div>{{new Date() | $xyFormat.date.formatDate('hh:mm:ss')}}</div>
+        <!-- <div>{{$xyFormat.date.formatDate(new Date(), 'hh:mm:ss')}}</div> -->
+        <h3>Relative date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() | $xyFormat.date.relativeDate}}</div>
+        <br />
+        <div>
+            {{new Date() - 1000*60 | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() - 1000*60 | $xyFormat.date.relativeDate}}</div>
+        <br />
+        <div>
+            {{new Date() - 1000*60*5 | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() - 1000*60*5 | $xyFormat.date.relativeDate}}</div>
+        <br />
+        <div>
+            {{new Date() - 1000*60*30 | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() - 1000*60*30 | $xyFormat.date.relativeDate}}</div>
+        <br />
+        <div>
+            {{new Date() - 1000*60*60 | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() - 1000*60*60 | $xyFormat.date.relativeDate}}</div>
+        <br />
+        <div>
+            {{new Date() - 1000*60*60*24 | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() - 1000*60*60*24 | $xyFormat.date.relativeDate}}</div>
+        <br />
+        <div>
+            {{new Date() - 1000*60*60*24*3 | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() - 1000*60*60*24*3 | $xyFormat.date.relativeDate}}</div>
+        <br />
+        <div>
+            {{new Date() - 1000*60*60*24*4 | $xyFormat.date.formatDate('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <div>{{new Date() - 1000*60*60*24*4 | $xyFormat.date.relativeDate}}</div>
+        <h3>Today</h3>
+        <hr />
+        <div>{{ $xyFormat.date.today('yyyy-MM-dd hh:mm:ss') }}</div>
+        <h3>Start date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.startTime('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <h3>End date</h3>
+        <hr />
+        <div>{{new Date() | $xyFormat.date.endTime('yyyy-MM-dd hh:mm:ss')}}</div>
+        <h3>Week start date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.weekStartTime('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <h3>Week end date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.weekEndTime('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <h3>Month start date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.monthStartTime('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <h3>Month end date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.monthEndTime('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <h3>Year start date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.yearStartTime('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <h3>Year end date</h3>
+        <hr />
+        <div>
+            {{new Date() | $xyFormat.date.yearEndTime('yyyy-MM-dd hh:mm:ss')}}
+        </div>
+        <h3>Span seconds</h3>
+        <hr />
+        <div>{{new Date('2019/11/20') | $xyFormat.date.formatDate}}</div>
+        <div>{{new Date() | $xyFormat.date.formatDate}}</div>
+        <div>
+            {{$xyFormat.date.timeSpanSecond(new Date('2019/11/20'),new Date())}}
+            seconds
+        </div>
+        <h3>Span hours</h3>
+        <hr />
+        <div>{{new Date('2019/11/20') | $xyFormat.date.formatDate}}</div>
+        <div>{{new Date() | $xyFormat.date.formatDate}}</div>
+        <div>
+            {{$xyFormat.date.timeSpanHour(new Date('2019/11/20'),new Date())}} hours
+        </div>
+        <h3>Span days</h3>
+        <hr />
+        <div>{{new Date('2019/11/11') | $xyFormat.date.formatDate}}</div>
+        <div>{{new Date() | $xyFormat.date.formatDate}}</div>
+        <div>
+            {{$xyFormat.date.timeSpanDay(new Date('2019/11/11'),new Date())}} days
+        </div>
     </div>
 </template>
 

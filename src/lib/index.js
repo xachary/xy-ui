@@ -17,6 +17,11 @@ const xyUI = {
     for (let p in xyPrototypes) {
       Vue.prototype[p] = xyPrototypes[p]
     }
+    for (let f in xyPrototypes.$xyFormat) {
+      for (let t in xyPrototypes.$xyFormat[f]) {
+        Vue.filter(`$xyFormat.${f}.${t}`, xyPrototypes.$xyFormat[f][t])
+      }
+    }
     //
     Vue.component(xyLazyload.name, xyLazyload)
     Vue.component(xySlider.name, xySlider)

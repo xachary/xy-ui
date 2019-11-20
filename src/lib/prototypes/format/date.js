@@ -55,7 +55,7 @@ function relativeDate(v, fmt = 'yyyy-MM-dd hh:mm:ss') {
     if (day <= 3) {
       return `${day.toString()}天前`
     } else {
-      return this.formatDate(time, fmt)
+      return formatDate(time, fmt)
     }
   } else if (day > 0 && day <= 1) {
     return `${day.toString()}天前`
@@ -86,7 +86,7 @@ function endTime(date, fmt = '') {
 
 function weekStartTime(d, fmt = '', offset = 0) {
   let date = fixDate(d)
-  let now = date ? this.startTime(date) : today()
+  let now = date ? startTime(date) : today()
   let day = now.getDay()
   let td = new Date(
     now.getTime() - dayLong * (day === 0 ? 6 : day - 1) + dayLong * 7 * offset
@@ -96,7 +96,7 @@ function weekStartTime(d, fmt = '', offset = 0) {
 
 function weekEndTime(d, fmt = '', offset = 0) {
   let date = fixDate(d)
-  let now = date ? this.endTime(date) : today()
+  let now = date ? endTime(date) : today()
   let day = now.getDay()
   let td = new Date(
     now.getTime() + dayLong * (day === 0 ? 0 : 7 - day) + dayLong * 7 * offset
@@ -106,7 +106,7 @@ function weekEndTime(d, fmt = '', offset = 0) {
 
 function monthStartTime(d, fmt = '', offset = 0) {
   let date = fixDate(d)
-  let now = date ? this.startTime(date) : today()
+  let now = date ? startTime(date) : today()
   let month = now.getMonth()
   let td = new Date(now.setMonth(month + offset, 1))
   return fmt ? formatDate(td, fmt) : td
@@ -114,7 +114,7 @@ function monthStartTime(d, fmt = '', offset = 0) {
 
 function monthEndTime(d, fmt = '', offset = 0) {
   let date = fixDate(d)
-  let now = date ? this.endTime(date) : today()
+  let now = date ? endTime(date) : today()
   let month = now.getMonth()
   let td = new Date(now.setMonth(month + 1 + offset, 0))
   return fmt ? formatDate(td, fmt) : td
@@ -122,7 +122,7 @@ function monthEndTime(d, fmt = '', offset = 0) {
 
 function yearStartTime(d, fmt = '', offset = 0) {
   let date = fixDate(d)
-  let now = date ? this.startTime(date) : today()
+  let now = date ? startTime(date) : today()
   let year = now.getFullYear()
   let td = new Date(new Date(now.setFullYear(year + offset)).setMonth(0, 1))
   return fmt ? formatDate(td, fmt) : td
@@ -130,7 +130,7 @@ function yearStartTime(d, fmt = '', offset = 0) {
 
 function yearEndTime(d, fmt = '', offset = 0) {
   let date = fixDate(d)
-  let now = date ? this.endTime(date) : today()
+  let now = date ? endTime(date) : today()
   let year = now.getFullYear()
   let td = new Date(new Date(now.setFullYear(year + offset)).setMonth(12, 0))
   return fmt ? formatDate(td, fmt) : td
