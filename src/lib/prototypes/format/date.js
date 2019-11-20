@@ -1,6 +1,18 @@
-function formatDate(d, fmt) {
-  let fix = typeof d === 'string' ? d.replace(/-/g, '/') : d
-  let date = new Date(fix)
+const dayLong = 1000 * 60 * 60 * 24
+const hourLong = 1000 * 60 * 60
+
+function fixDate(date) {
+  if (typeof date === 'string') {
+    let fix = date.replace(/-/g, '/')
+    return isNaN(Date.parse(fix)) ? new Date() : new Date(fix)
+  } else if (typeof date === 'number') {
+    return new Date(date)
+  }
+  return isNaN(Date.parse(date)) ? new Date() : new Date(date)
+}
+
+function formatDate(d, fmt = 'yyyy-MM-dd hh:mm:ss') {
+  let date = fixDate(d)
   var o = {
     'M+': date.getMonth() + 1, // 月份
     'd+': date.getDate(), // 日
@@ -30,9 +42,9 @@ function formatDate(d, fmt) {
   return format
 }
 
-function relativeDate(v) {
+function relativeDate(v, fmt = 'yyyy-MM-dd hh:mm:ss') {
   var now = new Date()
-  var time = new Date(v)
+  var time = fixDate(v)
   var span = now - time
   var day = Math.floor(span / 86400000)
   var hour = Math.floor(span / 3600000)
@@ -43,7 +55,7 @@ function relativeDate(v) {
     if (day <= 3) {
       return `${day.toString()}天前`
     } else {
-      return this.formatDate(time, 'yyyy-MM-dd hh:mm')
+      return this.formatDate(time, fmt)
     }
   } else if (day > 0 && day <= 1) {
     return `${day.toString()}天前`
@@ -55,4 +67,106 @@ function relativeDate(v) {
   return '刚刚'
 }
 
-export default { formatDate, relativeDate }
+function today(fmt) {
+  let td = new Date(new Date().setHours(0, 0, 0, 0))
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function startTime(date, fmt = '', offset = 0) {
+  let d = fixDate(date)
+  let td = new Date(new Date(d).setHours(0, 0, 0, 0) + dayLong * offset)
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function endTime(date, fmt = '') {
+  let d = fixDate(date)
+  let td = new Date(new Date(d).setHours(23, 59, 59, 0))
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function weekStartTime(d, fmt = '', offset = 0) {
+  let date = fixDate(d)
+  let now = date ? this.startTime(date) : today()
+  let day = now.getDay()
+  let td = new Date(
+    now.getTime() - dayLong * (day === 0 ? 6 : day - 1) + dayLong * 7 * offset
+  )
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function weekEndTime(d, fmt = '', offset = 0) {
+  let date = fixDate(d)
+  let now = date ? this.endTime(date) : today()
+  let day = now.getDay()
+  let td = new Date(
+    now.getTime() + dayLong * (day === 0 ? 0 : 7 - day) + dayLong * 7 * offset
+  )
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function monthStartTime(d, fmt = '', offset = 0) {
+  let date = fixDate(d)
+  let now = date ? this.startTime(date) : today()
+  let month = now.getMonth()
+  let td = new Date(now.setMonth(month + offset, 1))
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function monthEndTime(d, fmt = '', offset = 0) {
+  let date = fixDate(d)
+  let now = date ? this.endTime(date) : today()
+  let month = now.getMonth()
+  let td = new Date(now.setMonth(month + 1 + offset, 0))
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function yearStartTime(d, fmt = '', offset = 0) {
+  let date = fixDate(d)
+  let now = date ? this.startTime(date) : today()
+  let year = now.getFullYear()
+  let td = new Date(new Date(now.setFullYear(year + offset)).setMonth(0, 1))
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function yearEndTime(d, fmt = '', offset = 0) {
+  let date = fixDate(d)
+  let now = date ? this.endTime(date) : today()
+  let year = now.getFullYear()
+  let td = new Date(new Date(now.setFullYear(year + offset)).setMonth(12, 0))
+  return fmt ? formatDate(td, fmt) : td
+}
+
+function timeSpanSecond(start, end) {
+  let s = fixDate(start)
+  let e = fixDate(end)
+  return Math.floor((e - s) / 1000)
+}
+
+function timeSpanDay(start, end) {
+  let s = startTime(start)
+  let e = startTime(end)
+  return (e - s) / dayLong
+}
+
+function timeSpanHour(start, end) {
+  let s = fixDate(start)
+  let e = fixDate(end)
+  return Math.floor((e - s) / hourLong)
+}
+
+export default {
+  formatDate,
+  relativeDate,
+  today,
+  startTime,
+  endTime,
+  weekStartTime,
+  weekEndTime,
+  monthStartTime,
+  monthEndTime,
+  yearStartTime,
+  yearEndTime,
+  timeSpanSecond,
+  timeSpanDay,
+  timeSpanHour
+}

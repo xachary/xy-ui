@@ -1,73 +1,78 @@
 <template>
-    <div
-        class="xy-list-status"
-        v-if="status!==''"
-        :class="{'xy-list-status--empty':status==='empty','xy-list-status--nomore':status==='nomore','xy-list-status--loading':status==='loading','xy-list-status--empty--short':status==='empty-short'}"
-        :style="{height:status==='empty'&&auto?`calc(100vh - ${top}px - ${bottom})`:'auto'}"
+  <div
+    class="xy-list-status"
+    v-if="status!==''"
+    :class="{'xy-list-status--empty':status==='empty','xy-list-status--nomore':status==='nomore','xy-list-status--loading':status==='loading','xy-list-status--empty--short':status==='empty-short'}"
+    :style="{height:status==='empty'&&auto?`calc(100vh - ${top}px - ${bottom})`:'auto'}"
+  >
+    <slot
+      name="empty"
+      v-if="status==='empty'||status==='empty-short'"
     >
-        <slot
-            name="empty"
-            v-if="status==='empty'||status==='empty-short'"
-        >
-            <span>暂无内容</span>
-        </slot>
-        <slot
-            name="nomore"
-            v-if="status==='nomore'"
-        >
-            <span>没有更多了</span>
-        </slot>
-        <div v-if="status==='loading'">
-            <span>加</span>
-            <span>载</span>
-            <span>中</span>
-        </div>
-    </div>
+      <span>暂无内容</span>
+    </slot>
+    <slot
+      name="nomore"
+      v-if="status==='nomore'"
+    >
+      <span>没有更多了</span>
+    </slot>
+    <slot
+      name="loading"
+      v-if="status==='loading'"
+    >
+      <div>
+        <span>加</span>
+        <span>载</span>
+        <span>中</span>
+      </div>
+    </slot>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'xy-list-status',
-    props: {
-        status: String,
-        bottom: {
-            default: '0px'
-        },
-        auto: {
-            default: true
-        }
+  name: 'xy-list-status',
+  props: {
+    status: String,
+    bottom: {
+      default: '0px'
     },
-    data() {
-        return {
-            top: 0
-        }
-    },
-    computed: {
-        // bv: function () {
-        //     let that = this
-        //     return parseInt(that.bottom) / 750 * 100
-        // }
-    },
-    watch: {
-        status: function () {
-            this.update()
-        }
-    },
-    methods: {
-        update: function () {
-            let height = 0
-            for (let i = 0; i < this.$el.parentElement.children.length; i++) {
-                if (this.$el.parentElement.children[i] === this.$el) {
-                    break
-                }
-                height += this.$el.parentElement.children[i].getBoundingClientRect().height
-            }
-            this.top = height
-        }
-    },
-    mounted: function () {
-        this.update()
+    auto: {
+      default: true
     }
+  },
+  data() {
+    return {
+      top: 0
+    }
+  },
+  computed: {
+    // bv: function () {
+    //     let that = this
+    //     return parseInt(that.bottom) / 750 * 100
+    // }
+  },
+  watch: {
+    status: function () {
+      this.update()
+    }
+  },
+  methods: {
+    update: function () {
+      let height = 0
+      for (let i = 0; i < this.$el.parentElement.children.length; i++) {
+        if (this.$el.parentElement.children[i] === this.$el) {
+          break
+        }
+        height += this.$el.parentElement.children[i].getBoundingClientRect().height
+      }
+      this.top = height
+    }
+  },
+  mounted: function () {
+    this.update()
+  }
 }
 </script>
 
