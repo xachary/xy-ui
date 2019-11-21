@@ -6,12 +6,15 @@ import App from '@/App.vue'
 import Index from '@/index.vue'
 import lazyload from '@/view/lazyload.vue'
 import slider from '@/view/slider.vue'
+import keepTop from '@/view/keep-top.vue'
 import pullRefresh from '@/view/pull-refresh.vue'
+import btnAct from '@/view/btn-act.vue'
 import time from '@/view/time.vue'
 import formatCommon from '@/view/format-common.vue'
 import formatDate from '@/view/format-date.vue'
 import formatNumber from '@/view/format-number.vue'
 import listStatus from '@/view/list-status.vue'
+import scrollBottom from '@/view/scroll-bottom.vue'
 
 import imagePop from '@/view/image-pop.vue'
 
@@ -34,8 +37,16 @@ const router = new VueRouter({
       component: slider
     },
     {
+      path: '/keep-top',
+      component: keepTop
+    },
+    {
       path: '/pull-refresh',
       component: pullRefresh
+    },
+    {
+      path: '/btn-act',
+      component: btnAct
     },
     {
       path: '/time',
@@ -56,6 +67,10 @@ const router = new VueRouter({
     {
       path: '/list-status',
       component: listStatus
+    },
+    {
+      path: '/scroll-bottom',
+      component: scrollBottom
     },
 
     {

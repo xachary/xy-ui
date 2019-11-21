@@ -7,9 +7,12 @@ import xyCountdown from '@/lib/components/xy-countdown'
 import xyTimer from '@/lib/components/xy-timer'
 import xyTiming from '@/lib/components/xy-timing'
 import xyListStatus from '@/lib/components/xy-list-status'
+import xyScrollBottom from '@/lib/components/xy-scroll-bottom'
 import xyImagePop from '@/lib/components/xy-image-pop'
 //
+import xyKeepTop from '@/lib/directives/xy-keep-top'
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
+import xyBtnAct from '@/lib/directives/xy-btn-act'
 //
 
 const xyUI = {
@@ -30,9 +33,12 @@ const xyUI = {
     Vue.component(xyTimer.name, xyTimer)
     Vue.component(xyTiming.name, xyTiming)
     Vue.component(xyListStatus.name, xyListStatus)
+    Vue.component(xyScrollBottom.name, xyScrollBottom)
     Vue.component(xyImagePop.name, xyImagePop)
     //
+    Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)
+    Vue.directive(xyBtnAct.name, xyBtnAct)
     //
   }
 }

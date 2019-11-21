@@ -7,7 +7,13 @@
       <router-link to="/slider">slider</router-link>
     </div>
     <div>
+      <router-link to="/keep-top">keep-top</router-link>
+    </div>
+    <div>
       <router-link to="/pull-refresh">pull-refresh</router-link>
+    </div>
+    <div>
+      <router-link to="/btn-act">btn-act</router-link>
     </div>
     <div>
       <router-link to="/time">time</router-link>
@@ -23,6 +29,9 @@
     </div>
     <div>
       <router-link to="/list-status">list-status</router-link>
+    </div>
+    <div>
+      <router-link to="/scroll-bottom">scroll-bottom</router-link>
     </div>
 
     <div>
