@@ -23,9 +23,9 @@
       <div class="sample">
         <h3>ScrollBottom</h3>
         <button @click="$xyTool.scrollBottom()">Click me</button>
-        <h3>Sleep</h3>
+        <h3>Delay</h3>
         <div>
-          <button @click="onStart">start pause 2s</button>
+          <button @click="onStart">Delay 2s</button>
         </div>
         <h3>Broswer</h3>
         {{ $xyTool.browser() }}
@@ -65,7 +65,7 @@
         </tr>
         <tr>
           <th colspan="4">
-            vm.$xyTool.sleep(second):Promise
+            vm.$xyTool.delay(second):Promise
           </th>
         </tr>
         <tr>
@@ -154,11 +154,11 @@
         },
         methods: {
           //   async onStart() {
-          //     await this.$xyTool.sleep(2000)
+          //     await this.$xyTool.delay(2000)
           //     alert('2s done')
           //   },
           onStart() {
-            this.$xyTool.sleep(2000).then(function() {
+            this.$xyTool.delay(2000).then(function() {
               alert('2s done')
             })
           },

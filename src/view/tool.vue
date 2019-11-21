@@ -2,9 +2,9 @@
     <div class="sample">
         <h3>ScrollBottom</h3>
         <button @click="$xyTool.scrollBottom()">Click me</button>
-        <h3>Sleep</h3>
+        <h3>Delay</h3>
         <div>
-            <button @click="onStart">start pause 2s</button>
+            <button @click="onStart">Delay 2s</button>
         </div>
         <h3>Broswer</h3>
         {{$xyTool.browser()}}
@@ -41,7 +41,7 @@ export default {
     },
     methods: {
         async onStart() {
-            await this.$xyTool.sleep(2000)
+            await this.$xyTool.delay(2000)
             alert('2s done')
         },
         onLinear() {

@@ -1,4 +1,4 @@
-function sleep(ms) {
+function delay(ms) {
   return (function() {
     return new Promise(function(resolve, reject) {
       setTimeout(function() {
@@ -131,7 +131,7 @@ function scrollBottom() {
 }
 
 export default {
-  sleep,
+  delay,
   browser,
   move,
   scrollTop,
