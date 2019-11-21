@@ -18,7 +18,7 @@
         <h3>auto iteration, for html content</h3>
         <section v-html="html">
         </section>
-        <div style="height:100vh;background-color:red;"></div>
+        <!-- <div style="height:100vh;background-color:red;"></div> -->
     </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~@/lib/scss/mixin';
 
 h3 {

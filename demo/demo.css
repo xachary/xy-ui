@@ -1,3 +1,6 @@
+#app {
+  padding-bottom: 1px;
+}
 table {
   width: 96vw;
   margin: 2vw auto;
