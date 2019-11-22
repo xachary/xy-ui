@@ -3,6 +3,8 @@ import date from '@/lib/prototypes/format/date.js'
 import number from '@/lib/prototypes/format/number.js'
 //
 import tool from '@/lib/prototypes/tool.js'
+//
+import validate from '@/lib/prototypes/validate.js'
 
 const formatTool = {
   currying: function(f) {
@@ -32,5 +34,6 @@ const formatTool = {
 
 export default {
   $xyFormat: { common, date, number, tool: formatTool },
-  $xyTool: tool
+  $xyTool: tool,
+  $xyValidate: validate
 }

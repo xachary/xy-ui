@@ -39,3 +39,9 @@ button {
 .pad > div {
   padding: 0 1em;
 }
+
+input {
+  border: 1px solid #333;
+  width: calc(100% - 2em);
+  margin: 1em;
+}

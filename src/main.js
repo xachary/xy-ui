@@ -16,6 +16,7 @@ import formatNumber from '@/view/format-number.vue'
 import listStatus from '@/view/list-status.vue'
 import scrollBottom from '@/view/scroll-bottom.vue'
 import tool from '@/view/tool.vue'
+import validate from '@/view/validate'
 
 import imagePop from '@/view/image-pop.vue'
 
@@ -76,6 +77,10 @@ const router = new VueRouter({
     {
       path: '/tool',
       component: tool
+    },
+    {
+      path: '/validate',
+      component: validate
     },
 
     {

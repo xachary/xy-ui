@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <title>format number</title>
+    <title>Format number</title>
     <link rel="stylesheet" href="../dist/xy-ui.css" />
     <link rel="stylesheet" href="./demo.css" />
   </head>
@@ -48,10 +48,12 @@
       <div>
         '123456789.1234' -> '{{'123456789.1234' | $xyFormat.number.format({comma:true})
 
+
         }}'
       </div>
       <div>
         '-123456789.1234' -> '{{'-123456789.1234' | $xyFormat.number.format({comma:true})
+
 
         }}'
       </div>
@@ -63,6 +65,7 @@
       <div>
         '-1234.5678' -> '{{'-1234.5678' | $xyFormat.number.format({plus:true})
 
+
         }}'
       </div>
 
@@ -71,10 +74,12 @@
         '-123456--789.01-2.3' -> '{{'-123456--789.01-2.3' | $xyFormat.number.format({fixed:2,comma:true,plus:true})
 
 
+
         }}'
       </div>
       <div>
         '123456--789.01-2.3' -> '{{'123456--789.01-2.3' | $xyFormat.number.format({fixed:2,comma:true,plus:true})
+
 
 
         }}'

@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <title>format common</title>
+    <title>Format common</title>
     <link rel="stylesheet" href="../dist/xy-ui.css" />
     <link rel="stylesheet" href="./demo.css" />
   </head>
@@ -24,6 +24,7 @@
       <div>(number.numberAfterPoint + common.def):</div>
       <div>
         100 -> '{{100 | $xyFormat.tool.combine([$xyFormat.tool.currying($xyFormat.number.numberAfterPoint),$xyFormat.tool.currying($xyFormat.common.def,'Empty')])
+
         }}'
       </div>
 
