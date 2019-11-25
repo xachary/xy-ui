@@ -68,9 +68,9 @@ export default {
 
                 if (snap <= 1000) {
                     clearInterval(this.timer)
-                    this.$emit('finish', this.now)
+                    this.$emit('on-finish', this.now)
                 }
-                this.$emit('change', this.now)
+                this.$emit('on-change', this.now)
             }
             //        console.log(snap)
         },

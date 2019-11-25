@@ -7,7 +7,7 @@
         <hr>
         <xy-timing
             ref="timing"
-            @change="onChange"
+            on-change="onChange"
         ></xy-timing>
         <div>
             <button @click="onStart">start</button>
@@ -18,15 +18,15 @@
         <hr>
         <xy-continue
             :time="new Date(1573009094357)"
-            @change="onChange"
+            @on-change="onChange"
         >
         </xy-continue>
         <h3>倒计时</h3>
         <hr>
         <xy-countdown
             :time="new Date(Date.now() + 1000*10)"
-            @finish="onFinish"
-            @change="onChange"
+            @on-finish="onFinish"
+            @on-change="onChange"
         >
         </xy-countdown>
     </div>

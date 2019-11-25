@@ -4,8 +4,8 @@
       :visible.sync="visible"
       :imgs="imgs"
       :index="index"
-      @change="onChange"
-      @close="onClose"
+      @on-change="onChange"
+      @on-close="onClose"
     ></xy-image-pop>
     <div
       id="xy-html-viewer__point"

@@ -122,7 +122,7 @@ export default {
     },
     current() {
       if (this.data.length > 0) {
-        this.$emit('change', this.data[this.current])
+        this.$emit('on-change', this.data[this.current])
       }
     }
   },

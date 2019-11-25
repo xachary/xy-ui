@@ -21,7 +21,7 @@
       <xy-timer></xy-timer>
       <h3>Timing</h3>
       <hr />
-      <xy-timing ref="timing" @change="onChange"></xy-timing>
+      <xy-timing ref="timing" @on-change="onChange"></xy-timing>
       <div>
         <button @click="onStart">start</button>
         <button @click="onPause">pause</button>
@@ -29,16 +29,16 @@
       </div>
       <h3>Continue</h3>
       <hr />
-      <xy-continue @change="onChange"> </xy-continue>
+      <xy-continue @on-change="onChange"> </xy-continue>
       <br />
-      <xy-continue :time="new Date(1573009094357)" @change="onChange">
+      <xy-continue :time="new Date(1573009094357)" @on-change="onChange">
       </xy-continue>
       <h3>Countdown</h3>
       <hr />
       <xy-countdown
         :time="new Date(Date.now() + 1000*30)"
-        @finish="onFinish"
-        @change="onChange"
+        @on-finish="onFinish"
+        @on-change="onChange"
       >
       </xy-countdown>
       <h3>Config(xy-timing)</h3>
@@ -75,7 +75,7 @@
           <th colspan="4">Event</th>
         </tr>
         <tr>
-          <td>change</td>
+          <td>on-change</td>
           <td>Change event</td>
           <td>Function<br />(time:Number)</td>
           <td>Empty</td>
@@ -104,7 +104,7 @@
           <th colspan="4">Event</th>
         </tr>
         <tr>
-          <td>change</td>
+          <td>on-change</td>
           <td>Change event</td>
           <td>Function<br />(time:Number)</td>
           <td>Empty</td>
@@ -124,7 +124,7 @@
           <th colspan="4">Event</th>
         </tr>
         <tr>
-          <td>change</td>
+          <td>on-change</td>
           <td>Change event</td>
           <td>Function<br />(time:Number)</td>
           <td>Empty</td>

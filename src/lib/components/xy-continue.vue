@@ -58,7 +58,7 @@ export default {
                 this.min = Math.floor((snap % 3600000) / 60000) // 1000 / 60
                 this.sec = Math.floor((snap % 60000) / 1000) // 1000
 
-                this.$emit('change', this.now)
+                this.$emit('on-change', this.now)
             }
         },
         start() {

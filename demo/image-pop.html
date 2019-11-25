@@ -36,8 +36,8 @@
           :visible.sync="visible"
           :imgs="imgs"
           :index="index"
-          @change="onChange"
-          @close="onClose"
+          @on-change="onChange"
+          @on-close="onClose"
         ></xy-image-pop>
         <h3>sample</h3>
         <section>
@@ -61,10 +61,70 @@
           <th>Default</th>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>visible</td>
+          <td>Show image pop</td>
+          <td>Boolean</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>index</td>
+          <td>Show image by index</td>
+          <td>Number</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>imgs</td>
+          <td>Image array</td>
+          <td>Array</td>
+          <td>[]</td>
+        </tr>
+        <tr>
+          <th colspan="4">Each image info</th>
+        </tr>
+        <tr>
+          <td>src</td>
+          <td>Image url<br />(Large one)</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <td>msrc</td>
+          <td>Thumbnail url<br />(Small one,same as src when msrc is empty)</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>Title blow</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <th colspan="4">img element props</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>Help to find thumbnail element for animation</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <td>data-id</td>
+          <td>Help to find thumbnail element for animation when id is empty</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <td>@on-change</td>
+          <td>Event swipe change</td>
+          <td>Function</td>
+          <td>Empty</td>
+        </tr>
+        <tr>
+          <td>@on-close</td>
+          <td>Event pop close</td>
+          <td>Function</td>
+          <td>Empty</td>
         </tr>
       </table>
     </div>

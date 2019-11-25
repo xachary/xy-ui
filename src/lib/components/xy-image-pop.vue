@@ -152,7 +152,7 @@ export default {
       });
       this.gallery.listen('afterChange', () => {
         this.$emit('update:index', this.gallery.getCurrentIndex())
-        this.$emit('change', this.gallery.getCurrentIndex())
+        this.$emit('on-change', this.gallery.getCurrentIndex())
         this.idx = this.gallery.getCurrentIndex()
       });
       // 加载原图的尺寸
@@ -174,7 +174,7 @@ export default {
         }
       })
       this.gallery.listen('close', () => {
-        this.$emit('close')
+        this.$emit('on-close')
       })
       this.gallery.init()
     },

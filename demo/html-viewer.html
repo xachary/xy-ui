@@ -32,7 +32,7 @@
   <body>
     <div id="app">
       <div class="pad">
-        <h3>auto iteration, for html content</h3>
+        <h3>Html viewer(Lazyload + Image pop)</h3>
         <xy-html-viewer :html="html"></xy-html-viewer>
       </div>
       <h3>Config</h3>
@@ -45,10 +45,37 @@
           <th>Default</th>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>html</td>
+          <td>Html str</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <th colspan="4">img element props</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>Help to find thumbnail element for animation</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <td>data-id</td>
+          <td>Help to find thumbnail element for animation when id is empty</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <td>src</td>
+          <td>Image url<br />(Small one when data-lsrc is not empty)</td>
+          <td>String</td>
+          <td>''</td>
+        </tr>
+        <tr>
+          <td>lsrc</td>
+          <td>Image url<br />(Large one)</td>
+          <td>String</td>
+          <td>''</td>
         </tr>
       </table>
     </div>
