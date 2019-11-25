@@ -50,8 +50,6 @@
             :id="item.id"
           />
         </section>
-        <h3>auto iteration, for html content</h3>
-        <section v-html="html"></section>
       </div>
       <h3>Config</h3>
       <hr />
@@ -96,10 +94,7 @@
             visible: false,
             //
             imgs: imgs,
-            index: 0,
-            //
-            html:
-              '<img src="http://dummyimage.com/100x100"><img src="http://dummyimage.com/100x200"><img src="http://dummyimage.com/200x100">'
+            index: 0
           }
         },
         methods: {
