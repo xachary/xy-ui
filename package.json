@@ -1,8 +1,8 @@
 {
-  "name": "xy-ui",
-  "version": "1.0.0",
-  "description": "vue image pop component",
-  "main": "src/main.js",
+  "name": "@xachary/xy-ui",
+  "version": "0.0.1",
+  "description": "vue ui lib",
+  "main": "dist/xy-ui.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0",
     "start": "./node_modules/spa-http-server/bin/http-server -p 6666 --push-state",
@@ -14,8 +14,10 @@
   },
   "keywords": [
     "vue",
-    "image",
-    "viewer"
+    "ui",
+    "component",
+    "directive",
+    "filter"
   ],
   "author": "xachary",
   "license": "ISC",
@@ -24,9 +26,11 @@
   },
   "homepage": "https://github.com/xachary/xy-ui#readme",
   "dependencies": {
+    "photoswipe": "^4.1.3",
     "vue": "^2.6.10",
     "vue-lazyload": "^1.2.6",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vux": "^2.9.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -35,8 +39,9 @@
     "babel-preset-stage-3": "^6.24.1",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^6.0.3",
-    "css-loader": "^0.28.7",
+    "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^4.3.0",
     "node-sass": "^4.5.3",
     "rollup-copy-plugin": "^0.1.0",
     "rollup-plugin-commonjs": "^9.2.0",
@@ -46,7 +51,9 @@
     "rollup-plugin-vue": "^4.3.2",
     "sass-loader": "^6.0.6",
     "spa-http-server": "^0.9.0",
+    "url-loader": "^2.3.0",
     "vue-loader": "^13.0.5",
+    "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"

@@ -14,29 +14,26 @@
     <link rel="stylesheet" href="../dist/xy-ui.css" />
     <link rel="stylesheet" href="./demo.css" />
     <style>
-      .sample {
-        height: 200vh;
-        line-height: 100vh;
-        text-align: center;
-        box-shadow: 0 0 50px 0 #333 inset;
+      h3 {
+        margin: 5px;
+      }
+      section {
+        display: flex;
+        align-items: flex-start;
+        background-color: #eee;
+      }
+      section img {
+        width: 0;
+        flex-grow: 1;
+        margin: 5px;
       }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="sample">
-        <div
-          style="background-color:rgba(0,0,255,0.3);height:4em;line-height:4em;"
-        >
-          other
-        </div>
-        <div
-          style="background-color:rgba(0,255,0,0.3);height:3em;line-height:3em;"
-          v-xy-keep-top
-        >
-          Keep top
-        </div>
-        scroll me down
+      <div class="pad">
+        <h3>auto iteration, for html content</h3>
+        <xy-html-viewer :html="html"></xy-html-viewer>
       </div>
       <h3>Config</h3>
       <hr />
@@ -59,11 +56,19 @@
         el: '#app',
         data() {
           return {
-            status: ''
+            html: `<p><img src="http://dummyimage.com/100x100" data-lsrc="http://dummyimage.com/1000x1000">12345
+      <img src="http://dummyimage.com/100x200" data-title="100x200">67890
+      <img src="http://dummyimage.com/200x100" id="id1">abcdd
+      <img src="http://dummyimage.com/300x100" data-id="id2">efghi</p>`
           }
         },
         methods: {},
-        mounted() {}
+        mounted() {
+          // let that = this
+          // setTimeout(() => {
+          //     that.html = `<p><img src="http://dummyimage.com/100x100" data-lsrc="http://dummyimage.com/1000x1000"></p>`
+          // }, 3000)
+        }
       })
     </script>
   </body>

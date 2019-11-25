@@ -55,6 +55,10 @@
     <h3>
       <router-link to="/image-pop">Image pop</router-link>
     </h3>
+    <hr />
+    <h3>
+      <router-link to="/html-viewer">Html viewer</router-link>
+    </h3>
   </div>
 </template>
 

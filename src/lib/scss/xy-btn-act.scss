@@ -58,7 +58,7 @@
   &[xy-btn-act-wave--moving]:not([disabled]) {
     .xy-btn-act-wave__circle {
       position: absolute;
-      z-index: 0;
+      z-index: 999;
       border-radius: 50%;
       animation: xy-btn-act-wave 0.5s ease-out;
       opacity: 0;

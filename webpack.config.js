@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -40,11 +40,21 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
+      // {
+      //   test: /\.(png|jpe?g|gif|svg)$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: '[name].[ext]?[hash]',
+      //     outputPath: 'images'
+      //   }
+      // },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        test: /\.(gif|png|jpe?g|woff|svg|ttf|eot)$/,
+        loader: 'url-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          limit: 4096,
+          outputPath: 'images/',
+          name: '[name].[ext]'
         }
       }
     ]
@@ -53,19 +63,19 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'xy-ui.css',
       allChunks: true
-    }),
-    new CopyWebpackPlugin([
-      // {
-      //   from: 'src/lib/scss/_mixin.scss',
-      //   to: '_mixin.scss',
-      //   force: true
-      // },
-      // {
-      //   from: 'src/lib/style/normalize-8.0.0.css',
-      //   to: 'style/normalize-8.0.0.css',
-      //   force: true
-      // }
-    ])
+    })
+    // new CopyWebpackPlugin([
+    // {
+    //   from: 'src/lib/scss/_mixin.scss',
+    //   to: '_mixin.scss',
+    //   force: true
+    // },
+    // {
+    //   from: 'src/lib/style/normalize-8.0.0.css',
+    //   to: 'style/normalize-8.0.0.css',
+    //   force: true
+    // }
+    // ])
   ],
   resolve: {
     alias: {

@@ -3,22 +3,21 @@
         <xy-image-pop
             :visible.sync="visible"
             :imgs="imgs"
-            :cur="cur"
+            :index="index"
             @change="onChange"
+            @close="onClose"
         ></xy-image-pop>
         <h3>sample</h3>
         <section>
             <img
-                v-for="item in imgs"
-                :src="item"
-                :key="item"
-                @click="onImagePop(item)"
+                v-for="(item,index) in imgs"
+                :src="item.msrc||item.src"
+                :key="index"
+                @click="onImagePop(index)"
+                :data-id="item.id"
+                :id="item.id"
             >
         </section>
-        <h3>auto iteration, for html content</h3>
-        <section v-html="html">
-        </section>
-        <!-- <div style="height:100vh;background-color:red;"></div> -->
     </div>
 </template>
 
@@ -27,29 +26,41 @@ export default {
     components: {
     },
     data() {
-        let now = (new Date()).getTime()
-        let imgs = [`http://dummyimage.com/100x100`, `http://dummyimage.com/100x200`, `http://dummyimage.com/200x100`]
+        let imgs = [
+            {
+                src: 'http://dummyimage.com/100x100',
+                // msrc: 'http://dummyimage.com/100x100',
+                title: '标题：1',
+                id: 'aaa'
+            },
+            {
+                src: 'http://dummyimage.com/500x3000',
+                msrc: 'http://dummyimage.com/50x300',
+                title: '标题：2',
+                id: 'bbb'
+            },
+            {
+                src: 'http://dummyimage.com/2000x1000',
+                msrc: 'http://dummyimage.com/200x100',
+                // title: '标题：3'
+            }
+        ]
         return {
             visible: false,
             //
             imgs: imgs,
-            cur: '',
-            //
-            html: `<img src="http://dummyimage.com/100x100">
-      <img src="http://dummyimage.com/100x200">
-      <img src="http://dummyimage.com/200x100">`
+            index: 0
         }
     },
     methods: {
-        onChange(type, data) {
-            // let that = this
-            // //        debugger
-            // // 这里有setter, 可以改变预览图
-            // data.img = this.imgTest3
-            console.log([type, data])
+        onChange(index) {
+            console.log(index)
         },
-        onImagePop(cur) {
-            this.cur = cur
+        onClose() {
+            console.log('close')
+        },
+        onImagePop(index) {
+            this.index = index
             this.visible = !this.visible
         }
     },
