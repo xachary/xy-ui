@@ -17,10 +17,10 @@
   <body>
     <div id="app" class="pad">
       <h3>Current time</h3>
-      <hr />
+      
       <xy-timer></xy-timer>
       <h3>Timing</h3>
-      <hr />
+      
       <xy-timing ref="timing" @on-change="onChange"></xy-timing>
       <div>
         <button @click="onStart">start</button>
@@ -28,13 +28,13 @@
         <button @click="onReset">reset</button>
       </div>
       <h3>Continue</h3>
-      <hr />
+      
       <xy-continue @on-change="onChange"> </xy-continue>
       <br />
       <xy-continue :time="new Date(1573009094357)" @on-change="onChange">
       </xy-continue>
       <h3>Countdown</h3>
-      <hr />
+      
       <xy-countdown
         :time="new Date(Date.now() + 1000*30)"
         @on-finish="onFinish"
@@ -42,7 +42,7 @@
       >
       </xy-countdown>
       <h3>Config(xy-timing)</h3>
-      <hr />
+      
       <table border="0" cellpadding="0" cellspacing="0">
         <tr>
           <th>Name</th>
@@ -83,7 +83,7 @@
       </table>
 
       <h3>Config(xy-continue)</h3>
-      <hr />
+      
       <table border="0" cellpadding="0" cellspacing="0">
         <tr>
           <th>Name</th>
@@ -112,7 +112,7 @@
       </table>
 
       <h3>Config(xy-countdown)</h3>
-      <hr />
+      
       <table border="0" cellpadding="0" cellspacing="0">
         <tr>
           <th>Name</th>

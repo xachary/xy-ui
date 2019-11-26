@@ -1,7 +1,7 @@
 <template>
     <div class="pad">
         <h3>Format</h3>
-        <hr />
+        
         <div>'100.1234' -> {{'100.1234' | $xyFormat.number.format}}</div>
         <div>'0' -> {{'0' | $xyFormat.number.format}}</div>
         <div>'0001234' -> {{'0001234' | $xyFormat.number.format}}</div>
@@ -35,7 +35,7 @@
         <div>'123456--789.01-2.3' -> '{{'123456--789.01-2.3' | $xyFormat.number.format({fixed:2,comma:true,plus:true})}}'</div>
 
         <h3>Number after point</h3>
-        <hr />
+        
         <div>100.2345 -> '{{100.1234 | $xyFormat.number.numberAfterPoint}}'</div>
         <div>'100.1200' -> '{{'100.1200' | $xyFormat.number.numberAfterPoint}}'</div>
         <div>100 -> '{{100 | $xyFormat.number.numberAfterPoint}}'</div>

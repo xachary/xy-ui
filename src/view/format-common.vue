@@ -1,7 +1,7 @@
 <template>
     <div class="pad">
         <h3>Default value</h3>
-        <hr />
+        
         <div>'' -> '{{'' | $xyFormat.common.def('Empty')}}'</div>
         <div>0 -> {{0 | $xyFormat.common.def('Empty')}}</div>
         <h3>Combine filters</h3>

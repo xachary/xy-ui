@@ -25,19 +25,19 @@
   <body>
     <div id="app" class="pad">
       <h3>Lazyload(Default)</h3>
-      <hr />
+      
       <xy-lazyload :src="imgTest" class="sample"></xy-lazyload>
       <h3>Size contain</h3>
-      <hr />
+      
       <xy-lazyload :src="imgTest" size="contain" class="sample"></xy-lazyload>
       <xy-lazyload :src="imgTest2" size="contain" class="sample"></xy-lazyload>
       <h3>Size cover</h3>
-      <hr />
+      
       <xy-lazyload :src="imgTest" size="cover" class="sample"></xy-lazyload>
       <h3>Load fail</h3>
       <xy-lazyload src="xxx" size="contain" class="sample"></xy-lazyload>
       <h3>Load fail image</h3>
-      <hr />
+      
       <xy-lazyload
         src="xxx"
         size="contain"
@@ -51,7 +51,7 @@
         :error-img="errorImg"
       ></xy-lazyload>
       <h3>Config</h3>
-      <hr />
+      
       <table border="0" cellpadding="0" cellspacing="0">
         <tr>
           <th>Name</th>

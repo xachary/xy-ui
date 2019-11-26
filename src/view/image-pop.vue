@@ -7,7 +7,7 @@
             @on-change="onChange"
             @on-close="onClose"
         ></xy-image-pop>
-        <h3>sample</h3>
+        <h3>Image pop</h3>
         <section>
             <img
                 v-for="(item,index) in imgs"
@@ -71,11 +71,6 @@ export default {
 
 <style lang="scss">
 @import '~@/lib/scss/mixin';
-
-h3 {
-  margin: 5px;
-}
-
 section {
   display: flex;
   align-items: flex-start;

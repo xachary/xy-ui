@@ -1,7 +1,7 @@
 <template>
     <div class="sample">
         <h3>ScrollBottom</h3>
-        <button @click="$xyTool.scrollBottom()">Click me</button>
+        <div><button @click="$xyTool.scrollBottom()">Click me</button></div>
         <h3>Delay</h3>
         <div>
             <button @click="onStart">Delay 2s</button>
@@ -15,16 +15,18 @@
                 :style="{top:top+'%',left:left+'%'}"
             ></i>
         </div>
-        <button @click="onLinear">Linear</button><br><br>
-        <button @click="onCircularEaseInOut">CircularEaseInOut</button><br><br>
-        <button @click="onCubicEaseOut">CubicEaseOut</button><br><br>
-        <button @click="onQuartEaseOut">QuartEaseOut</button><br><br>
-        <button @click="onExpoEaseOut">ExpoEaseOut</button><br><br>
-        <button @click="onLinearCircularEaseInOut">Linear + CircularEaseInOut</button><br><br>
-        <button @click="onCubicEaseOutExpoEaseOut">CubicEaseOut + ExpoEaseOut</button><br><br>
+        <div>
+            <button @click="onLinear">Linear</button><br><br>
+            <button @click="onCircularEaseInOut">CircularEaseInOut</button><br><br>
+            <button @click="onCubicEaseOut">CubicEaseOut</button><br><br>
+            <button @click="onQuartEaseOut">QuartEaseOut</button><br><br>
+            <button @click="onExpoEaseOut">ExpoEaseOut</button><br><br>
+            <button @click="onLinearCircularEaseInOut">Linear + CircularEaseInOut</button><br><br>
+            <button @click="onCubicEaseOutExpoEaseOut">CubicEaseOut + ExpoEaseOut</button><br><br>
+        </div>
         <div style="height: 100vh"></div>
         <h3>ScrollTop</h3>
-        <button @click="$xyTool.scrollTop()">Click me</button>
+        <div><button @click="$xyTool.scrollTop()">Click me</button></div>
     </div>
 </template>
 

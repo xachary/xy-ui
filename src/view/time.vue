@@ -1,10 +1,10 @@
 <template>
     <div class="pad">
         <h3>当前时间</h3>
-        <hr>
+
         <xy-timer></xy-timer>
         <h3>计时</h3>
-        <hr>
+
         <xy-timing
             ref="timing"
             on-change="onChange"
@@ -15,14 +15,14 @@
             <button @click="onReset">reset</button>
         </div>
         <h3>从指定时间开始计时</h3>
-        <hr>
+
         <xy-continue
             :time="new Date(1573009094357)"
             @on-change="onChange"
         >
         </xy-continue>
         <h3>倒计时</h3>
-        <hr>
+
         <xy-countdown
             :time="new Date(Date.now() + 1000*10)"
             @on-finish="onFinish"

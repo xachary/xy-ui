@@ -25,3 +25,6 @@ export default {
   }
 }
 </script>
+
+<style src="../demo/iconfont/iconfont.css"></style>
+<style src="../demo/demo.css"></style>
