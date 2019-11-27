@@ -15,9 +15,7 @@ import xyKeepTop from '@/lib/directives/xy-keep-top'
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
 import xyBtnAct from '@/lib/directives/xy-btn-act'
 // import xyImagePopDirectives from '@/lib/directives/xy-btn-act'
-// 迁移，待重构
-import xyArticle from './components/xy-article.vue'
-import xyPopImage from './directives/xy-pop-image'
+//
 
 const xyUI = {
   install(Vue) {
@@ -44,13 +42,10 @@ const xyUI = {
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)
     Vue.directive(xyBtnAct.name, xyBtnAct)
-    // 迁移，待重构
-    Vue.component(xyArticle.name, xyArticle)
-    Vue.directive(xyPopImage.name, xyPopImage)
   },
-  $xyFormat: xyPrototypes.$xyFormat,
-  $xyTool: xyPrototypes.$xyTool,
-  $xyValidate: xyPrototypes.$xyValidate,
+  xyFormat: xyPrototypes.$xyFormat,
+  xyTool: xyPrototypes.$xyTool,
+  xyValidate: xyPrototypes.$xyValidate,
   //
   xyLazyload,
   xySlider,
@@ -65,10 +60,7 @@ const xyUI = {
   //
   xyKeepTop,
   xyPullRefresh,
-  xyBtnAct,
-  // 迁移，待重构
-  xyArticle,
-  xyPopImage
+  xyBtnAct
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

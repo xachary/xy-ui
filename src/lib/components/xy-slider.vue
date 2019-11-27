@@ -105,7 +105,13 @@ export default {
       for (let i = 0; i < this.data.length; i++) {
         this.data[i].$index = i
       }
-      return [...this.data, ...this.data, ...this.data]
+      let temp = JSON.parse(JSON.stringify([...this.data, ...this.data, ...this.data]))
+      return temp.map((o, i) => {
+        if (i >= this.data.length) {
+          o.imagePopId = `id${i}`
+        }
+        return o
+      })
     },
     current() {
       // 当前数据序号

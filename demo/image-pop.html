@@ -52,7 +52,7 @@
         </section>
       </div>
       <h3>Config</h3>
-      
+
       <table border="0" cellpadding="0" cellspacing="0">
         <tr>
           <th>Name</th>
@@ -80,6 +80,9 @@
         </tr>
         <tr>
           <th colspan="4">Each image info</th>
+        </tr>
+        <tr>
+          <td colspan="4">Don`t put this component into "v-xy-pull-refresh"</td>
         </tr>
         <tr>
           <td>src</td>
@@ -136,20 +139,20 @@
         data() {
           let imgs = [
             {
-              src: 'http://dummyimage.com/100x100',
-              // msrc: 'http://dummyimage.com/100x100',
+              src: 'http://dummyimage.com/300x300',
+              // msrc: 'http://dummyimage.com/100x100=Origin+image',
               title: '标题：1',
               id: 'aaa'
             },
             {
-              src: 'http://dummyimage.com/500x3000',
-              msrc: 'http://dummyimage.com/50x300',
+              src: 'http://dummyimage.com/1000x600&text=1000x600(origin)',
+              msrc: 'http://dummyimage.com/100x60&text=100x60(thumbnail)',
               title: '标题：2',
               id: 'bbb'
             },
             {
-              src: 'http://dummyimage.com/2000x1000',
-              msrc: 'http://dummyimage.com/200x100'
+              src: 'http://dummyimage.com/2000x1000&text=2000x1000(origin)',
+              msrc: 'http://dummyimage.com/200x100&text=200x100(thumbnail)'
               // title: '标题：3'
             }
           ]

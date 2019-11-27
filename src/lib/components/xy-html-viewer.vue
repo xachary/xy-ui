@@ -51,34 +51,37 @@ export default {
     update() {
       let that = this
       if (this.html && !this.done) {
-        let tpl = this.html
+        let tpl = this.html.replace(/\n/g, '')
         let reg = ''
         this.imgs = []
-        let imgs = this.html.match(/<img.*?src=["'].*?["'].*?>/g)
-        for (let i = 0; i < imgs.length; i++) {
-          let info = {
-            src: imgs[i].match(/<img.*?src=["'](.*?)["'].*?>/)[1],
-            msrc: imgs[i].match(/<img.*?src=["'](.*?)["'].*?>/)[1],
-            index: i
-          }
+        let imgs = tpl.match(/<img[^<>]*?src=["'].*?["'][^<>]*?>/g)
+        if (imgs) {
+          for (let i = 0; i < imgs.length; i++) {
+            let info = {
+              src: imgs[i].match(/<img[^<>]*?src=["'](.*?)["'][^<>]*?>/)[1],
+              msrc: imgs[i].match(/<img[^<>]*?src=["'](.*?)["'][^<>]*?>/)[1],
+              index: i
+            }
 
-          let tryLsrc = imgs[i].match(/<img.*?data-lsrc=["'](.*?)["'].*?>/)
-          if (tryLsrc) {
-            info.src = tryLsrc[1]
+            let tryLsrc = imgs[i].match(/<img[^<>]*?data-lsrc=["'](.*?)["'][^<>]*?>/)
+            if (tryLsrc) {
+              info.src = tryLsrc[1]
+            }
+            let tryTitle = imgs[i].match(/<img[^<>]*?data-title=["'](.*?)["'][^<>]*?>/)
+            if (tryTitle) {
+              info.title = tryTitle[1]
+            }
+            let tryId = imgs[i].match(/<img[^<>]*?id=["'](.*?)["'][^<>]*?>/) || imgs[i].match(/<img[^<>]*?data-id=["'](.*?)["'][^<>]*?>/)
+            if (tryId) {
+              info.id = tryId[1]
+            }
+            this.imgs.push(info)
+            reg = new RegExp(`<img[^<>]*?src=["']${info.msrc.replace(/([()])/g, '\\$1')}["'][^<>]*?>`)
+            tpl = tpl.replace(reg, `<div class="lazy-load"><img v-lazy="'${info.msrc}'" @click="onImagePop(${i})"></div>`)
           }
-          let tryTitle = imgs[i].match(/<img.*?data-title=["'](.*?)["'].*?>/)
-          if (tryTitle) {
-            info.title = tryTitle[1]
-          }
-          let tryId = imgs[i].match(/<img.*?id=["'](.*?)["'].*?>/) || imgs[i].match(/<img.*?data-id=["'](.*?)["'].*?>/)
-          if (tryId) {
-            info.id = tryId[1]
-          }
-          this.imgs.push(info)
-
-          reg = new RegExp(`(<img.*?)(src=["'])${info.msrc}(["'])(.*?>)`)
-          tpl = '<div>' + tpl.replace(reg, `<div class="lazy-load"><img v-lazy="'${info.msrc}'" @click="onImagePop(${i})"></div>`) + '</div>'
         }
+
+        tpl = `<div>${tpl}</div>`
 
         var text = Vue.extend({
           template: tpl,

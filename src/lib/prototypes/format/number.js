@@ -14,7 +14,8 @@ function format(
     },
     opt
   )
-  let parsed = v.toString()
+
+  let parsed = v && v.toString ? v.toString() : ''
   parsed = parsed.replace(/[^\d.-]/g, '')
   parsed = parsed.replace(/^[^\d-]/g, '')
   let isF = /^-/.test(parsed)

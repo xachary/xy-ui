@@ -11,6 +11,7 @@ function pullRefresh(cb, el) {
 }
 
 function touchstart(el, { touches: [touch] }) {
+  console.log('touchstart')
   el.classList.add('xy-pull-refresh')
   let { clientY: y } = touch
   sy = Math.round(y)
@@ -23,6 +24,7 @@ function touchstart(el, { touches: [touch] }) {
 }
 
 function touchmove(el, e) {
+  console.log('touchmove')
   let {
     touches: [touch]
   } = e

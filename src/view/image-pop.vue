@@ -1,5 +1,21 @@
 <template>
-    <div class="pad">
+    <div>
+        <div
+            class="pad"
+            v-xy-pull-refresh
+        >
+            <h3>Image pop</h3>
+            <section>
+                <img
+                    v-for="(item,index) in imgs"
+                    :src="item.msrc||item.src"
+                    :key="index"
+                    @click="onImagePop(index)"
+                    :data-id="item.id"
+                    :id="item.id"
+                >
+            </section>
+        </div>
         <xy-image-pop
             :visible.sync="visible"
             :imgs="imgs"
@@ -7,17 +23,6 @@
             @on-change="onChange"
             @on-close="onClose"
         ></xy-image-pop>
-        <h3>Image pop</h3>
-        <section>
-            <img
-                v-for="(item,index) in imgs"
-                :src="item.msrc||item.src"
-                :key="index"
-                @click="onImagePop(index)"
-                :data-id="item.id"
-                :id="item.id"
-            >
-        </section>
     </div>
 </template>
 
@@ -28,20 +33,20 @@ export default {
     data() {
         let imgs = [
             {
-                src: 'http://dummyimage.com/100x100',
-                // msrc: 'http://dummyimage.com/100x100',
+                src: 'http://dummyimage.com/300x300',
+                // msrc: 'http://dummyimage.com/100x100=Origin+image',
                 title: '标题：1',
                 id: 'aaa'
             },
             {
-                src: 'http://dummyimage.com/500x3000',
-                msrc: 'http://dummyimage.com/50x300',
+                src: 'http://dummyimage.com/1000x600&text=1000x600(origin)',
+                msrc: 'http://dummyimage.com/100x60&text=100x60(thumbnail)',
                 title: '标题：2',
                 id: 'bbb'
             },
             {
-                src: 'http://dummyimage.com/2000x1000',
-                msrc: 'http://dummyimage.com/200x100',
+                src: 'http://dummyimage.com/2000x1000&text=2000x1000(origin)',
+                msrc: 'http://dummyimage.com/200x100&text=200x100(thumbnail)'
                 // title: '标题：3'
             }
         ]

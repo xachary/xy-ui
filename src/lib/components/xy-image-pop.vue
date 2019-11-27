@@ -79,6 +79,10 @@ export default {
     index: {
       type: Number,
       default: 0
+    },
+    scale: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -113,7 +117,7 @@ export default {
     },
     init() {
       let that = this
-      this.gallery = new PhotoSwipe(this.$refs.pswp, UI, this.imgsParsed, {
+      let config = {
         index: this.idx === 0 ? this.index : this.idx,
         maxSpreadZoom: 3,
         bgOpacity: 0.8,
@@ -124,10 +128,12 @@ export default {
         ],
         zoomEl: false,
         fullscreenEl: false,
-        arrowEl: false,
+        arrowEl: false
+      }
+      if (this.scale) {
         // 实现打开放大、关闭缩小效果（预览图 <-> 缩略图）。
         // 如果设置了“Disable cache”，打开放大效果无法出现。
-        getThumbBoundsFn(index) {
+        config.getThumbBoundsFn = function (index) {
           // 查找缩略图元素
           // 优先级依次为：id===item.id、data-id===item.id、src===item.msrc、src===item.src
           let thumbnail = document.querySelector(`#${that.imgsParsed[index].id}:not(.pswp__img),[data-id="${that.imgsParsed[index].id}"]:not(.pswp__img),[src="${that.imgsParsed[index].msrc}"]:not(.pswp__img),[src="${that.imgsParsed[index].src}"]:not(.pswp__img)`)
@@ -146,7 +152,8 @@ export default {
             // http://javascript.info/tutorial/coordinates
           }
         }
-      })
+      }
+      this.gallery = new PhotoSwipe(this.$refs.pswp, UI, this.imgsParsed, config)
       this.gallery.listen('close', () => {
         this.$emit('update:visible', false)
       });
@@ -176,6 +183,7 @@ export default {
       this.gallery.listen('close', () => {
         this.$emit('on-close')
       })
+
       this.gallery.init()
     },
     showOrHide() {
@@ -223,9 +231,13 @@ export default {
         size.h = height / (width / max) * 2
       }
       return size
+    },
+    onStop() {
+      debugger
     }
   },
   mounted() {
+
   },
   beforeDestroy() {
   }
@@ -237,8 +249,10 @@ export default {
 
 <style lang="scss">
 .xy-image-pop {
-  .pswp__caption__center {
-    max-width: none;
+  .pswp {
+    .pswp__caption__center {
+      max-width: none;
+    }
   }
 }
 </style>
