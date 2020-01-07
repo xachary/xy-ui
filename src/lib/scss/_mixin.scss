@@ -21,3 +21,10 @@
   -webkit-line-clamp: $line;
   word-wrap: break-word;
 }
+
+// 如：3个文字要占用4em的宽度，间隙平分对齐.
+@mixin text-justify($charLen:3em) {
+  width: 1em * $charLen;
+  text-align: justify;
+  text-align-last: justify;
+}
