@@ -6,18 +6,16 @@ let width = 0
 let zindex = 0
 let boxshadow = 'none'
 let height = 0
-let scrolly2 = 0
 let checkTimer = null
 let checkCount = 0
 let stop = false
 
 function resetCheck(el) {
   if (
-    window.scrollY <= scrolly2 ||
     (window.scrollY <= 1 && window.scrollY <= scrolly)
   ) {
     stop = true
-    setTimeout(function() {
+    setTimeout(function () {
       stop = false
     }, 300)
     el.style.position = position
@@ -26,7 +24,6 @@ function resetCheck(el) {
     el.style.width = width
     el.style.zIndex = zindex
     el.style.boxShadow = boxshadow
-    // el.classList.remove('xy-keep-top--ing')
     el.removeAttribute('xy-keep-top--ing')
     if (el.nextElementSibling) {
       el.nextElementSibling.style.marginTop = 0
@@ -55,14 +52,12 @@ function scroll(el) {
       width = el.style.width
       zindex = el.style.zIndex
       boxshadow = el.style.boxShadow
-      scrolly2 = window.scrollY
       el.style.position = 'fixed'
       el.style.top = '0'
       el.style.left = '0'
       el.style.width = '100%'
       el.style.zIndex = '100'
       el.style.boxShadow = '0 1px 10px rgba(0,0,0,.1)'
-      // el.classList.add('xy-keep-top--ing')
       el.setAttribute('xy-keep-top--ing', '')
       if (el.nextElementSibling) {
         el.nextElementSibling.style.marginTop = `${height}px`
@@ -70,8 +65,8 @@ function scroll(el) {
       scrolly = window.scrollY
 
       checkCount = 0
-      checkTimer = setInterval(function() {
-        console.log(checkCount)
+      checkTimer = setInterval(function () {
+        // console.log(checkCount)
         checkCount++
         resetCheck(el)
       }, 200)
@@ -79,22 +74,21 @@ function scroll(el) {
   }
 }
 
-let scrollCb = function() {
+let scrollCb = function () {
   console.warn('no scroll callback function')
 }
 
 export default {
   name: 'xy-keep-top',
-  bind: function(el) {
-    // el.classList.add('xy-keep-top')
+  bind: function (el) {
     el.setAttribute('xy-keep-top', '')
     scrollCb = scroll.bind({}, el)
     window.addEventListener('scroll', scrollCb)
   },
-  inserted: function(el) {
+  inserted: function (el) {
     height = el.offsetHeight
   },
-  unbind: function() {
+  unbind: function () {
     window.removeEventListener('scroll', scrollCb)
   }
 }
