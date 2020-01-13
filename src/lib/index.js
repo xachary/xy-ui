@@ -10,6 +10,8 @@ import xyListStatus from '@/lib/components/xy-list-status'
 import xyScrollBottom from '@/lib/components/xy-scroll-bottom'
 import xyImagePop from '@/lib/components/xy-image-pop'
 import xyHtmlViewer from './components/xy-html-viewer.vue'
+import xyConfirm from './components/xy-pop/confirm.vue'
+import xyAlert from './components/xy-pop/alert.vue'
 //
 import xyKeepTop from '@/lib/directives/xy-keep-top'
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
@@ -38,6 +40,8 @@ const xyUI = {
     Vue.component(xyScrollBottom.name, xyScrollBottom)
     Vue.component(xyImagePop.name, xyImagePop)
     Vue.component(xyHtmlViewer.name, xyHtmlViewer)
+    Vue.component(xyConfirm.name, xyConfirm)
+    Vue.component(xyAlert.name, xyAlert)
     //
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)

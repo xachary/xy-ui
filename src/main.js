@@ -20,6 +20,7 @@ import validate from '@/view/validate'
 
 import imagePop from '@/view/image-pop.vue'
 import htmlViewer from '@/view/html-viewer.vue'
+import pop from '@/view/pop.vue'
 
 const router = new VueRouter({
   routes: [
@@ -83,7 +84,6 @@ const router = new VueRouter({
       path: '/validate',
       component: validate
     },
-
     {
       path: '/image-pop',
       component: imagePop
@@ -91,6 +91,10 @@ const router = new VueRouter({
     {
       path: '/html-viewer',
       component: htmlViewer
+    },
+    {
+      path: '/pop',
+      component: pop
     }
   ]
 })

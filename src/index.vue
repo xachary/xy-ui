@@ -59,28 +59,28 @@
     <h3>
       <router-link to="/html-viewer"><span class="iconfont icon-html"></span>Html viewer</router-link>
     </h3>
+
+    <h3>
+      <router-link to="/pop"><span class="iconfont icon-popup"></span>Pop</router-link>
+    </h3>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import xyUi from '@/lib'
+  import Vue from 'vue'
+  import xyUi from '@/lib'
 
-Vue.use(xyUi)
+  Vue.use(xyUi)
 
-export default {
-  name: 'app',
-  components: {
-  },
-  data() {
-    return {
-    }
-  },
-  methods: {
-  },
-  mounted: function () {
+  export default {
+    name: 'app',
+    components: {},
+    data() {
+      return {}
+    },
+    methods: {},
+    mounted: function() {}
   }
-}
 </script>
 
 <style lang="scss">
