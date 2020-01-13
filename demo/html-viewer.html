@@ -1,102 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <meta data-hid="description" name="description" content="xy-ui" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <title>Html viewer</title>
-    <link rel="stylesheet" href="../dist/xy-ui.css" />
-    <link rel="stylesheet" href="./demo.css" />
-    <style>
-      section {
-        display: flex;
-        align-items: flex-start;
-        background-color: #eee;
-      }
-      section img {
-        width: 0;
-        flex-grow: 1;
-        margin: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <div class="pad">
-        <h3>Html viewer(Lazyload + Image pop)</h3>
-        <xy-html-viewer :html="html"></xy-html-viewer>
-      </div>
-      <h3>Config</h3>
 
-      <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Type</th>
-          <th>Default</th>
-        </tr>
-        <tr>
-          <td>html</td>
-          <td>Html str</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <th colspan="4">img element props</th>
-        </tr>
-        <tr>
-          <td>id</td>
-          <td>Help to find thumbnail element for animation</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>data-id</td>
-          <td>Help to find thumbnail element for animation when id is empty</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>src</td>
-          <td>Image url<br />(Small one when data-lsrc is not empty)</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>lsrc</td>
-          <td>Image url<br />(Large one)</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-      </table>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta data-hid="description" name="description" content="xy-ui" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Html viewer</title>
+  <link rel="stylesheet" href="../dist/xy-ui.css" />
+  <link rel="stylesheet" href="./demo.css" />
+  <style>
+    section {
+      display: flex;
+      align-items: flex-start;
+      background-color: #eee;
+    }
+
+    section img {
+      width: 0;
+      flex-grow: 1;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="pad">
+      <h3>Html viewer(Lazyload + Image pop)</h3>
+      <xy-html-viewer :html="html"></xy-html-viewer>
     </div>
-    <script src="../vue@2.6.10.js"></script>
-    <script src="../dist/xy-ui.js"></script>
-    <script>
-      new Vue({
-        el: '#app',
-        data() {
-          return {
-            html: `<p><img src="http://dummyimage.com/100x100&text=100x100(thumbnail)" data-lsrc="http://dummyimage.com/1000x1000&text=1000x1000(origin)">12345
+    <h3>Config</h3>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Default</th>
+      </tr>
+      <tr>
+        <td>html</td>
+        <td>Html str</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <th colspan="4">img element props</th>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>Help to find thumbnail element for animation</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <td>data-id</td>
+        <td>Help to find thumbnail element for animation when id is empty</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <td>src</td>
+        <td>Image url<br />(Small one when data-lsrc is not empty)</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <td>lsrc</td>
+        <td>Image url<br />(Large one)</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+    </table>
+  </div>
+  <script src="../vue@2.6.10.js"></script>
+  <script src="../dist/xy-ui.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          html: `<p><img src="http://dummyimage.com/100x100&text=100x100(thumbnail)" data-lsrc="http://dummyimage.com/1000x1000&text=1000x1000(origin)">12345
       <img src="http://dummyimage.com/100x200" data-title="100x200">67890
       <img src="http://dummyimage.com/200x100" id="id1">abcdd
       <img src="http://dummyimage.com/300x100" data-id="id2">efghi</p>`
-          }
-        },
-        methods: {},
-        mounted() {
-          // let that = this
-          // setTimeout(() => {
-          //     that.html = `<p><img src="http://dummyimage.com/100x100" data-lsrc="http://dummyimage.com/1000x1000"></p>`
-          // }, 3000)
         }
-      })
-    </script>
-  </body>
+      },
+      methods: {},
+      mounted() {
+        // var that = this
+        // setTimeout(() => {
+        //     that.html = `<p><img src="http://dummyimage.com/100x100" data-lsrc="http://dummyimage.com/1000x1000"></p>`
+        // }, 3000)
+      }
+    })
+  </script>
+</body>
+
 </html>

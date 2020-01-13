@@ -1,182 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <meta data-hid="description" name="description" content="xy-ui" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <title>Image pop</title>
-    <link rel="stylesheet" href="../dist/xy-ui.css" />
-    <link rel="stylesheet" href="./demo.css" />
-    <style>
-      h3 {
-        margin: 5px;
-      }
-      section {
-        display: flex;
-        align-items: flex-start;
-        background-color: #eee;
-      }
-      section img {
-        width: 0;
-        flex-grow: 1;
-        margin: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <div class="pad">
-        <xy-image-pop
-          :visible.sync="visible"
-          :imgs="imgs"
-          :index="index"
-          @on-change="onChange"
-          @on-close="onClose"
-        ></xy-image-pop>
-        <h3>sample</h3>
-        <section>
-          <img
-            v-for="(item,index) in imgs"
-            :src="item.msrc||item.src"
-            :key="index"
-            @click="onImagePop(index)"
-            :data-id="item.id"
-            :id="item.id"
-          />
-        </section>
-      </div>
-      <h3>Config</h3>
 
-      <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Type</th>
-          <th>Default</th>
-        </tr>
-        <tr>
-          <td>visible</td>
-          <td>Show image pop</td>
-          <td>Boolean</td>
-          <td>false</td>
-        </tr>
-        <tr>
-          <td>index</td>
-          <td>Show image by index</td>
-          <td>Number</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>imgs</td>
-          <td>Image array</td>
-          <td>Array</td>
-          <td>[]</td>
-        </tr>
-        <tr>
-          <th colspan="4">Each image info</th>
-        </tr>
-        <tr>
-          <td colspan="4">Don`t put this component into "v-xy-pull-refresh"</td>
-        </tr>
-        <tr>
-          <td>src</td>
-          <td>Image url<br />(Large one)</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>msrc</td>
-          <td>Thumbnail url<br />(Small one,same as src when msrc is empty)</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>title</td>
-          <td>Title blow</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <th colspan="4">img element props</th>
-        </tr>
-        <tr>
-          <td>id</td>
-          <td>Help to find thumbnail element for animation</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>data-id</td>
-          <td>Help to find thumbnail element for animation when id is empty</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>@on-change</td>
-          <td>Event swipe change</td>
-          <td>Function</td>
-          <td>Empty</td>
-        </tr>
-        <tr>
-          <td>@on-close</td>
-          <td>Event pop close</td>
-          <td>Function</td>
-          <td>Empty</td>
-        </tr>
-      </table>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta data-hid="description" name="description" content="xy-ui" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Image pop</title>
+  <link rel="stylesheet" href="../dist/xy-ui.css" />
+  <link rel="stylesheet" href="./demo.css" />
+  <style>
+    h3 {
+      margin: 5px;
+    }
+
+    section {
+      display: flex;
+      align-items: flex-start;
+      background-color: #eee;
+    }
+
+    section img {
+      width: 0;
+      flex-grow: 1;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="pad">
+      <xy-image-pop :visible.sync="visible" :imgs="imgs" :index="index" @on-change="onChange" @on-close="onClose">
+      </xy-image-pop>
+      <h3>sample</h3>
+      <section>
+        <img v-for="(item,index) in imgs" :src="item.msrc||item.src" :key="index" @click="onImagePop(index)"
+          :data-id="item.id" :id="item.id" />
+      </section>
     </div>
-    <script src="../vue@2.6.10.js"></script>
-    <script src="../dist/xy-ui.js"></script>
-    <script>
-      new Vue({
-        el: '#app',
-        data() {
-          let imgs = [
-            {
-              src: 'http://dummyimage.com/300x300',
-              // msrc: 'http://dummyimage.com/100x100=Origin+image',
-              title: '标题：1',
-              id: 'aaa'
-            },
-            {
-              src: 'http://dummyimage.com/1000x600&text=1000x600(origin)',
-              msrc: 'http://dummyimage.com/100x60&text=100x60(thumbnail)',
-              title: '标题：2',
-              id: 'bbb'
-            },
-            {
-              src: 'http://dummyimage.com/2000x1000&text=2000x1000(origin)',
-              msrc: 'http://dummyimage.com/200x100&text=200x100(thumbnail)'
-              // title: '标题：3'
-            }
-          ]
-          return {
-            visible: false,
-            //
-            imgs: imgs,
-            index: 0
-          }
-        },
-        methods: {
-          onChange(index) {
-            console.log(index)
+    <h3>Config</h3>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Default</th>
+      </tr>
+      <tr>
+        <td>visible</td>
+        <td>Show image pop</td>
+        <td>Boolean</td>
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>index</td>
+        <td>Show image by index</td>
+        <td>Number</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>imgs</td>
+        <td>Image array</td>
+        <td>Array</td>
+        <td>[]</td>
+      </tr>
+      <tr>
+        <th colspan="4">Each image info</th>
+      </tr>
+      <tr>
+        <td colspan="4">Don`t put this component into "v-xy-pull-refresh"</td>
+      </tr>
+      <tr>
+        <td>src</td>
+        <td>Image url<br />(Large one)</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <td>msrc</td>
+        <td>Thumbnail url<br />(Small one,same as src when msrc is empty)</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td>Title blow</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <th colspan="4">img element props</th>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>Help to find thumbnail element for animation</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <td>data-id</td>
+        <td>Help to find thumbnail element for animation when id is empty</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <td>@on-change</td>
+        <td>Event swipe change</td>
+        <td>Function</td>
+        <td>Empty</td>
+      </tr>
+      <tr>
+        <td>@on-close</td>
+        <td>Event pop close</td>
+        <td>Function</td>
+        <td>Empty</td>
+      </tr>
+    </table>
+  </div>
+  <script src="../vue@2.6.10.js"></script>
+  <script src="../dist/xy-ui.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        var imgs = [
+          {
+            src: 'http://dummyimage.com/300x300',
+            // msrc: 'http://dummyimage.com/100x100=Origin+image',
+            title: '标题：1',
+            id: 'aaa'
           },
-          onClose() {
-            console.log('close')
+          {
+            src: 'http://dummyimage.com/1000x600&text=1000x600(origin)',
+            msrc: 'http://dummyimage.com/100x60&text=100x60(thumbnail)',
+            title: '标题：2',
+            id: 'bbb'
           },
-          onImagePop(index) {
-            this.index = index
-            this.visible = !this.visible
+          {
+            src: 'http://dummyimage.com/2000x1000&text=2000x1000(origin)',
+            msrc: 'http://dummyimage.com/200x100&text=200x100(thumbnail)'
+            // title: '标题：3'
           }
+        ]
+        return {
+          visible: false,
+          //
+          imgs: imgs,
+          index: 0
+        }
+      },
+      methods: {
+        onChange(index) {
+          console.log(index)
         },
-        mounted() {}
-      })
-    </script>
-  </body>
+        onClose() {
+          console.log('close')
+        },
+        onImagePop(index) {
+          this.index = index
+          this.visible = !this.visible
+        }
+      },
+      mounted() { }
+    })
+  </script>
+</body>
+
 </html>
