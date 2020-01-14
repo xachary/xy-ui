@@ -20,6 +20,8 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
   word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
 }
 
 // 如：3个文字要占用4em的宽度，间隙平分对齐.
