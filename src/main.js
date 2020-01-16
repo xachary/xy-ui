@@ -21,6 +21,7 @@ import validate from '@/view/validate'
 import imagePop from '@/view/image-pop.vue'
 import htmlViewer from '@/view/html-viewer.vue'
 import pop from '@/view/pop.vue'
+import loading from '@/view/loading.vue'
 
 const router = new VueRouter({
   routes: [
@@ -95,6 +96,10 @@ const router = new VueRouter({
     {
       path: '/pop',
       component: pop
+    },
+    {
+      path: '/loading',
+      component: loading
     }
   ]
 })
