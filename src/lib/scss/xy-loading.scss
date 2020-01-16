@@ -1,0 +1,46 @@
+@import 'mixin';
+
+@keyframes loading {
+    0% {
+        left: -30vw;
+    }
+
+    50% {}
+
+    100% {
+        left: 130vw;
+    }
+}
+
+.xy-loading {
+    overflow: hidden;
+
+    .xy-loading__ct {
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            visibility: hidden;
+        }
+
+        .xy-loading__ct__flow {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -30vw;
+            width: 30vw;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0));
+            animation: loading 2s linear infinite;
+            z-index: 50;
+        }
+    }
+}

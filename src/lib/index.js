@@ -16,6 +16,7 @@ import xyAlert from './components/xy-pop/alert.vue'
 import xyKeepTop from '@/lib/directives/xy-keep-top'
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
 import xyBtnAct from '@/lib/directives/xy-btn-act'
+import xyLoading from '@/lib/directives/xy-loading'
 // import xyImagePopDirectives from '@/lib/directives/xy-btn-act'
 //
 
@@ -46,6 +47,7 @@ const xyUI = {
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)
     Vue.directive(xyBtnAct.name, xyBtnAct)
+    Vue.directive(xyLoading.name, xyLoading)
   },
   xyFormat: xyPrototypes.$xyFormat,
   xyTool: xyPrototypes.$xyTool,
