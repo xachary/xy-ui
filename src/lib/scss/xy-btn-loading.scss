@@ -1,0 +1,70 @@
+@import 'mixin';
+
+.xy-btn-loading {
+    @keyframes xy-btn-loading__icon {
+        0% {
+            transform: scale(0.8) rotate(0deg);
+        }
+
+        100% {
+            transform: scale(0.8) rotate(180deg);
+        }
+    }
+
+    @keyframes xy-btn-loading__icon2 {
+        0% {
+            transform: scale(1.2) rotate(0deg);
+        }
+
+        100% {
+            transform: scale(1.2) rotate(-180deg);
+        }
+    }
+
+    &>* {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .xy-btn-loading__icon {
+        display: inline-block;
+        vertical-align: middle;
+        flex-shrink: 0;
+        position: relative;
+        top: rsh(-2);
+        left: 0;
+        transform: translate(-1.2em, 0);
+        width: 0;
+        height: 1em;
+
+        &>i {
+            display: block;
+            position: absolute;
+            border: rsh(2) solid transparent;
+            border-radius: 50%;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            transform-origin: center;
+            width: 1em;
+            height: 100%;
+            top: 0;
+            left: 0;
+
+            &:first-child {
+                animation: xy-btn-loading__icon 0.5s linear infinite;
+                transform: scale(0.8);
+            }
+
+            &:last-child {
+                animation: xy-btn-loading__icon2 0.5s linear infinite;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    &.xy-btn-loading--icon {
+        .xy-btn-loading__icon {
+            transform: translate(-0.6em, 0)
+        }
+    }
+}
