@@ -69,7 +69,7 @@
     </h3>
 
     <h3>
-      <router-link to="/btn-loading"><span class="iconfont icon-ai-new"></span>Button loading</router-link>
+      <router-link to="/btn-loading"><span class="iconfont icon-anniu"></span>Button loading</router-link>
     </h3>
   </div>
 </template>
