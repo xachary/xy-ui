@@ -71,6 +71,10 @@
     <h3>
       <router-link to="/btn-loading"><span class="iconfont icon-anniu"></span>Button loading</router-link>
     </h3>
+
+    <h3>
+      <router-link to="/spinner"><span class="iconfont icon-loading"></span>Spinner</router-link>
+    </h3>
   </div>
 </template>
 

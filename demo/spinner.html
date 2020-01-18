@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta data-hid="description" name="description" content="xy-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Spinner</title>
+    <link rel="stylesheet" href="../dist/xy-ui.css" />
+    <link rel="stylesheet" href="./demo.css" />
+    <style>
+        .sample {}
+
+        button {
+            padding: 1em 2em;
+            border: 1px solid #333;
+            margin: 1em;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="sample">
+            <h3>Button Loading</h3>
+            <button @click="onClick">Submit</button>
+            <h4>Default</h4>
+            <div>
+                测试测试测试测试测试测试测试测试测试Sphinx<xy-spinner v-model="loading"></xy-spinner>x测试测试测试
+            </div>
+            <p style="text-align:center">
+                <xy-spinner v-model="loading"></xy-spinner>
+            </p>
+            <h4>Color</h4>
+            <div>
+                测试测试测试测试测试测试测试测试测试Sphinx<xy-spinner v-model="loading" color="red"></xy-spinner>x测试测试测试
+            </div>
+            <div>
+                测试测试测试测试测试测试测试测试测试Sphinx<xy-spinner v-model="loading" color="green"></xy-spinner><span>x测试测试测试</span>
+            </div>
+        </div>
+        <h3>Config</h3>
+
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Default</th>
+            </tr>
+            <tr>
+                <td>value</td>
+                <td>Show/Hide</td>
+                <td>Boolean</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td>color</td>
+                <td>Color</td>
+                <td>String</td>
+                <td>Font color</td>
+            </tr>
+        </table>
+    </div>
+    <script src="../vue@2.6.10.js"></script>
+    <script src="../dist/xy-ui.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            components: {},
+            data() {
+                return {
+                    loading: false
+                }
+            },
+            methods: {
+                onClick() {
+                    var that = this
+                    this.loading = true
+                    console.log('loading')
+                    setTimeout(function () {
+                        that.loading = false
+                        console.log('loaded')
+                    }, 2000)
+                }
+            },
+            mounted: function () { }
+        })
+    </script>
+</body>
+
+</html>
