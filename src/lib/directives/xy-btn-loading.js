@@ -2,7 +2,7 @@ function getStyleNum(value) {
     return value ? parseInt(value.toString().replace(/[^\d.%]/g, '')) : 0
 }
 
-function show(el, loading, ic) {
+function show(el, loading, ic, keep) {
     if (loading) {
         let style = getComputedStyle(el)
         el.setAttribute('disabled', 'disabled')
@@ -22,8 +22,10 @@ function show(el, loading, ic) {
         //
         if (ic) {
             el.classList.add('xy-btn-loading--icon')
-            el.dataset.width = el.style.width
-            el.style.width = el.offsetWidth + 'px'
+            if (keep) {
+                el.dataset.width = el.style.width
+                el.style.width = el.offsetWidth + 'px'
+            }
             for (let i = 0; i < el.children.length; i++) {
                 if (!el.children[i].classList.contains('xy-btn-loading__icon')) {
                     el.children[i].dataset.visibility = el.children[i].style.visibility
@@ -42,7 +44,9 @@ function show(el, loading, ic) {
     } else {
         if (ic) {
             el.classList.remove('xy-btn-loading--icon')
-            el.style.width = el.dataset.width + 'px'
+            if (keep) {
+                el.style.width = el.dataset.width + 'px'
+            }
             for (let i = 0; i < el.children.length; i++) {
                 if (!el.children[i].classList.contains('xy-btn-loading__icon')) {
                     el.children[i].style.visibility = el.children[i].dataset.visibility
@@ -75,13 +79,13 @@ export default {
         el.classList.add('xy-btn-loading')
     },
     inserted(el, { value, arg, modifiers }) {
-        show(el, value, modifiers.icon)
+        show(el, value, modifiers.icon, modifiers.keep)
     },
     update(el, { value, arg, modifiers }) {
-        show(el, value, modifiers.icon)
+        show(el, value, modifiers.icon, modifiers.keep)
     },
     unbind(el, { value, arg, modifiers }) {
-        show(el, false, modifiers.icon)
+        show(el, false, modifiers.icon, modifiers.keep)
         el.classList.remove('xy-btn-loading')
     }
 }

@@ -8,7 +8,8 @@
     <h3>Button Loading icon only</h3>
     <button v-xy-btn-loading.icon="loading"
             @click="onClick">Submit</button>
-    <button v-xy-btn-loading.icon="loading"
+    <h3>Button Loading icon only and keep width</h3>
+    <button v-xy-btn-loading.icon.keep="loading"
             @click="onClick"><i>Submit</i></button>
   </div>
 </template>
