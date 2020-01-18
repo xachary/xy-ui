@@ -12,6 +12,7 @@ import xyImagePop from '@/lib/components/xy-image-pop'
 import xyHtmlViewer from './components/xy-html-viewer.vue'
 import xyConfirm from './components/xy-pop/confirm.vue'
 import xyAlert from './components/xy-pop/alert.vue'
+import xySpinner from './components/xy-spinner.vue'
 //
 import xyKeepTop from '@/lib/directives/xy-keep-top'
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
@@ -44,6 +45,7 @@ const xyUI = {
     Vue.component(xyHtmlViewer.name, xyHtmlViewer)
     Vue.component(xyConfirm.name, xyConfirm)
     Vue.component(xyAlert.name, xyAlert)
+    Vue.component(xySpinner.name, xySpinner)
     //
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)

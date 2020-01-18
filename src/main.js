@@ -23,6 +23,7 @@ import htmlViewer from '@/view/html-viewer.vue'
 import pop from '@/view/pop.vue'
 import loading from '@/view/loading.vue'
 import btnLoading from '@/view/btn-loading.vue'
+import spinner from '@/view/spinner.vue'
 
 const router = new VueRouter({
   routes: [
@@ -105,6 +106,10 @@ const router = new VueRouter({
     {
       path: '/btn-loading',
       component: btnLoading
+    },
+    {
+      path: '/spinner',
+      component: spinner
     }
   ]
 })
