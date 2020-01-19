@@ -8,8 +8,23 @@
     <h3>Button Loading icon only</h3>
     <button v-xy-btn-loading.icon="loading"
             @click="onClick">Submit</button>
-    <button v-xy-btn-loading.icon="loading"
+    <h3>Button Loading icon only and keep width</h3>
+    <button v-xy-btn-loading.icon.keep="loading"
             @click="onClick"><i>Submit</i></button>
+    <h3>Button Loading with act</h3>
+    <button v-xy-btn-act:style.scale
+            v-xy-btn-loading.icon.keep="loading"
+            @click="onClick">scale</button>
+    <button v-xy-btn-act:style.color="'rgba(0, 0, 255, 0.2)'"
+            v-xy-btn-loading.icon.keep="loading"
+            @click="onClick">color</button>
+    <button v-xy-btn-act:style.grayscale
+            style="background-color:yellow"
+            v-xy-btn-loading.icon.keep="loading"
+            @click="onClick">grayscale</button>
+    <button v-xy-btn-act:style.wave="'rgba(255, 0, 0, 0.5)'"
+            v-xy-btn-loading="loading"
+            @click="onClick">wave</button>
   </div>
 </template>
 

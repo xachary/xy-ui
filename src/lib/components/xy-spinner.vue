@@ -37,8 +37,10 @@
     watch: {},
     created() {},
     mounted() {
-      let style = getComputedStyle(this.$refs.spinner.parentElement)
-      this.fontColor = style.color
+      if (this.$refs.spinner.parentElement) {
+        let style = getComputedStyle(this.$refs.spinner.parentElement)
+        this.fontColor = style.color
+      }
     },
     beforeDestroy() {},
     methods: {},

@@ -29,7 +29,7 @@ function btnClick(el, e) {
     timer = null
   }
   if (el.hasAttribute('xy-btn-act-wave')) {
-    timer = setTimeout(function() {
+    timer = setTimeout(function () {
       el.removeAttribute('xy-btn-act-wave--moving')
       let targets = [...el.children]
       for (let i = 0; i < targets.length; i++) {
@@ -39,7 +39,7 @@ function btnClick(el, e) {
       }
     }, 600)
   } else {
-    timer = setTimeout(function() {
+    timer = setTimeout(function () {
       if (el.hasAttribute('xy-btn-act-scale')) {
         el.removeAttribute('xy-btn-act-scale--moving')
       } else if (el.hasAttribute('xy-btn-act-color')) {
@@ -52,13 +52,13 @@ function btnClick(el, e) {
   }
 }
 
-let btnClickCb = function() {
+let btnClickCb = function () {
   console.warn('no moving btn callback function')
 }
 
 export default {
   name: 'xy-btn-act',
-  bind: function(el, e) {
+  bind: function (el, e) {
     let { value, arg, modifiers } = e
     if (arg === 'style') {
       if (modifiers.scale) {
@@ -75,7 +75,7 @@ export default {
     btnClickCb = btnClick.bind({}, el)
     el.addEventListener('click', btnClickCb)
   },
-  unbind: function(el) {
+  unbind: function (el) {
     el.removeEventListener('click', btnClickCb)
   }
 }

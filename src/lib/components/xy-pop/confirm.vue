@@ -25,8 +25,10 @@
                   @click="onCancel"></button>
           <button class="xy-pop__mask__footer__btn xy-pop__mask__footer__btn--confirm"
                   @click="onConfirm"
-                  v-text="confirmText"
-                  v-xy-btn-act:style.color="'#B1E2F4'"></button>
+                  v-xy-btn-act:style.color="'#B1E2F4'"
+                  v-xy-btn-loading.icon="loading">
+            {{confirmText}}
+          </button>
         </slot>
       </footer>
     </div>
@@ -45,7 +47,9 @@
       }
     },
     data() {
-      return {}
+      return {
+        loading: false
+      }
     },
     computed: {},
     watch: {},
@@ -58,18 +62,21 @@
         let currentTarget = e.currentTarget
         // 让确认按钮失效
         currentTarget.disabled = true
+        this.loading = true
 
         this.$emit('on-confirm', {
           currentTarget: e.currentTarget,
           hide: function() {
             // 恢复确认按钮有效
             currentTarget.disabled = false
+            that.loading = false
             that.$emit('change', false)
           }
         })
         if (!this.confirmNotHide) {
           // 恢复确认按钮有效
           currentTarget.disabled = false
+          that.loading = false
           this.$emit('change', false)
         }
       },

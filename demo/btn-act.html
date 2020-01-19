@@ -1,98 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <meta data-hid="description" name="description" content="xy-ui" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <title>Btn act</title>
-    <link rel="stylesheet" href="../dist/xy-ui.css" />
-    <link rel="stylesheet" href="./demo.css" />
-    <style>
-      .sample {
-      }
-      label {
-        padding: 1em 2em;
-        border: 1px solid #333;
-        margin: 1em;
-        display: block;
-        text-align: center;
-      }
-      [xy-btn-act][disabled] {
-        filter: grayscale(1);
-        background-color: rgba(0, 0, 0, 0.1);
-        color: rgba(0, 0, 0, 0.2);
-        border-color: rgba(0, 0, 0, 0.2);
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <div class="sample">
-        <label v-xy-btn-act:style.scale>scale</label>
-        <label v-xy-btn-act:style.color="'rgba(0, 0, 255, 0.2)'">color</label>
-        <label style="background-color:yellow" v-xy-btn-act:style.grayscale
-          >grayscale</label
-        >
-        <label v-xy-btn-act:style.wave="'rgba(255, 0, 0, 0.5)'">wave</label>
-        <label v-xy-btn-act:style.scale disabled>disabled</label>
-      </div>
-      <h3>Config</h3>
-      
-      <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Type</th>
-          <th>Default</th>
-        </tr>
-        <tr>
-          <th colspan="4">v-xy-btn-act:style.[type]</th>
-        </tr>
-        <tr>
-          <td>type</td>
-          <td>Style type</td>
-          <td>scale/color/grayscale/wave</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <th colspan="4">v-xy-btn-act:style.color="[value]"</th>
-        </tr>
-        <tr>
-          <td>value</td>
-          <td>Css color</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <th colspan="4">v-xy-btn-act:style.wave="[value]"</th>
-        </tr>
-        <tr>
-          <td>value</td>
-          <td>Css color</td>
-          <td>String</td>
-          <td>''</td>
-        </tr>
-      </table>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta data-hid="description" name="description" content="xy-ui" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Btn act</title>
+  <link rel="stylesheet" href="../dist/xy-ui.css" />
+  <link rel="stylesheet" href="./demo.css" />
+  <style>
+    .sample {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button {
+      padding: 1em 2em;
+      border: 1px solid #333;
+      margin: 1em;
+      display: block;
+      text-align: center;
+    }
+
+    [xy-btn-act][disabled] {
+      filter: grayscale(1);
+      background-color: rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.2);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="sample">
+      <button v-xy-btn-act:style.scale>scale</button>
+      <button v-xy-btn-act:style.color="'rgba(0, 0, 255, 0.2)'">color</button>
+      <button style="background-color:yellow" v-xy-btn-act:style.grayscale>grayscale</button>
+      <button v-xy-btn-act:style.wave="'rgba(255, 0, 0, 0.5)'">wave</button>
+      <button v-xy-btn-act:style.scale disabled>disabled</button>
     </div>
-    <script src="../vue@2.6.10.js"></script>
-    <script src="../dist/xy-ui.js"></script>
-    <script>
-      new Vue({
-        el: '#app',
-        data() {
-          return {
-            status: ''
-          }
-        },
-        methods: {},
-        mounted() {}
-      })
-    </script>
-  </body>
+    <h3>Config</h3>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Default</th>
+      </tr>
+      <tr>
+        <th colspan="4">v-xy-btn-act:style.[type]</th>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>Style type</td>
+        <td>scale/color/grayscale/wave</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <th colspan="4">v-xy-btn-act:style.color="[value]"</th>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>Css color</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+      <tr>
+        <th colspan="4">v-xy-btn-act:style.wave="[value]"</th>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>Css color</td>
+        <td>String</td>
+        <td>''</td>
+      </tr>
+    </table>
+  </div>
+  <script src="../vue@2.6.10.js"></script>
+  <script src="../dist/xy-ui.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          status: ''
+        }
+      },
+      methods: {},
+      mounted() { }
+    })
+  </script>
+</body>
+
 </html>
