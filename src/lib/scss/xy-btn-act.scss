@@ -2,50 +2,76 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(0.9);
   }
+
   100% {
     transform: scale(1);
   }
 }
 
 [xy-btn-act-scale] {
-  &[xy-btn-act-scale--moving]:not([disabled]) {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  // &[xy-btn-act-scale--moving]:not([disabled]) {
+  //   animation: xy-btn-act-scale 0.2s ease-in-out;
+  // }
+  &[xy-btn-act-scale--moving] {
     animation: xy-btn-act-scale 0.2s ease-in-out;
   }
 }
+
 //
 [xy-btn-act-color] {
-  &[xy-btn-act-color--moving]:not([disabled]) {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  // &[xy-btn-act-color--moving]:not([disabled]) {
+  //   transition: background-color 0.2s ease-out;
+  // }
+  &[xy-btn-act-color--moving] {
     transition: background-color 0.2s ease-out;
   }
 }
+
 @keyframes xy-btn-act-grayscale {
   0% {
     filter: grayscale(0);
   }
+
   50% {
     filter: grayscale(100%);
   }
+
   100% {
     filter: grayscale(0);
   }
 }
 
 [xy-btn-act-grayscale] {
-  &[xy-btn-act-grayscale--moving]:not([disabled]) {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  // &[xy-btn-act-grayscale--moving]:not([disabled]) {
+  //   animation: xy-btn-act-grayscale 0.2s ease-in-out;
+  // }
+  &[xy-btn-act-grayscale--moving] {
     animation: xy-btn-act-grayscale 0.2s ease-in-out;
   }
 }
+
 //
 @keyframes xy-btn-act-wave {
   0% {
     transform: scale(0);
     opacity: 1;
   }
-  50% {
-  }
+
+  50% {}
+
   100% {
     transform: scale(1);
     opacity: 0;
@@ -55,13 +81,18 @@
 [xy-btn-act-wave] {
   position: relative;
   overflow: hidden;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  .xy-btn-act-wave__circle {
+    position: absolute;
+    z-index: 999;
+    border-radius: 50%;
+    animation: xy-btn-act-wave 0.5s ease-out;
+    opacity: 0;
+  }
+
   &[xy-btn-act-wave--moving]:not([disabled]) {
-    .xy-btn-act-wave__circle {
-      position: absolute;
-      z-index: 999;
-      border-radius: 50%;
-      animation: xy-btn-act-wave 0.5s ease-out;
-      opacity: 0;
-    }
+    .xy-btn-act-wave__circle {}
   }
 }
