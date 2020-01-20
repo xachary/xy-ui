@@ -25,6 +25,11 @@ import loading from '@/view/loading.vue'
 import btnLoading from '@/view/btn-loading.vue'
 import spinner from '@/view/spinner.vue'
 
+import xyUi from '@/lib'
+
+Vue.use(VueRouter)
+Vue.use(xyUi)
+
 const router = new VueRouter({
   routes: [
     {
