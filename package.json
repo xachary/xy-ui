@@ -1,6 +1,6 @@
 {
   "name": "@xachary/xy-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "vue ui lib",
   "main": "dist/xy-ui.js",
   "scripts": {
