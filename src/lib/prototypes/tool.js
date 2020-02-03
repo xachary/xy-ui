@@ -1,7 +1,7 @@
 function delay(ms) {
-  return (function() {
-    return new Promise(function(resolve, reject) {
-      setTimeout(function() {
+  return (function () {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
         console.log('done')
         resolve()
       }, ms)
@@ -12,7 +12,8 @@ function delay(ms) {
 function browser() {
   let result = {
     type: '',
-    wx: false
+    wx: false,
+    ios9Up: false
   }
   if (navigator) {
     if (/(iPhone|iPad|iPod|iOS|Android|X11)/i.test(navigator.userAgent)) {
@@ -26,6 +27,9 @@ function browser() {
         result.type = 'android'
       } else if (isiOS) {
         result.type = 'ios'
+        var match = u.match(/iPhone OS (\d+)/)
+        var version = match ? parseInt(match[1]) : -1
+        result.ios9Up = version >= 9
       } else {
         result.type = 'other'
       }
@@ -42,20 +46,20 @@ function browser() {
  */
 //缓动公式
 var moveFn = {
-  Linear: function(t, b, c, d) {
+  Linear: function (t, b, c, d) {
     return (c * t) / d + b
   },
-  CircularEaseInOut: function(t, b, c, d) {
+  CircularEaseInOut: function (t, b, c, d) {
     if ((t /= d / 2) < 1) return (-c / 2) * (Math.sqrt(1 - t * t) - 1) + b
     return (c / 2) * (Math.sqrt(1 - (t -= 2) * t) + 1) + b
   },
-  CubicEaseOut: function(t, b, c, d) {
+  CubicEaseOut: function (t, b, c, d) {
     return c * ((t = t / d - 1) * t * t + 1) + b
   },
-  QuartEaseOut: function(t, b, c, d) {
+  QuartEaseOut: function (t, b, c, d) {
     return -c * ((t = t / d - 1) * t * t * t - 1) + b
   },
-  ExpoEaseOut: function(t, b, c, d) {
+  ExpoEaseOut: function (t, b, c, d) {
     return t == d ? b + c : c * (-Math.pow(2, (-10 * t) / d) + 1) + b
   }
 }
@@ -85,7 +89,7 @@ function move(before, after, callback, finish, r, fn) {
   } else {
     func = moveFn[fn]
   }
-  itv = setInterval(function() {
+  itv = setInterval(function () {
     var s = (r * time) / 100
     var n = func(i, before, after - before, s)
     if (typeof callback == 'function') {
@@ -108,10 +112,10 @@ function scrollTop() {
   move(
     (document.body.scrollHeight - window.innerHeight) * 1.1,
     0,
-    function(v) {
+    function (v) {
       window.scrollTo(0, v)
     },
-    function() {},
+    function () { },
     400,
     'CircularEaseInOut'
   )
@@ -121,13 +125,38 @@ function scrollBottom() {
   move(
     0,
     (document.body.scrollHeight - window.innerHeight) * 1.1,
-    function(v) {
+    function (v) {
       window.scrollTo(0, v)
     },
-    function() {},
+    function () { },
     400,
     'CircularEaseInOut'
   )
+}
+
+function copyToClipboard(txt) {
+  var input = document.createElement('input')
+  // ios不支持
+  // input.style.width = '1px'
+  // input.style.height = '1px'
+  input.style.position = 'absolute'
+  input.style.top = '0'
+  input.style.left = '0'
+  input.style.overflow = 'hidden'
+  // 兼容ios
+  input.style.opacity = '0'
+  input.setAttribute('readOnly', 'readOnly')
+  input.value = txt
+  document.body.append(input)
+  input.focus()
+  // ios不支持
+  input.select()
+  // 兼容ios
+  input.setSelectionRange(0, 99999)
+  setTimeout(() => {
+    document.execCommand('Copy')
+    input.remove()
+  }, 500)
 }
 
 export default {
@@ -135,5 +164,6 @@ export default {
   browser,
   move,
   scrollTop,
-  scrollBottom
+  scrollBottom,
+  copyToClipboard
 }
