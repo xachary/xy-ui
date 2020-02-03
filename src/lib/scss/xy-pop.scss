@@ -221,10 +221,12 @@
                     display: block;
                     width: rsh(100);
                     height: rsh(100);
+                    // background-color: green;
                     border: rsh(5) solid #fff;
                     border-radius: 50%;
                     border-top-color: transparent;
                     border-bottom-color: transparent;
+                    transform-origin: center;
                     animation: xy-pop-loading__mask__icon 0.5s linear infinite;
                 }
 
@@ -233,10 +235,12 @@
                     display: block;
                     width: rsh(50);
                     height: rsh(50);
+                    // background-color: yellow;
                     border: rsh(5) solid #fff;
                     border-radius: 50%;
                     border-top-color: transparent;
                     border-bottom-color: transparent;
+                    transform-origin: center;
                     animation: xy-pop-loading__mask__icon2 1s linear infinite;
                     position: absolute;
                     top: rsh(25);
