@@ -10,8 +10,10 @@ import xyListStatus from '@/lib/components/xy-list-status'
 import xyScrollBottom from '@/lib/components/xy-scroll-bottom'
 import xyImagePop from '@/lib/components/xy-image-pop'
 import xyHtmlViewer from './components/xy-html-viewer.vue'
-import xyConfirm from './components/xy-pop/confirm.vue'
-import xyAlert from './components/xy-pop/alert.vue'
+import xyPopConfirm from './components/xy-pop/confirm.vue'
+import xyPopAlert from './components/xy-pop/alert.vue'
+import xyPopToast from './components/xy-pop/toast.vue'
+import xyPopLoading from './components/xy-pop/loading.vue'
 import xySpinner from './components/xy-spinner.vue'
 //
 import xyKeepTop from '@/lib/directives/xy-keep-top'
@@ -43,8 +45,10 @@ const xyUI = {
     Vue.component(xyScrollBottom.name, xyScrollBottom)
     Vue.component(xyImagePop.name, xyImagePop)
     Vue.component(xyHtmlViewer.name, xyHtmlViewer)
-    Vue.component(xyConfirm.name, xyConfirm)
-    Vue.component(xyAlert.name, xyAlert)
+    Vue.component(xyPopConfirm.name, xyPopConfirm)
+    Vue.component(xyPopAlert.name, xyPopAlert)
+    Vue.component(xyPopLoading.name, xyPopLoading)
+    Vue.component(xyPopToast.name, xyPopToast)
     Vue.component(xySpinner.name, xySpinner)
     //
     Vue.directive(xyKeepTop.name, xyKeepTop)
@@ -67,6 +71,10 @@ const xyUI = {
   xyScrollBottom,
   xyImagePop,
   xyHtmlViewer,
+  xyPopConfirm,
+  xyPopAlert,
+  xyPopLoading,
+  xyPopToast,
   //
   xyKeepTop,
   xyPullRefresh,
