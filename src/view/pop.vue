@@ -99,6 +99,8 @@
 </template>
 
 <script>
+  import pop from '../lib/prototypes/pop'
+
   export default {
     components: {},
     data() {
@@ -110,7 +112,9 @@
         alertLongContentShow: false,
         alertCustomButtonShow: false,
         //
-        timer: null
+        timer: null,
+        //
+        pop: pop
       }
     },
     methods: {
@@ -346,7 +350,9 @@
         }, 2000)
       }
     },
-    mounted: function() {}
+    mounted: function() {
+      this.pop.toast('adf')
+    }
   }
 </script>
 

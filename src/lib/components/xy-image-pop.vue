@@ -15,6 +15,7 @@
       </div>
       <div class="pswp__ui pswp__ui--hidden">
         <div class="pswp__top-bar">
+          <div class="custom">{{counter}}</div>
           <div class="pswp__counter"></div>
           <slot name="button-after"></slot>
           <button
@@ -83,6 +84,10 @@ export default {
     scale: {
       type: Boolean,
       default: true
+    },
+    times: {
+      type: Number,
+      default: 1
     }
   },
   data() {
@@ -93,6 +98,9 @@ export default {
     }
   },
   computed: {
+    counter(){
+      return `${this.idx % this.times + 1} / ${this.imgs.length / this.times}`
+    }
   },
   watch: {
     visible(v) {
@@ -247,12 +255,29 @@ export default {
 <style src="x-photoswipe/dist/photoswipe.css"></style>
 <style src="x-photoswipe/dist/default-skin/default-skin.css"></style>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .xy-image-pop {
   .pswp {
     .pswp__caption__center {
       max-width: none;
     }
+  }
+
+  .pswp__counter{
+    display: none;
+  }
+
+  .custom{
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 44px;
+    font-size: 13px;
+    line-height: 44px;
+    color: #FFF;
+    opacity: 0.75;
+    padding: 0 10px;
   }
 }
 </style>

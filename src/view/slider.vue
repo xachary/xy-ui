@@ -38,8 +38,10 @@
         </xy-slider>
         <h3>3个数据</h3>
         <xy-slider
+            ref="slider3"
             :data="data3"
             @on-change="onChange"
+            @on-click="onClick"
         >
             <template v-slot="item">
                 <img
@@ -143,6 +145,12 @@ export default {
     methods: {
         onChange(item) {
             console.log('change', item)
+        },
+        onClick(){
+            this.$refs.slider3.pause()
+            setTimeout(()=>{
+                this.$refs.slider3.resume()
+            },3000)
         }
     },
     mounted: function () {
@@ -152,7 +160,7 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'http://dummyimage.com/300x600',
+                    src: 'https://dummyimage.com/300x600',
                     href: '#'
                 }
             ]
@@ -160,12 +168,12 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'http://dummyimage.com/300x600',
+                    src: 'https://dummyimage.com/300x600',
                     href: '#'
                 }, {
                     id: '2',
                     name: '600*300',
-                    src: 'http://dummyimage.com/600x300',
+                    src: 'https://dummyimage.com/600x300',
                     href: 'https://www.baidu.com/'
                 }
             ]
@@ -173,17 +181,17 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'http://dummyimage.com/300x600',
+                    src: 'https://dummyimage.com/300x600',
                     href: '#'
                 }, {
                     id: '2',
                     name: '600*300',
-                    src: 'http://dummyimage.com/600x300',
+                    src: 'https://dummyimage.com/600x300',
                     href: 'https://www.baidu.com/'
                 }, {
                     id: '3',
                     name: '300*300',
-                    src: 'http://dummyimage.com/300x300',
+                    src: 'https://dummyimage.com/300x300',
                     href: 'https://www.baidu.com/'
                 }
             ]
@@ -191,22 +199,22 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'http://dummyimage.com/300x600',
+                    src: 'https://dummyimage.com/300x600',
                     href: '#'
                 }, {
                     id: '2',
                     name: '600*300',
-                    src: 'http://dummyimage.com/600x300',
+                    src: 'https://dummyimage.com/600x300',
                     href: 'https://www.baidu.com/'
                 }, {
                     id: '3',
                     name: '300*300',
-                    src: 'http://dummyimage.com/300x300',
+                    src: 'https://dummyimage.com/300x300',
                     href: 'https://www.baidu.com/'
                 }, {
                     id: '4',
                     name: '400*400',
-                    src: 'http://dummyimage.com/400x400',
+                    src: 'https://dummyimage.com/400x400',
                     href: 'https://www.baidu.com/'
                 }
             ]
