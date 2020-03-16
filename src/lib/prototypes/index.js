@@ -2,7 +2,7 @@ import common from '@/lib/prototypes/format/common.js'
 import date from '@/lib/prototypes/format/date.js'
 import number from '@/lib/prototypes/format/number.js'
 //
-import tool from '@/lib/prototypes/tool.js'
+import tools from '@/lib/prototypes/tools.js'
 //
 import validate from '@/lib/prototypes/validate.js'
 //
@@ -35,8 +35,8 @@ const formatTool = {
 }
 
 export default {
-  $xyFormat: { common, date, number, tool: formatTool },
-  $xyTool: tool,
-  $xyValidate: validate,
-  $xyPop: pop
+  xyFormat: { common, date, number, tool: formatTool },
+  xyTools: tools,
+  xyValidate: validate,
+  xyPop: pop
 }
