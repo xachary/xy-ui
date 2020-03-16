@@ -17,6 +17,7 @@
         :key="index"
         :style="{width:`${itemWidth}px`}"
         :class="{'xy-slider__item--none':!scale,'xy-slider__item--current':scale&&index===current2,'xy-slider__item--left':scale&&index===current2-1,'xy-slider__item--right':scale&&index===current2+1}"
+        @click="onClick(item,index)"
       >
         <slot v-bind="item"></slot>
       </li>
@@ -88,7 +89,9 @@ export default {
       // 位移样式值
       left: 0,
       // 容器/项宽度
-      itemWidth: 1
+      itemWidth: 1,
+      // 暂停
+      pauseMark: false
     }
   },
   computed: {
@@ -109,6 +112,11 @@ export default {
       return temp.map((o, i) => {
         if (i >= this.data.length) {
           o.imagePopId = `id${i}`
+        }
+        if(/\?[^?=]+=/.test()){
+          o.src = o.src + '&rand=' + Math.random()
+        }else{
+          o.src = o.src + '?rand=' + Math.random()
         }
         return o
       })
@@ -205,18 +213,20 @@ export default {
     start() {
       if (this.interval) {
         this.timer = setInterval(() => {
-          let p = this.lastX / this.itemWidth
-          let r = Math.floor(p)
-          // 自动左划
-          r = r - 1
-          this.lastX = this.itemWidth * r
-          this.curLen = this.lastX
-          // 位移样式值
-          if (this.$refs.container) {
-            this.left = `${this.lastX}px`
+          if(!this.pauseMark){
+            let p = this.lastX / this.itemWidth
+            let r = Math.floor(p)
+            // 自动左划
+            r = r - 1
+            this.lastX = this.itemWidth * r
+            this.curLen = this.lastX
+            // 位移样式值
+            if (this.$refs.container) {
+              this.left = `${this.lastX}px`
+            }
+            //
+            this.circle()
           }
-          //
-          this.circle()
         }, this.interval)
       }
     },
@@ -224,6 +234,14 @@ export default {
     stop() {
       clearTimeout(this.timer)
       this.timer = null
+    },
+    // 暂停切换
+    pause() {
+      this.pauseMark = true
+    },
+    // 恢复切换
+    resume() {
+      this.pauseMark = false
     },
     // 防止序号超出边界
     fixed(r, length) {
@@ -306,6 +324,9 @@ export default {
           this.start()
         }
       }
+    },
+    onClick(item, index){
+      this.$emit('on-click', item, this.parseData, index)
     }
   }
 }
