@@ -9,7 +9,7 @@
              :key="index"
              @click="onImagePop(index)"
              :data-id="item.id"
-             :id="item.id">
+             :id="item.id?item.id:index">
       </section>
     </div>
     <xy-image-pop :visible.sync="visible"

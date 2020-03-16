@@ -10,10 +10,8 @@ import xyListStatus from '@/lib/components/xy-list-status'
 import xyScrollBottom from '@/lib/components/xy-scroll-bottom'
 import xyImagePop from '@/lib/components/xy-image-pop'
 import xyHtmlViewer from './components/xy-html-viewer.vue'
-import xyPopConfirm from './components/xy-pop/confirm.vue'
-import xyPopAlert from './components/xy-pop/alert.vue'
-import xyPopToast from './components/xy-pop/toast.vue'
-import xyPopLoading from './components/xy-pop/loading.vue'
+import xyConfirm from './components/xy-pop/confirm.vue'
+import xyAlert from './components/xy-pop/alert.vue'
 import xySpinner from './components/xy-spinner.vue'
 //
 import xyKeepTop from '@/lib/directives/xy-keep-top'
@@ -27,7 +25,7 @@ import xyBtnLoading from '@/lib/directives/xy-btn-loading'
 const xyUI = {
   install(Vue) {
     for (let p in xyPrototypes) {
-      Vue.prototype[p] = xyPrototypes[p]
+      Vue.prototype['$'+p] = xyPrototypes[p]
     }
     for (let f in xyPrototypes.$xyFormat) {
       for (let t in xyPrototypes.$xyFormat[f]) {
@@ -45,10 +43,8 @@ const xyUI = {
     Vue.component(xyScrollBottom.name, xyScrollBottom)
     Vue.component(xyImagePop.name, xyImagePop)
     Vue.component(xyHtmlViewer.name, xyHtmlViewer)
-    Vue.component(xyPopConfirm.name, xyPopConfirm)
-    Vue.component(xyPopAlert.name, xyPopAlert)
-    Vue.component(xyPopLoading.name, xyPopLoading)
-    Vue.component(xyPopToast.name, xyPopToast)
+    Vue.component(xyConfirm.name, xyConfirm)
+    Vue.component(xyAlert.name, xyAlert)
     Vue.component(xySpinner.name, xySpinner)
     //
     Vue.directive(xyKeepTop.name, xyKeepTop)
@@ -57,9 +53,6 @@ const xyUI = {
     Vue.directive(xyLoading.name, xyLoading)
     Vue.directive(xyBtnLoading.name, xyBtnLoading)
   },
-  xyFormat: xyPrototypes.$xyFormat,
-  xyTool: xyPrototypes.$xyTool,
-  xyValidate: xyPrototypes.$xyValidate,
   //
   xyLazyload,
   xySlider,
@@ -71,14 +64,15 @@ const xyUI = {
   xyScrollBottom,
   xyImagePop,
   xyHtmlViewer,
-  xyPopConfirm,
-  xyPopAlert,
-  xyPopLoading,
-  xyPopToast,
   //
   xyKeepTop,
   xyPullRefresh,
-  xyBtnAct
+  xyBtnAct,
+  //
+  xyFormat: xyPrototypes.xyFormat,
+  xyTools: xyPrototypes.xyTools,
+  xyValidate: xyPrototypes.xyValidate,
+  xyPop: xyPrototypes.xyPop
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
