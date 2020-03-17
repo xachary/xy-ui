@@ -387,6 +387,7 @@ export default {
     bottom: 0;
     width: 100%;
     height: 8%;
+    min-height: rsh(28);
     text-align: center;
     z-index: 3;
     font-size: 0;

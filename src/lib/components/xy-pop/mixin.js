@@ -28,6 +28,10 @@ export default {
         confirmNotHide: {
             type: Boolean,
             default: false
+        },
+        textAlign: {
+            type: String,
+            default: 'center'
         }
     },
     data() {

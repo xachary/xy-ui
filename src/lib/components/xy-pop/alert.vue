@@ -12,7 +12,8 @@
             ref="ct"
             @touchstart.stop="onTouchstart"
             @touchmove.stop.prevent="onTouchmove"
-            @touchend.stop="onTouchend">
+            @touchend.stop="onTouchend"
+            :style="{'text-align':textAlign}">
         <slot>
           <p v-html="msg"></p>
         </slot>
