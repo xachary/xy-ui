@@ -262,6 +262,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 1000;
 
     .xy-pop-toast {
         width: 80vw;
