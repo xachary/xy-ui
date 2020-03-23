@@ -25,7 +25,7 @@ import xyBtnLoading from '@/lib/directives/xy-btn-loading'
 const xyUI = {
   install(Vue) {
     for (let p in xyPrototypes) {
-      Vue.prototype['$'+p] = xyPrototypes[p]
+      Vue.prototype['$' + p] = xyPrototypes[p]
     }
     for (let f in xyPrototypes.$xyFormat) {
       for (let t in xyPrototypes.$xyFormat[f]) {

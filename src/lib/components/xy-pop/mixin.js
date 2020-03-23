@@ -76,7 +76,7 @@ export default {
             if (this.lastH < 0) {
                 this.lastH = 0
             }
-            this.time = this.$xyTool.move(
+            this.time = this.$xyTools.move(
                 this.$refs.ct.scrollTop,
                 this.lastH,
                 function (v) {

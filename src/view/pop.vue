@@ -351,7 +351,6 @@
       }
     },
     mounted: function() {
-      this.pop.toast('adf')
     }
   }
 </script>

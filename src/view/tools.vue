@@ -1,13 +1,13 @@
 <template>
   <div class="sample">
     <h3>ScrollBottom</h3>
-    <div><button @click="$xyTool.scrollBottom()">Click me</button></div>
+    <div><button @click="$xyTools.scrollBottom()">Click me</button></div>
     <h3>Delay</h3>
     <div>
       <button @click="onStart">Delay 2s</button>
     </div>
     <h3>Broswer</h3>
-    {{$xyTool.browser()}}
+    {{$xyTools.browser()}}
     <h3>MoveTool</h3>
     <div style="border:1px solid blue;margin:10px;padding:100px 0;position:relative;">
       <i style="width:10px;height:10px;border-radius:50%;background:red;display:block;position:absolute;transform:translate(-5px,-5px);"
@@ -24,7 +24,7 @@
     </div>
     <div style="height: 100vh"></div>
     <h3>ScrollTop</h3>
-    <div><button @click="$xyTool.scrollTop()">Click me</button></div>
+    <div><button @click="$xyTools.scrollTop()">Click me</button></div>
   </div>
 </template>
 
@@ -40,7 +40,7 @@
     },
     methods: {
       onStart() {
-        this.$xyTool.delay(2000).then(function() {
+        this.$xyTools.delay(2000).then(function() {
           alert('2s done')
         })
       },
@@ -48,7 +48,7 @@
         var that = this
         this.top = 0
         this.left = 0
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -65,7 +65,7 @@
         var that = this
         this.top = 0
         this.left = 0
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -82,7 +82,7 @@
         var that = this
         this.top = 0
         this.left = 0
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -99,7 +99,7 @@
         var that = this
         this.top = 0
         this.left = 0
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -116,7 +116,7 @@
         var that = this
         this.top = 0
         this.left = 0
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -133,7 +133,7 @@
         var that = this
         this.top = 0
         this.left = 0
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -145,7 +145,7 @@
           1000,
           'Linear'
         )
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -162,7 +162,7 @@
         var that = this
         this.top = 0
         this.left = 0
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {
@@ -174,7 +174,7 @@
           1000,
           'CubicEaseOut'
         )
-        this.$xyTool.move(
+        this.$xyTools.move(
           0,
           100,
           function(v) {

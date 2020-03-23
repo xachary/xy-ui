@@ -67,7 +67,7 @@ var moveFn = {
 //毫秒
 var rate = 1000
 var time = 10
-
+var itv = null
 /**
  * 缓动方法
  * @param before 前值
@@ -78,8 +78,8 @@ var time = 10
  * @param fn 缓动公式(可选)
  */
 function move(before, after, callback, finish, r, fn) {
+  clearInterval(itv)
   var i = 0,
-    itv = null,
     func = null
   if (!r) {
     r = rate
