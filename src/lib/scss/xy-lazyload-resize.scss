@@ -3,6 +3,7 @@
     //opacity: 0;
     transform: rotateZ(0deg);
   }
+
   100% {
     //opacity: 1;
     transform: rotateZ(360deg);
@@ -13,9 +14,11 @@
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -25,6 +28,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -40,19 +44,23 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
+
   //&.loading, &.error {
   //  background-position: center;
   //}
   &.loaded {
     animation: fade-out 0.3s ease-in-out;
   }
+
   &.loading {
     animation: delay-show 1s ease-in-out;
     background-color: #fff;
   }
+
   &.error {
     // background-color: #d9d9d9;
   }
+
   img {
     //display: block;
     //display: none;

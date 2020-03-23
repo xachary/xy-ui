@@ -4,11 +4,11 @@
     <main>
       <slot name="icon">
         <i class="xy-pop-toast__icon xy-pop-toast__icon--success"
-           v-if="type==='success'"></i>
+           v-if="type==='success'&&show2"></i>
         <i class="xy-pop-toast__icon xy-pop-toast__icon--fail"
-           v-if="type==='fail'"></i>
+           v-if="type==='fail'&&show2"></i>
         <i class="xy-pop-toast__icon xy-pop-toast__icon--warn"
-           v-if="type==='warn'"></i>
+           v-if="type==='warn'&&show2"></i>
         <img :src="img"
              v-if="img"
              alt="">
@@ -51,10 +51,26 @@
       }
     },
     data() {
-      return {}
+      return {
+        show2:false
+      }
     },
     computed: {},
-    watch: {},
+    watch: {
+      show(){
+        let that = this
+        // 解决部分垃圾手机浏览器核心有病，icon阻塞了p标签的显示
+        if(this.show){
+          setTimeout(function(){
+            that.show2 = true
+          },100)
+        }else{
+          setTimeout(function(){
+            that.show2 = false
+          },300)
+        }
+      }
+    },
     created() {},
     mounted() {
       this.$emit('on-mounted')
