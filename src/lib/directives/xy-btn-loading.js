@@ -1,6 +1,6 @@
-function getStyleNum(value) {
-    return value ? parseInt(value.toString().replace(/[^\d.%]/g, '')) : 0
-}
+// function getStyleNum(value) {
+//     return value ? parseInt(value.toString().replace(/[^\d.%]/g, '')) : 0
+// }
 
 function show(el, loading, ic, keep) {
     if (loading) {
@@ -75,16 +75,17 @@ function show(el, loading, ic, keep) {
 }
 export default {
     name: 'xy-btn-loading',
-    bind(el, { value, arg, modifiers }) {
+    // (el, { value, arg, modifiers })
+    bind(el) {
         el.classList.add('xy-btn-loading')
     },
-    inserted(el, { value, arg, modifiers }) {
+    inserted(el, { value, modifiers }) {
         show(el, value, modifiers.icon, modifiers.keep)
     },
-    update(el, { value, arg, modifiers }) {
+    update(el, { value, modifiers }) {
         show(el, value, modifiers.icon, modifiers.keep)
     },
-    unbind(el, { value, arg, modifiers }) {
+    unbind(el, { modifiers }) {
         show(el, false, modifiers.icon, modifiers.keep)
         el.classList.remove('xy-btn-loading')
     }

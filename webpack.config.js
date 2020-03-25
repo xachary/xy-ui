@@ -56,6 +56,12 @@ module.exports = {
           outputPath: 'images/',
           name: '[name].[ext]'
         }
+      },
+      {
+        enforce: "pre",
+        test: /\.(js|vue)$/,
+        loader: "eslint-loader",
+        exclude: /(node_modules)/
       }
     ]
   },
@@ -103,7 +109,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.output.library = 'xy-ui'
   module.exports.output.libraryTarget = 'umd'
   module.exports.output.umdNamedDefine = true
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = ''
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({

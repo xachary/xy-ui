@@ -50,7 +50,7 @@ export default {
     // 数据数组
     data: {
       type: Array,
-      default: []
+      default: ()=>[]
     },
     // 切换时间（毫秒）
     interval: {
@@ -104,10 +104,7 @@ export default {
       return this.data.length * 3
     },
     parseData() {
-      // 制作效果数组
-      for (let i = 0; i < this.data.length; i++) {
-        this.data[i].$index = i
-      }
+      this.giveNum()
       let temp = JSON.parse(JSON.stringify([...this.data, ...this.data, ...this.data]))
       return temp.map((o, i) => {
         if (i >= this.data.length) {
@@ -291,7 +288,7 @@ export default {
 
         this.lastX = this.curLen
         let p = this.lastX / this.itemWidth
-        let v = this.lastX % this.itemWidth
+        // let v = this.lastX % this.itemWidth
         let r1 = Math.floor(p)
         let r2 = Math.round(p)
 
@@ -327,6 +324,12 @@ export default {
     },
     onClick(item, index){
       this.$emit('on-click', item, this.parseData, index)
+    },
+    giveNum(){
+      // 制作效果数组
+      for (let i = 0; i < this.data.length; i++) {
+        this.data[i].$index = i
+      }
     }
   }
 }
@@ -336,17 +339,17 @@ export default {
 @import '~@/lib/scss/style';
 
 .xy-slider {
+  position: relative;
   margin: 0 auto;
   overflow: hidden;
-  position: relative;
   & > ul {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+    z-index: 2;
     height: 100%;
     white-space: nowrap;
     word-break: keep-all;
-    z-index: 2;
     transition: left 0.3s ease-in-out;
     &.xy-slider--touch {
       transition: none;
@@ -355,11 +358,11 @@ export default {
       }
     }
     & > li {
+      position: relative;
       display: inline-block;
       vertical-align: middle;
-      position: relative;
-      overflow: hidden;
       height: 100%;
+      overflow: hidden;
       transition: transform 0.3s ease-in-out;
       transform: scale(0.6);
       //
@@ -382,25 +385,26 @@ export default {
     }
   }
   & > footer {
+    font-size: 0;
+    text-align: center;
     position: absolute;
     left: 0;
     bottom: 0;
+    z-index: 3;
     width: 100%;
     height: 8%;
     min-height: rsh(28);
-    text-align: center;
-    z-index: 3;
-    font-size: 0;
     & > span {
       display: inline-block;
-      box-sizing: border-box;
       vertical-align: middle;
       width: 2%;
+      margin: 0 1%;
       padding-top: 2%;
       background-color: rgba(0, 0, 0, 0.1);
       border-radius: 50%;
-      margin: 0 1%;
+
       box-shadow: 0 0 2px 0 #000;
+      box-sizing: border-box;
       &.xy-slider__indicator--cur {
         background-color: rgba(255, 255, 255, 1);
       }

@@ -18,7 +18,8 @@
     //原因: Lazyload的loading事件有几率滞后于替换为loading的图片.
     //导致上一张图片大小遗留影响到loading图片.
     adapter: {
-      loaded({ el }, formCache) {
+      // ({ el }, formCache)
+      loaded({ el }) {
         let parent = el.parentElement
         parent.style.backgroundImage = `url("${el.src}")`
         if (el.classList.contains('lazy-contain')) {

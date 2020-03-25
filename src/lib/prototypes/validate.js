@@ -52,7 +52,7 @@ function idCard(code) {
     91: '国外 '
   }
   if (typeof code === 'string') {
-    if (code.length == 18) {
+    if (code.length === 18) {
       if (!code || !/(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(code)) {
         msg = '证件号码格式错误'
       } else if (!city[code.substr(0, 2)]) {
@@ -73,8 +73,8 @@ function idCard(code) {
           wi = factor[i]
           sum += ai * wi
         }
-        var last = parity[sum % 11]
-        if (parity[sum % 11] != code[17]) {
+        // var last = parity[sum % 11]
+        if (parity[sum % 11] !== code[17]) {
           msg = '证件号码校验位错误'
         } else {
           result = true
@@ -160,7 +160,7 @@ function businessLicense(code) {
   let result = false
   let msg = ''
   if (typeof code === 'string') {
-    if (code.length == 15 || code.length == 18) {
+    if (code.length === 15 || code.length === 18) {
       if (
         !code ||
         !/(^(?:(?![IOZSV])[\dA-Z]){2}\d{6}(?:(?![IOZSV])[\dA-Z]){10}$)|(^\d{15}$)/.test(
@@ -185,9 +185,9 @@ function mobile(phone) {
   let msg = ''
   var isPhone = /^0\d{2,3}-?\d{7,8}$/
   //增加134 减少|1349[0-9]{7}，增加181,增加145，增加17[678]
-  var isMob = /^((\+?86)|(\(\+86\)))?(13[0123456789][0-9]{8}|15[012356789][0-9]{8}|18[012356789][0-9]{8}|14[57][0-9]{8}|17[3678][0-9]{8})$/
+  // var isMob = /^((\+?86)|(\(\+86\)))?(13[0123456789][0-9]{8}|15[012356789][0-9]{8}|18[012356789][0-9]{8}|14[57][0-9]{8}|17[3678][0-9]{8})$/
   if (typeof phone === 'string') {
-    if (phone.length == 11) {
+    if (phone.length === 11) {
       if (isPhone.test(phone)) {
         msg = '手机号码格式不正确'
       } else {

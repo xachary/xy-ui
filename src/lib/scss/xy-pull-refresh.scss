@@ -12,19 +12,19 @@
 
 .xy-pull-refresh {
   .xy-pull-refresh__bar {
-    background: linear-gradient(#eee 0%, #eee 90%, #ddd 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(#eee 0%, #eee 90%, #ddd 100%);
     overflow: hidden;
     & > span {
-      width: 2.5%;
-      padding-top: 2.5%;
-      margin: 1% 1%;
-      background-color: #ddd;
-      border-radius: 50%;
       //box-shadow: -1px -1px 1px 1px #ccc inset;
       position: relative;
+      width: 2.5%;
+      margin: 1% 1%;
+      padding-top: 2.5%;
+      background-color: #ddd;
+      border-radius: 50%;
       animation: xy-pull-refresh 0.6s ease-in infinite;
       &:nth-child(1) {
         animation-delay: 0s;

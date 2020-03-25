@@ -81,7 +81,7 @@
           this.$emit('change', false)
         }
       },
-      onCancel: function(e) {
+      onCancel: function() {
         this.$emit('on-cancel')
         this.$emit('change', false)
       },

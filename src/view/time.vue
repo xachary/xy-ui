@@ -41,7 +41,7 @@ export default {
         }
     },
     methods: {
-        onChange(time) {
+        onChange() {
             // console.log(time)
         },
         onFinish() {

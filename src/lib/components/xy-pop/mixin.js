@@ -42,7 +42,7 @@ export default {
 
     },
     watch: {
-        show(v) { }
+        show() { }
     },
     created() {
 
@@ -64,7 +64,7 @@ export default {
             this.moveY = e.touches[0].clientY
             this.$refs.ct.scrollTo(0, this.lastH + this.startY - e.touches[0].clientY)
         },
-        onTouchend: function (e) {
+        onTouchend: function () {
             let that = this
             this.lastH = this.$refs.ct.scrollTop + this.speedY * Math.abs(this.speedY)
             if (
@@ -87,7 +87,7 @@ export default {
                 'ExpoEaseOut'
             )
         },
-        onPrevent: function (e) { },
+        onPrevent: function () { },
     },
     provide() {
         return {
