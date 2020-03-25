@@ -66,30 +66,31 @@
 //
 @keyframes xy-btn-act-wave {
   0% {
-    transform: scale(0);
     opacity: 1;
+    transform: scale(0);
   }
 
   50% {}
 
   100% {
-    transform: scale(1);
     opacity: 0;
+    transform: scale(1);
   }
 }
 
 [xy-btn-act-wave] {
   position: relative;
   overflow: hidden;
+
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
 
   .xy-btn-act-wave__circle {
     position: absolute;
     z-index: 999;
+    opacity: 0;
     border-radius: 50%;
     animation: xy-btn-act-wave 0.5s ease-out;
-    opacity: 0;
   }
 
   &[xy-btn-act-wave--moving]:not([disabled]) {

@@ -7,7 +7,7 @@ export default {
     props: {
         threshold: {
             type: String,
-            default: 0
+            default: '0'
         },
         paused: {
             type: Boolean,
@@ -24,7 +24,7 @@ export default {
     },
     mounted: function () {
         let that = this
-        that.onScroll = function (e) {
+        that.onScroll = function () {
             let threshold = parseInt(that.threshold)
             threshold = isNaN(threshold) ? 0 : threshold
             // console.log(`${window.scrollY} + ${threshold} >= ${document.body.scrollHeight} - ${window.innerHeight} = ${document.body.scrollHeight - window.innerHeight}`)

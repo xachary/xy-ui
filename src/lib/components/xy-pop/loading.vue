@@ -71,7 +71,7 @@
         this.moveY = e.touches[0].clientY
         this.$refs.ct.scrollTo(0, this.lastH + this.startY - e.touches[0].clientY)
       },
-      onTouchend: function(e) {
+      onTouchend: function() {
         let that = this
         this.lastH = this.$refs.ct.scrollTop + this.speedY * Math.abs(this.speedY)
         if (
@@ -94,7 +94,7 @@
           'ExpoEaseOut'
         )
       },
-      onPrevent: function(e) {},
+      onPrevent: function() {},
       // 用于prototype式打开
       open: function(opt = {}) {
         if (typeof opt.msg !== 'undefined') {

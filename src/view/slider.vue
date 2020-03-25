@@ -160,7 +160,7 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'https://dummyimage.com/300x600',
+                    src: 'https://placeimg.com/300/600/any',
                     href: '#'
                 }
             ]
@@ -168,12 +168,12 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'https://dummyimage.com/300x600',
+                    src: 'https://placeimg.com/300/600/any',
                     href: '#'
                 }, {
                     id: '2',
                     name: '600*300',
-                    src: 'https://dummyimage.com/600x300',
+                    src: 'https://placeimg.com/600/300/any',
                     href: 'https://www.baidu.com/'
                 }
             ]
@@ -181,17 +181,17 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'https://dummyimage.com/300x600',
+                    src: 'https://placeimg.com/300/600/any',
                     href: '#'
                 }, {
                     id: '2',
                     name: '600*300',
-                    src: 'https://dummyimage.com/600x300',
+                    src: 'https://placeimg.com/600/300/any',
                     href: 'https://www.baidu.com/'
                 }, {
                     id: '3',
                     name: '300*300',
-                    src: 'https://dummyimage.com/300x300',
+                    src: 'https://placeimg.com/300/300/any',
                     href: 'https://www.baidu.com/'
                 }
             ]
@@ -199,22 +199,22 @@ export default {
                 {
                     id: '1',
                     name: '300*600',
-                    src: 'https://dummyimage.com/300x600',
+                    src: 'https://placeimg.com/300/600/any',
                     href: '#'
                 }, {
                     id: '2',
                     name: '600*300',
-                    src: 'https://dummyimage.com/600x300',
+                    src: 'https://placeimg.com/600/300/any',
                     href: 'https://www.baidu.com/'
                 }, {
                     id: '3',
                     name: '300*300',
-                    src: 'https://dummyimage.com/300x300',
+                    src: 'https://placeimg.com/300/300/any',
                     href: 'https://www.baidu.com/'
                 }, {
                     id: '4',
                     name: '400*400',
-                    src: 'https://dummyimage.com/400x400',
+                    src: 'https://placeimg.com/400/400/any',
                     href: 'https://www.baidu.com/'
                 }
             ]

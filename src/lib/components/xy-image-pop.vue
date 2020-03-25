@@ -103,13 +103,13 @@ export default {
     }
   },
   watch: {
-    visible(v) {
+    visible() {
       this.showOrHide()
     },
     index(v) {
       this.idx = v
     },
-    idx(v) {
+    idx() {
       // console.log(v)
     }
   },
@@ -268,16 +268,17 @@ export default {
   }
 
   .custom{
-    background-color: transparent;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 44px;
     font-size: 13px;
-    line-height: 44px;
     color: #FFF;
-    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 44px;
     padding: 0 10px;
+    background-color: transparent;
+    opacity: 0.75;
+
+    line-height: 44px;
   }
 }
 </style>

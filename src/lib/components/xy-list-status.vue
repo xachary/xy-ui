@@ -81,31 +81,21 @@ export default {
 @import '~@/lib/scss/style';
 
 .xy-list-status {
+  font-size: rsh(28);
+  color: rgba(166, 166, 166, 1);
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: rsh(15) 0;
+
+  box-sizing: border-box;
   /*padding-bottom: rsh(30);*/
   font-style: normal;
-  font-size: rsh(28);
-  color: rgba(166, 166, 166, 1);
   line-height: rsh(80);
-  text-align: center;
-  padding: rsh(15) 0;
-  box-sizing: border-box;
   &.xy-list-status--loading {
     & > div {
-      @keyframes xy-list-status__char {
-        0% {
-          top: 0;
-        }
-        50% {
-          top: rsh(10);
-        }
-        100% {
-          top: 0;
-        }
-      }
       & > span {
         position: relative;
         animation: xy-list-status__char 0.6s ease-in infinite;
@@ -117,6 +107,17 @@ export default {
         }
         &:nth-child(3) {
           animation-delay: 0.4s;
+        }
+      }
+      @keyframes xy-list-status__char {
+        0% {
+          top: 0;
+        }
+        50% {
+          top: rsh(10);
+        }
+        100% {
+          top: 0;
         }
       }
     }

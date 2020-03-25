@@ -1,29 +1,31 @@
 <template>
-  <div class="xy-pop"
-       :class="{'xy-pop--show':show}">
-    <div class="xy-pop__mask"
-         @touchmove.stop.prevent="onPrevent">
-      <header :class="{'xy-pop__mask__header--hideTitle':!showTitle}">
+  <div class="xy-pop" :class="{ 'xy-pop--show': show }">
+    <div class="xy-pop__mask" @touchmove.stop.prevent="onPrevent">
+      <header :class="{ 'xy-pop__mask__header--hideTitle': !showTitle }">
         <slot name="title">
-          {{title}}
+          {{ title }}
         </slot>
       </header>
-      <main :class="{'xy-pop__mask__main--hideTitle':!showTitle}"
-            ref="ct"
-            @touchstart.stop="onTouchstart"
-            @touchmove.stop.prevent="onTouchmove"
-            @touchend.stop="onTouchend"
-            :style="{'text-align':textAlign}">
+      <main
+        :class="{ 'xy-pop__mask__main--hideTitle': !showTitle }"
+        ref="ct"
+        @touchstart.stop="onTouchstart"
+        @touchmove.stop.prevent="onTouchmove"
+        @touchend.stop="onTouchend"
+        :style="{ 'text-align': textAlign }"
+      >
         <slot>
           <p v-html="msg"></p>
         </slot>
       </main>
       <footer>
         <slot name="btns">
-          <button class="xy-pop__mask__footer__btn xy-pop__mask__footer__btn--confirm"
-                  @click="onConfirm"
-                  v-text="confirmText"
-                  v-xy-btn-act:style.color="'#B1E2F4'"></button>
+          <button
+            class="xy-pop__mask__footer__btn xy-pop__mask__footer__btn--confirm"
+            @click="onConfirm"
+            v-text="confirmText"
+            v-xy-btn-act:style.color="'#B1E2F4'"
+          ></button>
         </slot>
       </footer>
     </div>
@@ -38,13 +40,13 @@
     props: {
       cancelText: {
         type: String,
-        default: '取消'
+        default: '取消',
       },
       // 确认手动隐藏弹窗
       confirmNotHide: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
     data() {
       return {}
@@ -55,7 +57,7 @@
     mounted() {},
     beforeDestory() {},
     methods: {
-      onConfirm: function(e) {
+      onConfirm: function (e) {
         let that = this
         let currentTarget = e.currentTarget
         // 让确认按钮失效
@@ -63,11 +65,11 @@
 
         this.$emit('on-confirm', {
           currentTarget: e.currentTarget,
-          hide: function() {
+          hide: function () {
             // 恢复确认按钮有效
             currentTarget.disabled = false
             that.$emit('change', false)
-          }
+          },
         })
         if (!this.confirmNotHide) {
           // 恢复确认按钮有效
@@ -76,7 +78,7 @@
         }
       },
       // 用于prototype式打开
-      open: function(msg, opt) {
+      open: function (msg, opt) {
         this.msg = msg
         if (typeof opt.title !== 'undefined') {
           this.title = opt.title
@@ -92,11 +94,10 @@
         }
 
         this.$emit('change', true)
-      }
+      },
     },
-    inject: []
+    inject: [],
   }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -123,10 +123,10 @@
           .confirm(
             "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
             {
-              onConfirm: function(e) {
+              onConfirm: function() {
                 console.log('onConfirm')
               },
-              onCancel: function(e) {
+              onCancel: function() {
                 console.log('onCancel')
               }
             }
@@ -223,7 +223,7 @@
           .alert(
             "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
             {
-              onConfirm: function(e) {
+              onConfirm: function() {
                 console.log('onConfirm')
               }
             }
@@ -264,7 +264,7 @@
               showTitle: false
             }
           )
-          .then(function(result) {})
+          .then(function() {})
       },
       //
       onAlertNotHideShow: function() {
@@ -281,7 +281,7 @@
               }
             }
           )
-          .then(function(result) {})
+          .then(function() {})
       },
       //
       onAlertOtherOptionShow: function() {
@@ -293,7 +293,7 @@
               confirmText: 'confirm2'
             }
           )
-          .then(function(result) {})
+          .then(function() {})
       },
       //
       onToastShow: function() {
@@ -359,13 +359,13 @@
   .pop {
     height: 150vh;
     .long-content {
-      background: linear-gradient(yellow, green);
-      height: 1000px;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      height: 1000px;
+      background: linear-gradient(yellow, green);
     }
   }
 </style>

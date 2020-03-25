@@ -37,13 +37,13 @@
 .lazy-load {
   position: relative;
   display: flex;
-  justify-content: center;
-  overflow: hidden;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position: center;
+  overflow: hidden;
 
   //&.loading, &.error {
   //  background-position: center;
@@ -53,8 +53,9 @@
   }
 
   &.loading {
-    animation: delay-show 1s ease-in-out;
+
     background-color: #fff;
+    animation: delay-show 1s ease-in-out;
   }
 
   &.error {
@@ -111,9 +112,9 @@
     &.lazy-contain,
     &.lazy-cover {
       position: absolute;
-      opacity: 0;
       width: 100%;
       height: 100%;
+      opacity: 0;
       //  position: absolute;
       //  //@keyframes lazy-loading {
       //  //  0% {

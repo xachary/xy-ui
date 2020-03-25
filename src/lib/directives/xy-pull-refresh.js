@@ -1,5 +1,6 @@
 // 触发刷新
-function pullRefresh(cb, el) {
+// (cb, el)
+function pullRefresh(cb) {
   log('刷新触发')
   cb.call({}, function stop() {
     // 结束刷新反馈
@@ -163,7 +164,8 @@ logger.addEventListener(
 logger.innerHTML = ''
 
 // 打日志
-function log(str) {
+// (str)
+function log() {
   // console.log(str)
   // logger.innerHTML = logger.innerHTML + (logger.innerHTML ? '<br>' : '') + str
   // logger.scrollTop = logger.scrollHeight
@@ -230,7 +232,8 @@ let onWinScrollCb = function() {
 
 export default {
   name: 'xy-pull-refresh',
-  bind: function(el, { value, arg }) {
+  // (el, { value, arg })
+  bind: function(el, { value }) {
     // 对外
     if (value) {
       pullRefreshCb = pullRefresh.bind({}, value, el)
