@@ -27,10 +27,11 @@ function parseData(value) {
 
 export default {
     name: 'xy-loading',
-    inserted(el, { value, arg, modifiers }) {
+    // (el, { value, arg, modifiers })
+    inserted(el, { value, modifiers }) {
         let opt = parseData(value)
 
-        let { height, width, left, right } = el.getBoundingClientRect()
+        let { height, width, left } = el.getBoundingClientRect()
         let ww = window.innerWidth
 
         el.classList.add('xy-loading')
@@ -84,7 +85,7 @@ export default {
 
         }
     },
-    update(el, { value, arg, modifiers }) {
+    update(el, { value }) {
         let opt = parseData(value)
         if (!opt.loading) {
             el.remove()

@@ -12,7 +12,7 @@
       return {}
     },
     methods: {},
-    mounted: function() {
+    mounted: function () {
       console.log('app mounted')
     }
   }

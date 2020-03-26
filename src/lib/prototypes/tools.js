@@ -1,6 +1,6 @@
 function delay(ms) {
   return (function () {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve) {
       setTimeout(function () {
         console.log('done')
         resolve()
@@ -60,7 +60,7 @@ var moveFn = {
     return -c * ((t = t / d - 1) * t * t * t - 1) + b
   },
   ExpoEaseOut: function (t, b, c, d) {
-    return t == d ? b + c : c * (-Math.pow(2, (-10 * t) / d) + 1) + b
+    return t === d ? b + c : c * (-Math.pow(2, (-10 * t) / d) + 1) + b
   }
 }
 
@@ -92,13 +92,13 @@ function move(before, after, callback, finish, r, fn) {
   itv = setInterval(function () {
     var s = (r * time) / 100
     var n = func(i, before, after - before, s)
-    if (typeof callback == 'function') {
+    if (typeof callback === 'function') {
       callback.call(null, n)
     }
     if (i >= s) {
       clearInterval(itv)
       itv = null
-      if (typeof finish == 'function') {
+      if (typeof finish === 'function') {
         finish.call()
       }
     } else {

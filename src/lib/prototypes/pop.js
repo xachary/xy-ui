@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import _ from 'lodash'
 import ConfirmComponent from '@/lib/components/xy-pop/confirm.vue'
 import AlertComponent from '@/lib/components/xy-pop/alert.vue'
 import ToastComponent from '@/lib/components/xy-pop/toast.vue'
