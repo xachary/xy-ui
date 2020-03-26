@@ -4,13 +4,12 @@
   "description": "vue ui lib",
   "main": "dist/xy-ui.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 | yarn format",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 & yarn format",
     "start": "./node_modules/spa-http-server/bin/http-server -p 6666 --push-state",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "stylelint": "onchange 'src/**/*.css' 'src/**/*.scss' 'src/**/*.vue' 'src/**/*.html' -- stylelint --fix {{changed}}",
-    "prettier": "onchange 'src/**/*.js' 'src/**/*.json' 'src/**/*.vue' 'src/**/*.html' -- prettier --write {{changed}}",
-    "eslint": "onchange 'src/**/*.js' 'src/**/*.json' 'src/**/*.vue' 'src/**/*.html' -- eslint {{changed}}",
-    "format": "yarn run stylelint | yarn run prettier"
+    "prettier": "onchange '**/*.js' '**/*.json' '**/*.vue' '**/*.html' -- prettier --write {{changed}}",
+    "format": "yarn stylelint & yarn prettier"
   },
   "repository": {
     "type": "git",
