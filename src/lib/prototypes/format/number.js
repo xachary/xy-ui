@@ -3,14 +3,14 @@ function format(
   opt = {
     fixed: -1,
     comma: false,
-    plus: false
+    plus: false,
   }
 ) {
   let { fixed, comma, plus } = Object.assign(
     {
       fixed: -1,
       comma: false,
-      plus: false
+      plus: false,
     },
     opt
   )
@@ -31,7 +31,7 @@ function format(
       parsed = parsed.replace(/^0+/, '')
     }
   }
-  if (parsed.split('').filter(o => o === '.').length > 1) {
+  if (parsed.split('').filter((o) => o === '.').length > 1) {
     let first = parsed.indexOf('.')
     parsed = parsed.replace(/\./g, '')
     let temp = parsed.split('')

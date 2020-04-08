@@ -72,7 +72,7 @@ const xyUI = {
   xyFormat: xyPrototypes.xyFormat,
   xyTools: xyPrototypes.xyTools,
   xyValidate: xyPrototypes.xyValidate,
-  xyPop: xyPrototypes.xyPop
+  xyPop: xyPrototypes.xyPop,
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
