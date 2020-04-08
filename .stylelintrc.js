@@ -3,8 +3,8 @@ module.exports = {
   rules: {
     'order/order': [
       [
-        'custom-properties',
         'dollar-variables',
+        'custom-properties',
         'declarations',
         'rules',
         'at-rules',
@@ -31,6 +31,7 @@ module.exports = {
         'z-index',
         'display',
         'vertical-align',
+        'flex',
         'flex-direction',
         'align-items',
         'justify-content',

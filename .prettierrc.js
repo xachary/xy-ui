@@ -3,4 +3,5 @@ module.exports = {
   semi: false,
   arrowParens: 'always',
   vueIndentScriptAndStyle: true,
+  printWidth: 150,
 }

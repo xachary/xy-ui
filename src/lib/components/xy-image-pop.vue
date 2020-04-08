@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="pswp xy-image-pop"
-    tabindex="-1"
-    role="dialog"
-    aria-hidden="true"
-    ref="pswp"
-  >
+  <div class="pswp xy-image-pop" tabindex="-1" role="dialog" aria-hidden="true" ref="pswp">
     <div class="pswp__bg"></div>
     <div class="pswp__scroll-wrap">
       <div class="pswp__container">
@@ -18,22 +12,10 @@
           <div class="custom">{{ counter }}</div>
           <div class="pswp__counter"></div>
           <slot name="button-after"></slot>
-          <button
-            class="pswp__button pswp__button--close"
-            title="Close (Esc)"
-          ></button>
-          <button
-            class="pswp__button pswp__button--share"
-            title="Share"
-          ></button>
-          <button
-            class="pswp__button pswp__button--fs"
-            title="Toggle fullscreen"
-          ></button>
-          <button
-            class="pswp__button pswp__button--zoom"
-            title="Zoom in/out"
-          ></button>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
           <slot name="button-before"></slot>
           <div class="pswp__preloader">
             <div class="pswp__preloader__icn">
@@ -43,19 +25,11 @@
             </div>
           </div>
         </div>
-        <div
-          class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"
-        >
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
           <div class="pswp__share-tooltip"></div>
         </div>
-        <button
-          class="pswp__button pswp__button--arrow--left"
-          title="Previous (arrow left)"
-        ></button>
-        <button
-          class="pswp__button pswp__button--arrow--right"
-          title="Next (arrow right)"
-        ></button>
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
         <div class="pswp__caption">
           <div class="pswp__caption__center"></div>
         </div>
@@ -101,9 +75,7 @@
     },
     computed: {
       counter() {
-        return `${(this.idx % this.times) + 1} / ${
-          this.imgs.length / this.times
-        }`
+        return this.times > 1 ? `${(this.idx % this.times) + 1} / ${this.imgs.length / this.times}` : `${this.idx + 1} / ${this.imgs.length}`
       },
     },
     watch: {
@@ -161,8 +133,7 @@
             console.log(['src', that.imgsParsed[index].src])
             if (thumbnail) {
               // get window scroll Y
-              let pageYScroll =
-                window.pageYOffset || document.documentElement.scrollTop
+              let pageYScroll = window.pageYOffset || document.documentElement.scrollTop
               // optionally get horizontal scroll
               // get position of element relative to viewport
               let rect = thumbnail.getBoundingClientRect()
@@ -173,12 +144,7 @@
             }
           }
         }
-        this.gallery = new PhotoSwipe(
-          this.$refs.pswp,
-          UI,
-          this.imgsParsed,
-          config
-        )
+        this.gallery = new PhotoSwipe(this.$refs.pswp, UI, this.imgsParsed, config)
         this.gallery.listen('close', () => {
           this.$emit('update:visible', false)
         })
@@ -247,10 +213,7 @@
           w: 0,
           h: 0,
         }
-        let max =
-          window.innerWidth >= window.innerHeight
-            ? window.innerWidth
-            : window.innerHeight
+        let max = window.innerWidth >= window.innerHeight ? window.innerWidth : window.innerHeight
         if (width >= height) {
           size.w = (width / (height / max)) * 2
           size.h = max * 2
