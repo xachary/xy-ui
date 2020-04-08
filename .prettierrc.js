@@ -1,6 +1,7 @@
 module.exports = {
   singleQuote: true,
   semi: false,
-  arrowParens: "always",
-  vueIndentScriptAndStyle: true
+  arrowParens: 'always',
+  vueIndentScriptAndStyle: true,
+  printWidth: 150,
 }
