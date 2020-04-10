@@ -1,227 +1,165 @@
 <template>
-    <div class="pad">
-        <h3>没有数据</h3>
-        <xy-slider
-            :data="data0"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <img
-                    :src="item.src"
-                    :alt="item.name"
-                >
-            </template>
-        </xy-slider>
-        <h3>只有1个数据</h3>
-        <xy-slider
-            :data="data1"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <img
-                    :src="item.src"
-                    :alt="item.name"
-                >
-            </template>
-        </xy-slider>
-        <h3>2个数据</h3>
-        <xy-slider
-            :data="data2"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <img
-                    :src="item.src"
-                    :alt="item.name"
-                >
-            </template>
-        </xy-slider>
-        <h3>3个数据</h3>
-        <xy-slider
-            ref="slider3"
-            :data="data3"
-            @on-change="onChange"
-            @on-click="onClick"
-        >
-            <template v-slot="item">
-                <img
-                    :src="item.src"
-                    :alt="item.name"
-                >
-            </template>
-        </xy-slider>
-        <h3>用background-image优化</h3>
-        <xy-slider
-            :data="data4"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
-                </div>
-            </template>
-        </xy-slider>
-        <h3>用lazyload组件</h3>
-        <xy-slider
-            :data="data4"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <xy-lazyload
-                    :src="item.src"
-                    size="cover"
-                    class="sample"
-                ></xy-lazyload>
-            </template>
-        </xy-slider>
-        <h3>缩放特效</h3>
-        <xy-slider
-            :data="data4"
-            :scale="true"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
-                </div>
-            </template>
-        </xy-slider>
-        <h3>自定义大小</h3>
-        <xy-slider
-            :data="data4"
-            width="200px"
-            height="100px"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
-                </div>
-            </template>
-        </xy-slider>
-        <h3>不自动切换</h3>
-        <xy-slider
-            :data="data4"
-            :auto="false"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <div :style="{'background-image':`url(${item.src})`,'background-size':'cover','background-position':'center'}">
-                </div>
-            </template>
-        </xy-slider>
-        <h3>所有属性（默认值）</h3>
-        <xy-slider
-            :data="data4"
-            :interval="3000"
-            :auto="true"
-            :scale="false"
-            width="100%"
-            height="50%"
-            @on-change="onChange"
-        >
-            <template v-slot="item">
-                <xy-lazyload
-                    :src="item.src"
-                    size="cover"
-                    class="sample"
-                ></xy-lazyload>
-            </template>
-        </xy-slider>
-    </div>
+  <div class="pad">
+    <!-- <h3>没有数据</h3>
+    <xy-slider :data="data0" @on-change="onChange">
+      <template v-slot="item">
+        <img :src="item.src" :alt="item.name" />
+      </template>
+    </xy-slider>
+    <h3>只有1个数据</h3>
+    <xy-slider :data="data1" @on-change="onChange">
+      <template v-slot="item">
+        <img :src="item.src" :alt="item.name" />
+      </template>
+    </xy-slider>
+    <h3>2个数据</h3>
+    <xy-slider :data="data2" @on-change="onChange">
+      <template v-slot="item">
+        <img :src="item.src" :alt="item.name" />
+      </template>
+    </xy-slider> -->
+    <h3>3个数据</h3>
+    <xy-slider ref="slider3" :data="data3" @on-change="onChange" @on-click="onClick">
+      <template v-slot="item">
+        <img :src="item.src" :alt="item.name" />
+      </template>
+    </xy-slider>
+    <!-- <h3>用background-image优化</h3>
+    <xy-slider :data="data4" @on-change="onChange">
+      <template v-slot="item">
+        <div :style="{ 'background-image': `url('${item.src}')`, 'background-size': 'cover', 'background-position': 'center' }"></div>
+      </template>
+    </xy-slider>
+    <h3>用lazyload组件</h3>
+    <xy-slider :data="data4" @on-change="onChange">
+      <template v-slot="item">
+        <xy-lazyload :src="item.src" size="cover" class="sample"></xy-lazyload>
+      </template>
+    </xy-slider>
+    <h3>缩放特效</h3>
+    <xy-slider :data="data4" :scale="true" @on-change="onChange">
+      <template v-slot="item">
+        <div :style="{ 'background-image': `url(${item.src})`, 'background-size': 'cover', 'background-position': 'center' }"></div>
+      </template>
+    </xy-slider>
+    <h3>自定义大小</h3>
+    <xy-slider :data="data4" width="200px" height="100px" @on-change="onChange">
+      <template v-slot="item">
+        <div :style="{ 'background-image': `url(${item.src})`, 'background-size': 'cover', 'background-position': 'center' }"></div>
+      </template>
+    </xy-slider>
+    <h3>不自动切换</h3>
+    <xy-slider :data="data4" :auto="false" @on-change="onChange">
+      <template v-slot="item">
+        <div :style="{ 'background-image': `url(${item.src})`, 'background-size': 'cover', 'background-position': 'center' }"></div>
+      </template>
+    </xy-slider>
+    <h3>所有属性（默认值）</h3>
+    <xy-slider :data="data4" :interval="3000" :auto="true" :scale="false" width="100%" height="50%" @on-change="onChange">
+      <template v-slot="item">
+        <xy-lazyload :src="item.src" size="cover" class="sample"></xy-lazyload>
+      </template>
+    </xy-slider> -->
+  </div>
 </template>
 
 <script>
-
-export default {
-    components: {
-    },
+  export default {
+    components: {},
     data() {
-        return {
-            data0: [],
-            data1: [],
-            data2: [],
-            data3: [],
-            data4: []
-        }
+      return {
+        data0: [],
+        data1: [],
+        data2: [],
+        data3: [],
+        data4: [],
+      }
     },
     methods: {
-        onChange(item) {
-            console.log('change', item)
-        },
-        onClick(){
-            this.$refs.slider3.pause()
-            setTimeout(()=>{
-                this.$refs.slider3.resume()
-            },3000)
-        }
+      onChange(item) {
+        console.log('change', item)
+      },
+      onClick() {
+        this.$refs.slider3.pause()
+        setTimeout(() => {
+          this.$refs.slider3.resume()
+        }, 3000)
+      },
     },
     mounted: function () {
-        setTimeout(() => {
-            this.data0 = []
-            this.data1 = [
-                {
-                    id: '1',
-                    name: '300*600',
-                    src: 'https://placeimg.com/300/600/any',
-                    href: '#'
-                }
-            ]
-            this.data2 = [
-                {
-                    id: '1',
-                    name: '300*600',
-                    src: 'https://placeimg.com/300/600/any',
-                    href: '#'
-                }, {
-                    id: '2',
-                    name: '600*300',
-                    src: 'https://placeimg.com/600/300/any',
-                    href: 'https://www.baidu.com/'
-                }
-            ]
-            this.data3 = [
-                {
-                    id: '1',
-                    name: '300*600',
-                    src: 'https://placeimg.com/300/600/any',
-                    href: '#'
-                }, {
-                    id: '2',
-                    name: '600*300',
-                    src: 'https://placeimg.com/600/300/any',
-                    href: 'https://www.baidu.com/'
-                }, {
-                    id: '3',
-                    name: '300*300',
-                    src: 'https://placeimg.com/300/300/any',
-                    href: 'https://www.baidu.com/'
-                }
-            ]
-            this.data4 = [
-                {
-                    id: '1',
-                    name: '300*600',
-                    src: 'https://placeimg.com/300/600/any',
-                    href: '#'
-                }, {
-                    id: '2',
-                    name: '600*300',
-                    src: 'https://placeimg.com/600/300/any',
-                    href: 'https://www.baidu.com/'
-                }, {
-                    id: '3',
-                    name: '300*300',
-                    src: 'https://placeimg.com/300/300/any',
-                    href: 'https://www.baidu.com/'
-                }, {
-                    id: '4',
-                    name: '400*400',
-                    src: 'https://placeimg.com/400/400/any',
-                    href: 'https://www.baidu.com/'
-                }
-            ]
-        }, 500)
-    }
-}
+      setTimeout(() => {
+        this.data0 = []
+        this.data1 = [
+          {
+            id: '1',
+            name: '300*600',
+            src: 'https://placeimg.com/300/600/any?rand=' + Math.random(),
+            href: '#',
+          },
+        ]
+        this.data2 = [
+          {
+            id: '1',
+            name: '300*600',
+            src: 'https://placeimg.com/300/600/any?rand=' + Math.random(),
+            href: '#',
+          },
+          {
+            id: '2',
+            name: '600*300',
+            src: 'https://placeimg.com/600/300/any?rand=' + Math.random(),
+            href: 'https://www.baidu.com/',
+          },
+        ]
+        this.data3 = [
+          {
+            id: '1',
+            name: '300*600',
+            src: 'https://placeimg.com/300/600/any?rand=' + Math.random(),
+            href: '#',
+          },
+          {
+            id: '2',
+            name: '600*300',
+            src: 'https://placeimg.com/600/300/any?rand=' + Math.random(),
+            href: 'https://www.baidu.com/',
+          },
+          {
+            id: '3',
+            name: '300*300',
+            src: 'https://placeimg.com/300/300/any?rand=' + Math.random(),
+            href: 'https://www.baidu.com/',
+          },
+        ]
+        this.data4 = [
+          {
+            id: '1',
+            name: '300*600',
+            src: 'https://placeimg.com/300/600/any?rand=' + Math.random(),
+            href: '#',
+          },
+          {
+            id: '2',
+            name: '600*300',
+            src: 'https://placeimg.com/600/300/any?rand=' + Math.random(),
+            href: 'https://www.baidu.com/',
+          },
+          {
+            id: '3',
+            name: '300*300',
+            src: 'https://placeimg.com/300/300/any?rand=' + Math.random(),
+            href: 'https://www.baidu.com/',
+          },
+          {
+            id: '4',
+            name: '400*400',
+            src: 'https://placeimg.com/400/400/any?rand=' + Math.random(),
+            href: 'https://www.baidu.com/',
+          },
+        ]
+      }, 500)
+    },
+  }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
