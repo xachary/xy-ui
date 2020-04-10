@@ -106,7 +106,7 @@
         // 容器/项宽度
         itemWidth: 1,
         // 暂停
-        pauseMark: false
+        pauseMark: false,
       }
     },
     computed: {
@@ -121,10 +121,10 @@
       parseData() {
         this.giveNum()
         let temp = JSON.parse(JSON.stringify([...this.data, ...this.data, ...this.data]))
-        return temp.map((o, i) => {
-          if (i >= this.data.length) {
-            o.imagePopId = `id${i}`
-          }
+        temp = temp.map((o, i) => {
+          // if (i >= this.data.length) {
+          o.imagePopId = `id${i}`
+          // }
           // if (/\?[^?=]+=/.test()) {
           //   o.src = o.src + '&rand=' + Math.random()
           // } else {
@@ -132,6 +132,7 @@
           // }
           return o
         })
+        return temp
       },
       current() {
         // 当前数据序号
@@ -151,7 +152,7 @@
           this.$emit('on-change', this.data[this.current])
         }
       },
-      scrollLeft(){
+      scrollLeft() {
         let scrollWidth = this.data.length * this.itemWidth
         this.$emit('on-scroll', Math.abs(this.scrollLeft) % scrollWidth, scrollWidth)
       },
