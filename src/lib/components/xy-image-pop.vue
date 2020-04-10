@@ -75,7 +75,10 @@
     },
     computed: {
       counter() {
-        return this.times > 1 ? `${(this.idx % this.times) + 1} / ${this.imgs.length / this.times}` : `${this.idx + 1} / ${this.imgs.length}`
+        let len = this.imgs.length / this.times
+        let idx = this.idx + 1
+        let num = idx % len
+        return this.times > 1 ? `${num === 0 ? len : num} / ${len}` : `${idx} / ${this.imgs.length}`
       },
     },
     watch: {
@@ -125,9 +128,16 @@
           config.getThumbBoundsFn = function (index) {
             // 查找缩略图元素
             // 优先级依次为：id===item.id、data-id===item.id、src===item.msrc、src===item.src
-            let thumbnail = document.querySelector(
-              `#${that.imgsParsed[index].id}:not(.pswp__img),[data-id="${that.imgsParsed[index].id}"]:not(.pswp__img),[src="${that.imgsParsed[index].msrc}"]:not(.pswp__img),[src="${that.imgsParsed[index].src}"]:not(.pswp__img)`
-            )
+            let thumbnail = document.querySelector(`#${that.imgsParsed[index].id}:not(.pswp__img)`)
+            if (!thumbnail) {
+              thumbnail = document.querySelector(`[data-id="${that.imgsParsed[index].id}"]:not(.pswp__img)`)
+            }
+            if (!thumbnail) {
+              thumbnail = document.querySelector(`[src="${that.imgsParsed[index].msrc}"]:not(.pswp__img)`)
+            }
+            if (!thumbnail) {
+              thumbnail = document.querySelector(`[src="${that.imgsParsed[index].src}"]:not(.pswp__img)`)
+            }
             console.log(['id/data-id', that.imgsParsed[index].id])
             console.log(['msrc', that.imgsParsed[index].msrc])
             console.log(['src', that.imgsParsed[index].src])
@@ -224,7 +234,6 @@
         return size
       },
       onStop() {
-        debugger
       },
     },
     mounted() {},

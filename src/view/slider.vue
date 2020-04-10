@@ -1,6 +1,6 @@
 <template>
   <div class="pad">
-    <!-- <h3>没有数据</h3>
+    <h3>没有数据</h3>
     <xy-slider :data="data0" @on-change="onChange">
       <template v-slot="item">
         <img :src="item.src" :alt="item.name" />
@@ -17,14 +17,14 @@
       <template v-slot="item">
         <img :src="item.src" :alt="item.name" />
       </template>
-    </xy-slider> -->
+    </xy-slider>
     <h3>3个数据</h3>
     <xy-slider ref="slider3" :data="data3" @on-change="onChange" @on-click="onClick">
       <template v-slot="item">
         <img :src="item.src" :alt="item.name" />
       </template>
     </xy-slider>
-    <!-- <h3>用background-image优化</h3>
+    <h3>用background-image优化</h3>
     <xy-slider :data="data4" @on-change="onChange">
       <template v-slot="item">
         <div :style="{ 'background-image': `url('${item.src}')`, 'background-size': 'cover', 'background-position': 'center' }"></div>
@@ -33,7 +33,7 @@
     <h3>用lazyload组件</h3>
     <xy-slider :data="data4" @on-change="onChange">
       <template v-slot="item">
-        <xy-lazyload :src="item.src" size="cover" class="sample"></xy-lazyload>
+        <xy-lazyload :src="item.src" size="cover" class="sample" :id="item.imagePopId"></xy-lazyload>
       </template>
     </xy-slider>
     <h3>缩放特效</h3>
@@ -59,7 +59,7 @@
       <template v-slot="item">
         <xy-lazyload :src="item.src" size="cover" class="sample"></xy-lazyload>
       </template>
-    </xy-slider> -->
+    </xy-slider>
   </div>
 </template>
 
