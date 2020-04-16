@@ -1,6 +1,6 @@
 {
   "name": "@xachary/xy-ui",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "vue ui lib",
   "main": "dist/xy-ui.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "stylelint": "onchange 'src/**/*.css' 'src/**/*.scss' 'src/**/*.vue' 'src/**/*.html' -- stylelint --fix {{changed}}",
     "prettier": "onchange '**/*.js' '**/*.json' '**/*.vue' '**/*.html' -- prettier --write {{changed}}",
-    "format": "yarn stylelint & yarn prettier"
+    "format": "xy-format"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "vux": "^2.9.4"
   },
   "devDependencies": {
+    "@xachary/xy-format": "^1.0.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^7.1.2",
