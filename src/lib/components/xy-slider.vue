@@ -1,13 +1,17 @@
 <template>
-  <div class="xy-slider" :style="{ width: width, 'padding-top': height }" ref="slider" @touchmove="onPrevent">
+  <div
+    class="xy-slider"
+    :class="{ 'xy-slider--touch': paused }"
+    :style="{ width: width, 'min-height': minHeight, height: height }"
+    ref="slider"
+    @touchmove="onPrevent">
     <ul
       :style="{ 'min-width': width, left: left }"
-      :class="{ 'xy-slider--touch': paused }"
+      :class="{ 'xy-slider__ul--touch': paused }"
       @touchstart="onTouchstart"
       @touchmove="onTouchmove"
       @touchend="onTouchend"
-      ref="container"
-    >
+      ref="container">
       <li
         v-for="(item, index) in parseData"
         :key="index"
@@ -18,14 +22,18 @@
           'xy-slider__item--left': scale && index === current2 - 1,
           'xy-slider__item--right': scale && index === current2 + 1,
         }"
-        @click="onClick(item, index)"
-      >
+        @click="onClick(item, index)">
         <slot v-bind="item"></slot>
       </li>
     </ul>
-    <footer v-if="indicate && length > 1">
-      <span v-for="(item, index) in data" :key="index" :class="{ 'xy-slider__indicator--cur': index === current }"> </span>
-    </footer>
+    <!-- <div style="position: absolute; z-index: 50; bottom: 0; background: #fff;">
+      {{ paused }}
+    </div> -->
+    <slot name="footer" v-bind="{ index: current, total: data.length }" v-if="indicate && length > 1">
+      <footer>
+        <span v-for="(item, index) in data" :key="index" :class="{ 'xy-slider__indicator--cur': index === current }"> </span>
+      </footer>
+    </slot>
   </div>
 </template>
 
@@ -41,7 +49,12 @@
       // 高（样式值）
       height: {
         type: String,
-        default: '50%',
+        default: '50vw',
+      },
+      // 最小高（样式值）
+      minHeight: {
+        type: String,
+        default: '',
       },
       // 数据数组
       data: {
@@ -86,6 +99,8 @@
         // 开始坐标
         startX: 0,
         // 当前坐标
+        currentX: 0,
+        // 滑动位移
         curX: 0,
         // 当前位移
         curLen: 0,
@@ -107,6 +122,8 @@
         itemWidth: 1,
         // 暂停
         pauseMark: false,
+        // 正在触摸
+        touching: false,
       }
     },
     computed: {
@@ -149,12 +166,18 @@
       },
       current() {
         if (this.data.length > 0) {
-          this.$emit('on-change', this.data[this.current])
+          this.$emit('on-change', this.data[this.current], this.current)
         }
       },
       scrollLeft() {
         let scrollWidth = this.data.length * this.itemWidth
-        this.$emit('on-scroll', Math.abs(this.scrollLeft) % scrollWidth, scrollWidth)
+        this.$emit('on-scroll', {
+          scrollLeft: Math.abs(this.scrollLeft) % scrollWidth,
+          scrollWidth,
+          ratio: (this.startX - this.currentX) / this.itemWidth,
+          index: this.current,
+          touching: this.touching,
+        })
       },
       curLen() {
         this.scrollLeft = this.curLen
@@ -276,6 +299,10 @@
       },
       // 按下
       onTouchstart({ touches: [touch] }) {
+        this.touching = true
+        clearTimeout(this.timer2)
+        this.timer2 = null
+
         if (this.length > 1) {
           if (this.auto) {
             // 停止自动切换
@@ -285,6 +312,7 @@
           this.paused = true
           //
           this.startX = touch.clientX
+          // this.lastStartX = touch.clientX
         }
       },
       // 滑动
@@ -294,6 +322,7 @@
             // 停止自动切换
             this.stop()
           }
+          this.currentX = touch.clientX
           if (this.repeat) {
             this.curX = touch.clientX - this.startX
             this.speed = Math.abs(this.lastCurX - this.curX)
@@ -324,6 +353,7 @@
       },
       // 释放
       onTouchend() {
+        this.touching = false
         if (this.length > 1) {
           // 恢复动画
           this.paused = false
@@ -392,16 +422,24 @@
     position: relative;
     margin: 0 auto;
     overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: height 0.3s ease-in-out;
+    &.xy-slider--touch {
+      transition: none;
+    }
     & > ul {
-      position: absolute;
+      flex-shrink: 0;
+      position: relative;
+      // position: absolute;
       top: 0;
       left: 0;
       z-index: 2;
-      height: 100%;
+      // height: 100%;
       white-space: nowrap;
       word-break: keep-all;
       transition: left 0.3s ease-in-out;
-      &.xy-slider--touch {
+      &.xy-slider__ul--touch {
         transition: none;
         & > li {
           transition: none;

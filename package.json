@@ -1,10 +1,10 @@
 {
-  "name": "@xachary/xy-ui",
-  "version": "0.1.20",
-  "description": "vue ui lib",
+  "name": "@blk/xy-ui",
+  "version": "0.1.22",
+  "description": "Vue组件库",
   "main": "dist/xy-ui.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 & yarn format",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0",
     "start": "./node_modules/spa-http-server/bin/http-server -p 6666 --push-state",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "stylelint": "onchange 'src/**/*.css' 'src/**/*.scss' 'src/**/*.vue' 'src/**/*.html' -- stylelint --fix {{changed}}",
@@ -15,13 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/xachary/xy-ui.git"
   },
-  "keywords": [
-    "vue",
-    "ui",
-    "component",
-    "directive",
-    "filter"
-  ],
+  "keywords": ["vue", "ui", "component", "directive", "filter"],
   "author": "xachary",
   "license": "ISC",
   "bugs": {
@@ -36,7 +30,7 @@
     "vux": "^2.9.4"
   },
   "devDependencies": {
-    "@xachary/xy-format": "^1.0.1",
+    "@blk/xy-format": "^1.0.4",
     "babel-core": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^7.1.2",
@@ -44,25 +38,28 @@
     "babel-preset-stage-3": "^6.24.1",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^6.0.3",
-    "css-loader": "^0.28.11",
+    "css-loader": "^3.5.3",
+    "dart-sass": "^1.25.0",
     "eslint": "^6.8.0",
-    "eslint-loader": "^3.0.3",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-vue": "^6.2.2",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^4.3.0",
-    "node-sass": "^4.13.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^6.0.0",
     "onchange": "^6.1.0",
     "prettier": "^2.0.2",
-    "sass-loader": "^6.0.6",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
     "spa-http-server": "^0.9.0",
     "stylelint": "^13.2.1",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.16.0",
-    "url-loader": "^2.3.0",
-    "vue-loader": "^13.0.5",
+    "terser-webpack-plugin": "^2.3.6",
+    "url-loader": "^4.1.0",
+    "vue-loader": "^15.9.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }

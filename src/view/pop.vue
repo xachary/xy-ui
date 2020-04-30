@@ -7,27 +7,20 @@
     <div><button @click="onConfirmMoreThanShow">Show</button></div>
     <h3>Confirm with long content</h3>
     <div><button @click="onConfirmLongContentShow">Show</button></div>
-    <xy-confirm @on-confirm="onConfirmLongContentConfirm"
-                @on-cancel="onCancel"
-                v-model="confirmLongContentShow">
+    <xy-confirm @on-confirm="onConfirmLongContentConfirm" @on-cancel="onCancel" v-model="confirmLongContentShow">
       <div class="long-content">
-        Long content<br>
-        Scroll me<br>
+        Long content<br />
+        Scroll me<br />
       </div>
     </xy-confirm>
     <h3>Confirm with custom button</h3>
     <div><button @click="onConfirmCustomButtonShow">Show</button></div>
-    <xy-confirm msg="<b style='color:red'>消息</b>消息"
-                v-model="confirmCustomButtonShow">
+    <xy-confirm msg="<b style='color:red'>消息</b>消息" v-model="confirmCustomButtonShow">
       <template slot="btns">
         <button @click="onConfirmCustomButtonCancel">Cancel</button>
-        <button @click="onConfirmCustomButtonConfirm"
-                disabled>Button2</button>
-        <button @click="onConfirmCustomButtonConfirm"
-                class="xy-pop__mask__footer__btn--confirm">Button3</button>
-        <button @click="onConfirmCustomButtonConfirm"
-                disabled
-                class="xy-pop__mask__footer__btn--confirm">Button4</button>
+        <button @click="onConfirmCustomButtonConfirm" disabled>Button2</button>
+        <button @click="onConfirmCustomButtonConfirm" class="xy-pop__mask__footer__btn--confirm">Button3</button>
+        <button @click="onConfirmCustomButtonConfirm" disabled class="xy-pop__mask__footer__btn--confirm">Button4</button>
       </template>
     </xy-confirm>
     <h3>Confirm with no title</h3>
@@ -36,7 +29,7 @@
     <div><button @click="onConfirmNotHideShow">Show</button></div>
     <h3>Confirm with other option</h3>
     <div><button @click="onConfirmOtherOptionShow">Show</button></div>
-    <br>
+    <br />
     <h4>Alert</h4>
     <h3>Alert default</h3>
     <div><button @click="onAlertShow">Show</button></div>
@@ -44,27 +37,20 @@
     <div><button @click="onAlertMoreThanShow">Show</button></div>
     <h3>Alert with long content</h3>
     <div><button @click="onAlertLongContentShow">Show</button></div>
-    <xy-alert @on-confirm="onAlertLongContentConfirm"
-              @on-cancel="onCancel"
-              v-model="alertLongContentShow">
+    <xy-alert @on-confirm="onAlertLongContentConfirm" @on-cancel="onCancel" v-model="alertLongContentShow">
       <div class="long-content">
-        Long content<br>
-        Scroll me<br>
+        Long content<br />
+        Scroll me<br />
       </div>
     </xy-alert>
     <h3>Alert with custom button</h3>
     <div><button @click="onAlertCustomButtonShow">Show</button></div>
-    <xy-confirm msg="<b style='color:red'>消息</b>消息"
-                v-model="alertCustomButtonShow">
+    <xy-confirm msg="<b style='color:red'>消息</b>消息" v-model="alertCustomButtonShow">
       <template slot="btns">
         <button @click="onAlertButtonCancel">Cancel</button>
-        <button @click="onAlertCustomButtonConfirm"
-                disabled>Button2</button>
-        <button @click="onAlertCustomButtonConfirm"
-                class="xy-pop__mask__footer__btn--confirm">Button3</button>
-        <button @click="onAlertCustomButtonConfirm"
-                disabled
-                class="xy-pop__mask__footer__btn--confirm">Button4</button>
+        <button @click="onAlertCustomButtonConfirm" disabled>Button2</button>
+        <button @click="onAlertCustomButtonConfirm" class="xy-pop__mask__footer__btn--confirm">Button3</button>
+        <button @click="onAlertCustomButtonConfirm" disabled class="xy-pop__mask__footer__btn--confirm">Button4</button>
       </template>
     </xy-confirm>
     <h3>Alert with no title</h3>
@@ -73,7 +59,7 @@
     <div><button @click="onAlertNotHideShow">Show</button></div>
     <h3>Alert with other option</h3>
     <div><button @click="onAlertOtherOptionShow">Show</button></div>
-    <br>
+    <br />
     <h4>Toast</h4>
     <h3>Toast default</h3>
     <div><button @click="onToastShow">Show</button></div>
@@ -81,11 +67,11 @@
     <div><button @click="onToastImgShow">Show</button></div>
     <h3>Toast with type</h3>
     <div>
-      <button @click="onToastTypeShow('success')">Success</button>
+      <button @click="onToastTypeShow('success', '测试测试测试测试测试测试')">Success</button>
       <button @click="onToastTypeShow('fail')">Fail</button>
       <button @click="onToastTypeShow('warn')">Warn</button>
     </div>
-    <br>
+    <br />
     <h4>Loading</h4>
     <h3>Loading default</h3>
     <div><button @click="onLoadingShow">Show</button></div>
@@ -114,24 +100,21 @@
         //
         timer: null,
         //
-        pop: pop
+        pop: pop,
       }
     },
     methods: {
-      onConfirmShow: function() {
+      onConfirmShow: function () {
         this.$xyPop
-          .confirm(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              onConfirm: function() {
-                console.log('onConfirm')
-              },
-              onCancel: function() {
-                console.log('onCancel')
-              }
-            }
-          )
-          .then(function(result) {
+          .confirm("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            onConfirm: function () {
+              console.log('onConfirm')
+            },
+            onCancel: function () {
+              console.log('onCancel')
+            },
+          })
+          .then(function (result) {
             console.log(result)
           })
       },
@@ -140,218 +123,187 @@
         this.$xyPop.confirm(
           "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息"
         )
-        this.$xyPop.confirm(
-          "<b style='color:green'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息"
-        )
+        this.$xyPop.confirm("<b style='color:green'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息")
         this.$xyPop.confirm("<b style='color:blue'>消息</b>消息")
       },
       //
-      onConfirmLongContentShow: function() {
+      onConfirmLongContentShow: function () {
         this.confirmLongContentShow = true
       },
-      onConfirmLongContentConfirm: function() {},
+      onConfirmLongContentConfirm: function () {},
       //
-      onConfirmCustomButtonShow: function() {
+      onConfirmCustomButtonShow: function () {
         this.confirmCustomButtonShow = true
       },
-      onConfirmCustomButtonConfirm: function() {
+      onConfirmCustomButtonConfirm: function () {
         this.confirmCustomButtonShow = false
       },
-      onConfirmCustomButtonCancel: function() {
+      onConfirmCustomButtonCancel: function () {
         this.confirmCustomButtonShow = false
       },
       //
-      onConfirmNoTitleShow: function() {
+      onConfirmNoTitleShow: function () {
         this.$xyPop
-          .confirm(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              showTitle: false
-            }
-          )
-          .then(function(result) {
+          .confirm("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            showTitle: false,
+          })
+          .then(function (result) {
             console.log(result)
           })
       },
       //
-      onConfirmNotHideShow: function() {
+      onConfirmNotHideShow: function () {
         this.$xyPop
-          .confirm(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              confirmNotHide: true,
-              onConfirm: function(e) {
-                console.log('onConfirm')
-                setTimeout(function() {
-                  e.hide()
-                }, 3000)
-              }
-            }
-          )
-          .then(function(result) {
+          .confirm("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            confirmNotHide: true,
+            onConfirm: function (e) {
+              console.log('onConfirm')
+              setTimeout(function () {
+                e.hide()
+              }, 3000)
+            },
+          })
+          .then(function (result) {
             console.log(result)
           })
       },
       //
-      onConfirmOtherOptionShow: function() {
+      onConfirmOtherOptionShow: function () {
         this.$xyPop
-          .confirm(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              title: 'title2',
-              cancelText: 'cancel2',
-              confirmText: 'confirm2'
-            }
-          )
-          .then(function(result) {
+          .confirm("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            title: 'title2',
+            cancelText: 'cancel2',
+            confirmText: 'confirm2',
+          })
+          .then(function (result) {
             console.log(result)
           })
       },
       //
-      onConfirm: function(e) {
+      onConfirm: function (e) {
         console.log('onConfirm')
-        setTimeout(function() {
+        setTimeout(function () {
           e.hide()
         }, 3000)
       },
-      onCancel: function() {
+      onCancel: function () {
         console.log('onCancel')
       },
       //
-      onAlertShow: function() {
+      onAlertShow: function () {
         this.$xyPop
-          .alert(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              onConfirm: function() {
-                console.log('onConfirm')
-              }
-            }
-          )
-          .then(function() {})
+          .alert("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            onConfirm: function () {
+              console.log('onConfirm')
+            },
+          })
+          .then(function () {})
       },
       //
       async onAlertMoreThanShow() {
         this.$xyPop.alert(
           "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息"
         )
-        this.$xyPop.alert(
-          "<b style='color:green'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息"
-        )
+        this.$xyPop.alert("<b style='color:green'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息")
         this.$xyPop.alert("<b style='color:blue'>消息</b>消息")
       },
       //
-      onAlertLongContentShow: function() {
+      onAlertLongContentShow: function () {
         this.alertLongContentShow = true
       },
-      onAlertLongContentConfirm: function() {},
+      onAlertLongContentConfirm: function () {},
       //
-      onAlertCustomButtonShow: function() {
+      onAlertCustomButtonShow: function () {
         this.alertCustomButtonShow = true
       },
-      onAlertCustomButtonConfirm: function() {
+      onAlertCustomButtonConfirm: function () {
         this.alertCustomButtonShow = false
       },
-      onAlertButtonCancel: function() {
+      onAlertButtonCancel: function () {
         this.alertCustomButtonShow = false
       },
       //
-      onAlertNoTitleShow: function() {
+      onAlertNoTitleShow: function () {
         this.$xyPop
-          .alert(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              showTitle: false
-            }
-          )
-          .then(function() {})
+          .alert("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            showTitle: false,
+          })
+          .then(function () {})
       },
       //
-      onAlertNotHideShow: function() {
+      onAlertNotHideShow: function () {
         this.$xyPop
-          .alert(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              confirmNotHide: true,
-              onConfirm: function(e) {
-                console.log('onConfirm')
-                setTimeout(function() {
-                  e.hide()
-                }, 3000)
-              }
-            }
-          )
-          .then(function() {})
+          .alert("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            confirmNotHide: true,
+            onConfirm: function (e) {
+              console.log('onConfirm')
+              setTimeout(function () {
+                e.hide()
+              }, 3000)
+            },
+          })
+          .then(function () {})
       },
       //
-      onAlertOtherOptionShow: function() {
+      onAlertOtherOptionShow: function () {
         this.$xyPop
-          .alert(
-            "<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息",
-            {
-              title: 'title2',
-              confirmText: 'confirm2'
-            }
-          )
-          .then(function() {})
+          .alert("<b style='color:red'>消息</b>消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息", {
+            title: 'title2',
+            confirmText: 'confirm2',
+          })
+          .then(function () {})
       },
       //
-      onToastShow: function() {
-        this.$xyPop.toast(
-          new Array(Math.round(5 + Math.random() * 15)).join('通知')
-        )
+      onToastShow: function () {
+        this.$xyPop.toast(new Array(Math.round(5 + Math.random() * 15)).join('通知'))
       },
       //
-      onToastImgShow: function() {
+      onToastImgShow: function () {
         this.$xyPop.toast('通知通知通知', {
-          img: 'https://placeimg.com/500/1000/any'
+          img: 'https://placeimg.com/500/1000/any',
         })
       },
       //
-      onToastTypeShow: function(type) {
-        this.$xyPop.toast(
-          type === 'success' ? '成功' : type === 'fail' ? '失败' : '提示',
-          { type: type }
-        )
+      onToastTypeShow: function (type, msg) {
+        this.$xyPop.toast(msg ? msg : type === 'success' ? '成功' : type === 'fail' ? '失败' : '提示', { type: type })
       },
       //
-      onLoadingShow: function() {
+      onLoadingShow: function () {
         var that = this
         this.$xyPop.loading.show()
         clearTimeout(this.timer)
-        this.timer = setTimeout(function() {
+        this.timer = setTimeout(function () {
           that.$xyPop.loading.hide()
         }, 2000)
       },
-      onLoadingMashShow: function() {
+      onLoadingMashShow: function () {
         var that = this
         this.$xyPop.loading.show({ mask: true })
         clearTimeout(this.timer)
-        this.timer = setTimeout(function() {
+        this.timer = setTimeout(function () {
           that.$xyPop.loading.hide()
         }, 2000)
       },
-      onLoadingImgShow: function() {
+      onLoadingImgShow: function () {
         var that = this
         this.$xyPop.loading.show({
-          img: 'https://placeimg.com/200/200/any'
+          img: 'https://placeimg.com/200/200/any',
         })
         clearTimeout(this.timer)
-        this.timer = setTimeout(function() {
+        this.timer = setTimeout(function () {
           that.$xyPop.loading.hide()
         }, 2000)
       },
-      onLoadingMsgShow: function() {
+      onLoadingMsgShow: function () {
         var that = this
         this.$xyPop.loading.show({ msg: 'testing' })
         clearTimeout(this.timer)
-        this.timer = setTimeout(function() {
+        this.timer = setTimeout(function () {
           that.$xyPop.loading.hide()
         }, 2000)
-      }
+      },
     },
-    mounted: function() {
-    }
+    mounted: function () {},
   }
 </script>
 
