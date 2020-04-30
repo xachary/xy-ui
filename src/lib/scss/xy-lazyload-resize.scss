@@ -50,16 +50,21 @@
   //}
   &.loaded {
     animation: fade-out 0.3s ease-in-out;
+    .xy-spinner--show {
+      display: none;
+    }
   }
 
   &.loading {
-
     background-color: #fff;
     animation: delay-show 1s ease-in-out;
   }
 
   &.error {
     // background-color: #d9d9d9;
+    .xy-spinner--show {
+      display: none;
+    }
   }
 
   img {
