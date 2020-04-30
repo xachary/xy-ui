@@ -91,6 +91,11 @@
         type: Boolean,
         default: false,
       },
+      // 附加数据
+      info: {
+        type: Object,
+        default: () => {},
+      },
     },
     data() {
       return {
@@ -137,10 +142,11 @@
       },
       parseData() {
         this.giveNum()
+        let rand = Math.floor(Math.random() * 1000)
         let temp = JSON.parse(JSON.stringify([...this.data, ...this.data, ...this.data]))
         temp = temp.map((o, i) => {
           // if (i >= this.data.length) {
-          o.imagePopId = `id${i}`
+          o.shadowId = `id-${rand}-${i}`
           // }
           // if (/\?[^?=]+=/.test()) {
           //   o.src = o.src + '&rand=' + Math.random()
@@ -166,7 +172,12 @@
       },
       current() {
         if (this.data.length > 0) {
-          this.$emit('on-change', this.data[this.current], this.current)
+          this.$emit('on-change', {
+            data: this.data,
+            index: this.current,
+            item: this.data[this.current],
+            info: this.info,
+          })
         }
       },
       scrollLeft() {
@@ -175,8 +186,11 @@
           scrollLeft: Math.abs(this.scrollLeft) % scrollWidth,
           scrollWidth,
           ratio: (this.startX - this.currentX) / this.itemWidth,
-          index: this.current,
           touching: this.touching,
+          data: this.data,
+          index: this.current,
+          item: this.data[this.current],
+          info: this.info,
         })
       },
       curLen() {
@@ -395,7 +409,16 @@
         }
       },
       onClick(item, index) {
-        this.$emit('on-click', item, this.parseData, index)
+        this.$emit('on-click', {
+          shadowData: this.parseData,
+          shadowItem: item,
+          shadowIndex: index,
+          //
+          data: this.data,
+          index: this.current,
+          item: this.data[this.current],
+          info: this.info,
+        })
       },
       giveNum() {
         // 制作效果数组

@@ -9,7 +9,9 @@
       </div>
       <div class="pswp__ui pswp__ui--hidden">
         <div class="pswp__top-bar">
-          <div class="custom">{{ counter }}</div>
+          <div class="custom">
+            {{ counter }}
+          </div>
           <div class="pswp__counter"></div>
           <slot name="button-after"></slot>
           <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
@@ -127,20 +129,17 @@
           // 如果设置了“Disable cache”，打开放大效果无法出现。
           config.getThumbBoundsFn = function (index) {
             // 查找缩略图元素
-            // 优先级依次为：id===item.id、data-id===item.id、src===item.msrc、src===item.src
-            let thumbnail = document.querySelector(`#${that.imgsParsed[index].id}:not(.pswp__img)`)
-            if (!thumbnail) {
-              thumbnail = document.querySelector(`[data-id="${that.imgsParsed[index].id}"]:not(.pswp__img)`)
-            }
+            // 优先级依次为：data-id===item.id、src===item.msrc、src===item.src、id===item.id
+            let thumbnail = document.querySelector(`[data-id="${that.imgsParsed[index].shadowId}"]:not(.pswp__img)`)
             if (!thumbnail) {
               thumbnail = document.querySelector(`[src="${that.imgsParsed[index].msrc}"]:not(.pswp__img)`)
             }
             if (!thumbnail) {
               thumbnail = document.querySelector(`[src="${that.imgsParsed[index].src}"]:not(.pswp__img)`)
             }
-            console.log(['id/data-id', that.imgsParsed[index].id])
-            console.log(['msrc', that.imgsParsed[index].msrc])
-            console.log(['src', that.imgsParsed[index].src])
+            if (!thumbnail) {
+              thumbnail = document.querySelector(`#${that.imgsParsed[index].id}:not(.pswp__img)`)
+            }
             if (thumbnail) {
               // get window scroll Y
               let pageYScroll = window.pageYOffset || document.documentElement.scrollTop
@@ -233,8 +232,7 @@
         }
         return size
       },
-      onStop() {
-      },
+      onStop() {},
     },
     mounted() {},
     beforeDestroy() {},
