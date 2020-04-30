@@ -1,6 +1,6 @@
 {
   "name": "@blk/xy-ui",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Vue组件库",
   "main": "dist/xy-ui.js",
   "scripts": {
