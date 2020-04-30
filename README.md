@@ -1,6 +1,6 @@
 # xy-ui
 
-vue ui tools
+[Wiki](https://github.com/xachary/xy-ui/wiki)
 
 # Thanks
 
