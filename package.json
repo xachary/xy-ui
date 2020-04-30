@@ -4,7 +4,7 @@
   "description": "Vue组件库",
   "main": "dist/xy-ui.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 && xy-format",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0",
     "start": "./node_modules/spa-http-server/bin/http-server -p 6666 --push-state",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "stylelint": "onchange 'src/**/*.css' 'src/**/*.scss' 'src/**/*.vue' 'src/**/*.html' -- stylelint --fix {{changed}}",
