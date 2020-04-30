@@ -1,6 +1,6 @@
 # xy-ui
 
-[Wiki](https://github.com/xachary/xy-ui/wiki)
+[Documents](https://xachary.github.io/doc_xy-ui/#/)
 
 # Thanks
 
