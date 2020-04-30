@@ -107,7 +107,7 @@
       onChange(item) {
         console.log('change', item)
       },
-      onChange2(item, index) {
+      onChange2({ index }) {
         this.height = this.data4[index].height ? this.data4[index].height : this.height
       },
       onImgLoad({ target, target: { dataset } }) {
