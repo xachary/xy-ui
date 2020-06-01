@@ -9,23 +9,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     <title>Pop</title>
-    <link rel="stylesheet" href="../dist/xy-ui.css" />
-    <link rel="stylesheet" href="./demo.css" />
-    <style>
-        .pop {
-            height: 150vh;
-        }
-
-        .pop .long-content {
-            background: linear-gradient(yellow, green);
-            height: 1000px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -417,6 +400,22 @@
     </div>
     <script src="../vue@2.6.10.js"></script>
     <script src="../dist/xy-ui.js"></script>
+    <link rel="stylesheet" href="./demo.css" />
+    <style>
+        .pop {
+            height: 150vh;
+        }
+
+        .pop .long-content {
+            background: linear-gradient(yellow, green);
+            height: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
     <script>
         new Vue({
             el: '#app',

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta data-hid="description" name="description" content="xy-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Btn act</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="sample">
+        <button @click="onShow" v-xy-btn-act:style.scale>Show</button>
+        <xy-actionsheet v-model="showMenus" :menus="menus" @on-select="onMenuSelect"></xy-actionsheet>
+      </div>
+    </div>
+    <script src="../vue@2.6.10.js"></script>
+    <script src="../dist/xy-ui.js"></script>
+    <link rel="stylesheet" href="./demo.css" />
+    <style>
+      .sample {
+        display: flex;
+        flex-direction: column;
+      }
+
+      button {
+        padding: 1em 2em;
+        border: 1px solid #333;
+        margin: 1em;
+        display: block;
+        text-align: center;
+      }
+
+      [xy-btn-act][disabled] {
+        filter: grayscale(1);
+        background-color: rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, 0.2);
+        border-color: rgba(0, 0, 0, 0.2);
+      }
+    </style>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            showMenus: false,
+            menus: [],
+          }
+        },
+        methods: {
+          onShow() {
+            this.showMenus = true
+          },
+          onMenuSelect(item) {
+            console.log(item)
+          },
+        },
+        mounted() {
+          this.menus = [
+            {
+              code: 'code1',
+              name: '高德地图',
+            },
+            {
+              code: 'code2',
+              name: '百度地图',
+            },
+            {
+              code: 'code3',
+              name: '腾讯地图',
+            },
+          ]
+        },
+      })
+    </script>
+  </body>
+</html>

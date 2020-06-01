@@ -9,33 +9,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     <title>Loading</title>
-    <link rel="stylesheet" href="../dist/xy-ui.css" />
-    <link rel="stylesheet" href="./demo.css" />
-    <style>
-        .demo>ul>li {
-            display: flex;
-            margin: 0 5px;
-            padding: 5px 0;
-        }
-
-        .demo>ul>li:not(:first-child) {
-            border-top: 1px dashed #efefef;
-        }
-
-        .demo>ul>li>div {
-            margin-right: 5px;
-            width: 100px;
-            height: 100px;
-        }
-
-        .demo>ul>li>p {
-            width: 0;
-            flex-grow: 1;
-            font-size: 14px;
-            color: #666;
-            min-height: 100px;
-        }
-    </style>
 </head>
 
 <body>
@@ -167,6 +140,32 @@
     </div>
     <script src="../vue@2.6.10.js"></script>
     <script src="../dist/xy-ui.js"></script>
+    <link rel="stylesheet" href="./demo.css" />
+    <style>
+        .demo>ul>li {
+            display: flex;
+            margin: 0 5px;
+            padding: 5px 0;
+        }
+
+        .demo>ul>li:not(:first-child) {
+            border-top: 1px dashed #efefef;
+        }
+
+        .demo>ul>li>div {
+            margin-right: 5px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .demo>ul>li>p {
+            width: 0;
+            flex-grow: 1;
+            font-size: 14px;
+            color: #666;
+            min-height: 100px;
+        }
+    </style>
     <script>
         new Vue({
             el: '#app',

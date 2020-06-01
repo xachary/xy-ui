@@ -9,21 +9,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <meta name="format-detection" content="telephone=no" />
   <title>Html viewer</title>
-  <link rel="stylesheet" href="../dist/xy-ui.css" />
-  <link rel="stylesheet" href="./demo.css" />
-  <style>
-    section {
-      display: flex;
-      align-items: flex-start;
-      background-color: #eee;
-    }
-
-    section img {
-      width: 0;
-      flex-grow: 1;
-      margin: 5px;
-    }
-  </style>
 </head>
 
 <body>
@@ -78,6 +63,20 @@
   </div>
   <script src="../vue@2.6.10.js"></script>
   <script src="../dist/xy-ui.js"></script>
+  <link rel="stylesheet" href="./demo.css" />
+  <style>
+    section {
+      display: flex;
+      align-items: flex-start;
+      background-color: #eee;
+    }
+
+    section img {
+      width: 0;
+      flex-grow: 1;
+      margin: 5px;
+    }
+  </style>
   <script>
     new Vue({
       el: '#app',

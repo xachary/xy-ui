@@ -24,6 +24,7 @@ import pop from '@/view/pop.vue'
 import loading from '@/view/loading.vue'
 import btnLoading from '@/view/btn-loading.vue'
 import spinner from '@/view/spinner.vue'
+import actionsheet from '@/view/actionsheet.vue'
 
 import xyUi from '@/lib'
 
@@ -34,92 +35,96 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: Index
+      component: Index,
     },
     {
       path: '',
-      redirect: '/index'
+      redirect: '/index',
     },
     {
       path: '/lazyload',
-      component: lazyload
+      component: lazyload,
     },
     {
       path: '/slider',
-      component: slider
+      component: slider,
     },
     {
       path: '/keep-top',
-      component: keepTop
+      component: keepTop,
     },
     {
       path: '/pull-refresh',
-      component: pullRefresh
+      component: pullRefresh,
     },
     {
       path: '/btn-act',
-      component: btnAct
+      component: btnAct,
     },
     {
       path: '/time',
-      component: time
+      component: time,
     },
     {
       path: '/format-common',
-      component: formatCommon
+      component: formatCommon,
     },
     {
       path: '/format-date',
-      component: formatDate
+      component: formatDate,
     },
     {
       path: '/format-number',
-      component: formatNumber
+      component: formatNumber,
     },
     {
       path: '/list-status',
-      component: listStatus
+      component: listStatus,
     },
     {
       path: '/scroll-bottom',
-      component: scrollBottom
+      component: scrollBottom,
     },
     {
       path: '/tool',
-      component: tool
+      component: tool,
     },
     {
       path: '/validate',
-      component: validate
+      component: validate,
     },
     {
       path: '/image-pop',
-      component: imagePop
+      component: imagePop,
     },
     {
       path: '/html-viewer',
-      component: htmlViewer
+      component: htmlViewer,
     },
     {
       path: '/pop',
-      component: pop
+      component: pop,
     },
     {
       path: '/loading',
-      component: loading
+      component: loading,
     },
     {
       path: '/btn-loading',
-      component: btnLoading
+      component: btnLoading,
     },
     {
       path: '/spinner',
-      component: spinner
-    }
-  ]
+      component: spinner,
+    },
+    {
+      path: '/actionsheet',
+      component: actionsheet,
+    },
+  ],
 })
 new Vue({
   router,
   el: '#app',
-  render: (h) => h(App)
+  render: (h) => h(App),
 })

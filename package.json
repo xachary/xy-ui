@@ -1,10 +1,10 @@
 {
-  "name": "@blk/xy-ui",
-  "version": "0.1.23",
+  "name": "@xachary/xy-ui",
+  "version": "0.1.24",
   "description": "Vue组件库",
   "main": "dist/xy-ui.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --port 3333",
     "start": "./node_modules/spa-http-server/bin/http-server -p 6666 --push-state",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "stylelint": "onchange 'src/**/*.css' 'src/**/*.scss' 'src/**/*.vue' 'src/**/*.html' -- stylelint --fix {{changed}}",
@@ -30,7 +30,7 @@
     "vux": "^2.9.4"
   },
   "devDependencies": {
-    "@blk/xy-format": "^1.0.4",
+    "@xachary/xy-format": "^1.0.4",
     "babel-core": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^7.1.2",
