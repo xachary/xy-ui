@@ -13,6 +13,7 @@ import xyHtmlViewer from './components/xy-html-viewer.vue'
 import xyConfirm from './components/xy-pop/confirm.vue'
 import xyAlert from './components/xy-pop/alert.vue'
 import xySpinner from './components/xy-spinner.vue'
+import xyActionsheet from './components/xy-actionsheet.vue'
 //
 import xyKeepTop from '@/lib/directives/xy-keep-top'
 import xyPullRefresh from '@/lib/directives/xy-pull-refresh'
@@ -27,9 +28,9 @@ const xyUI = {
     for (let p in xyPrototypes) {
       Vue.prototype['$' + p] = xyPrototypes[p]
     }
-    for (let f in xyPrototypes.xyFormat) {
-      for (let t in xyPrototypes.xyFormat[f]) {
-        Vue.filter(`$xyFormat.${f}.${t}`, xyPrototypes.xyFormat[f][t])
+    for (let f in xyPrototypes.$xyFormat) {
+      for (let t in xyPrototypes.$xyFormat[f]) {
+        Vue.filter(`$xyFormat.${f}.${t}`, xyPrototypes.$xyFormat[f][t])
       }
     }
     //
@@ -46,6 +47,7 @@ const xyUI = {
     Vue.component(xyConfirm.name, xyConfirm)
     Vue.component(xyAlert.name, xyAlert)
     Vue.component(xySpinner.name, xySpinner)
+    Vue.component(xyActionsheet.name,xyActionsheet)
     //
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)
@@ -64,6 +66,8 @@ const xyUI = {
   xyScrollBottom,
   xyImagePop,
   xyHtmlViewer,
+  xySpinner,
+  xyActionsheet,
   //
   xyKeepTop,
   xyPullRefresh,
